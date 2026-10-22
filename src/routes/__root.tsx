@@ -11,7 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import lora700Url from "@fontsource/lora/files/lora-latin-700-normal.woff2?url";
+import archivo500Url from "@fontsource/archivo/files/archivo-latin-500-normal.woff2?url";
 import inter400Url from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -89,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       {
         rel: "preload",
-        href: lora700Url,
+        href: archivo500Url,
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",

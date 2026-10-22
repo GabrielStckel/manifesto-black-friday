@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 // Renderiza texto com **trecho** em negrito (e cor de destaque opcional).
 export function Negrito({
   texto,
-  destaqueClassName = "font-semibold text-brass",
+  destaqueClassName = "font-semibold text-brass-glow",
 }: {
   texto: string;
   destaqueClassName?: string;

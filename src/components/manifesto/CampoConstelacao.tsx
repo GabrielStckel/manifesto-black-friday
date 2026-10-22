@@ -14,7 +14,10 @@ export function CampoConstelacao() {
     if (!ctx) return;
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const touch = window.matchMedia("(hover: none)").matches;
+    const touch = window.matchMedia("(max-width: 640px)").matches;
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    const staticFrame = window.matchMedia("(prefers-reduced-motion: reduce)").matches || connection?.saveData === true;
+    let started = false;
 
     let w = 0,
       h = 0,
@@ -37,8 +40,8 @@ export function CampoConstelacao() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       // Densidade menor no mobile: tela pequena, bateria limitada.
-      const divisor = touch ? 14000 : 16000;
-      const n = Math.min(touch ? 75 : 95, Math.floor((w * h) / divisor));
+      const divisor = touch ? 12000 : 16000;
+      const n = Math.min(touch ? 48 : 95, Math.floor((w * h) / divisor));
 
       pts = Array.from({ length: n }, () => ({
         x: Math.random() * w,
@@ -56,16 +59,17 @@ export function CampoConstelacao() {
     const preencherGrade = () => {
       grade = Array.from({ length: cols * linhas }, () => [] as number[]);
       for (let i = 0; i < pts.length; i++) {
-        const p = pts[i]!;
+        const p = pts[i];
+        if (!p) continue;
         const c = Math.min(cols - 1, Math.max(0, Math.floor(p.x / DIST)));
         const l = Math.min(linhas - 1, Math.max(0, Math.floor(p.y / DIST)));
-        grade[l * cols + c]!.push(i);
+        grade[l * cols + c]?.push(i);
       }
     };
 
     const desenhar = (t: number) => {
-      raf = requestAnimationFrame(desenhar);
-      if (!rodando) return;
+      if (!rodando || document.hidden) return;
+      if (!staticFrame) raf = requestAnimationFrame(desenhar);
       if (t - ultimo < 1000 / FPS_ALVO) return;
       ultimo = t;
 
@@ -110,17 +114,19 @@ export function CampoConstelacao() {
             grade[(l + 1) * cols + c + 1],
           ];
           for (const idxA of atual) {
-            const a = pts[idxA]!;
+            const a = pts[idxA];
+            if (!a) continue;
             for (const celula of vizinhas) {
               if (!celula) continue;
               for (const idxB of celula) {
                 if (idxB <= idxA) continue;
-                const b = pts[idxB]!;
+                const b = pts[idxB];
+                if (!b) continue;
                 const dx = a.x - b.x,
                   dy = a.y - b.y;
                 const d2 = dx * dx + dy * dy;
                 if (d2 < DIST2) {
-                  ctx.strokeStyle = `rgba(214,174,98,${(1 - d2 / DIST2) * 0.24})`;
+                  ctx.strokeStyle = `rgba(212,173,90,${(1 - d2 / DIST2) * 0.24})`;
                   ctx.beginPath();
                   ctx.moveTo(a.x, a.y);
                   ctx.lineTo(b.x, b.y);
@@ -133,10 +139,10 @@ export function CampoConstelacao() {
       }
 
       for (const p of pts) {
-        const alfa = 0.5 + Math.sin(p.f) * 0.25;
+        const alfa = 0.48 + Math.sin(p.f) * 0.24;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(237,203,130,${alfa})`;
+        ctx.fillStyle = `rgba(247,201,72,${alfa})`;
         ctx.fill();
       }
     };
@@ -153,36 +159,45 @@ export function CampoConstelacao() {
       mouse.y = -9999;
     };
 
-    medir();
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      // Movimento reduzido: um único quadro estático, sem loop.
-      for (const p of pts) {
-        p.vx = 0;
-        p.vy = 0;
-      }
+    const begin = () => {
+      if (started) return;
+      started = true;
+      medir();
+      if (staticFrame) for (const p of pts) { p.vx = 0; p.vy = 0; }
+      ultimo = 0;
       desenhar(1000);
+    };
+    let idle: number | undefined;
+    let fallback: number | undefined;
+    const schedule = () => {
+      if (typeof window.requestIdleCallback === "function") idle = window.requestIdleCallback(begin, { timeout: 1200 });
+      else fallback = window.setTimeout(begin, 0);
+    };
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
+    const resume = () => {
       cancelAnimationFrame(raf);
-      const estatico = () => {
-        medir();
-        for (const p of pts) { p.vx = 0; p.vy = 0; }
+      if (started && rodando && !document.hidden && !staticFrame) {
+        ultimo = 0;
+        raf = requestAnimationFrame(desenhar);
+      }
+      if (started && rodando && !document.hidden && staticFrame) {
         ultimo = 0;
         desenhar(1000);
-        cancelAnimationFrame(raf);
-      };
-      window.addEventListener("resize", estatico, { passive: true });
-      return () => window.removeEventListener("resize", estatico);
-    }
-    raf = requestAnimationFrame(desenhar);
-
-    const io = new IntersectionObserver(
-      (entradas) => {
-        rodando = entradas[0]?.isIntersecting ?? false;
-      },
-      { threshold: 0 },
-    );
+      }
+    };
+    const io = new IntersectionObserver((entries) => {
+      rodando = entries[0]?.isIntersecting ?? false;
+      resume();
+    }, { threshold: 0 });
     io.observe(canvas);
+    document.addEventListener("visibilitychange", resume);
 
-    const aoRedimensionar = () => medir();
+    const aoRedimensionar = () => {
+      if (!started) return;
+      medir();
+      if (staticFrame) { for (const p of pts) { p.vx = 0; p.vy = 0; } ultimo = 0; desenhar(1000); }
+    };
     window.addEventListener("resize", aoRedimensionar, { passive: true });
     if (!touch) {
       window.addEventListener("mousemove", mover, { passive: true });
@@ -192,6 +207,10 @@ export function CampoConstelacao() {
     return () => {
       cancelAnimationFrame(raf);
       io.disconnect();
+      window.removeEventListener("load", schedule);
+      document.removeEventListener("visibilitychange", resume);
+      if (idle !== undefined) window.cancelIdleCallback(idle);
+      if (fallback !== undefined) window.clearTimeout(fallback);
       window.removeEventListener("resize", aoRedimensionar);
       window.removeEventListener("mousemove", mover);
       window.removeEventListener("mouseleave", sair);

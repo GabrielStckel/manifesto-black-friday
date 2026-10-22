@@ -3,13 +3,13 @@ import { Reveal } from "./Reveal";
 import type { SectionPilares as Props } from "../../content/manifesto.types";
 
 // Os três pilares: três colunas separadas por linhas (empilhadas no
-// mobile), palavra grande em Lora + texto. Fundo vinho.
+// mobile), palavra grande em Archivo + texto. Fundo vinho.
 export function SectionPilares({ fundo, eyebrow, titulo, itens, fecho }: Props) {
   return (
     <SectionShell fundo={fundo} className="overflow-hidden py-16 md:py-24">
       <div className="relative">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-on-red/70 md:text-[12px]">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-on-red/70 md:text-[12px]">
             {eyebrow}
           </p>
           <h2 className="mt-4 text-balance font-display text-[clamp(1.4rem,5.6vw,2rem)] font-semibold leading-[1.2] md:text-[clamp(1.5rem,2.8vw,2.1rem)]">

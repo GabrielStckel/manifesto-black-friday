@@ -1,3 +1,4 @@
+import { useVisibleAnimation } from "./useVisibleAnimation";
 import { twMerge } from "tailwind-merge";
 import type { ReactNode } from "react";
 
@@ -15,13 +16,16 @@ const BG = {
 } as const;
 
 export function SectionShell({ fundo, id, children, className }: Props) {
+  const { ref, visible } = useVisibleAnimation<HTMLElement>();
   return (
     <section
+      ref={ref}
       id={id}
       data-section-bg={fundo}
       className={twMerge(
         "relative px-5 py-16 sm:px-8 sm:py-20 md:py-24",
         BG[fundo],
+        visible ? "animation-visible" : "",
         className,
       )}
     >

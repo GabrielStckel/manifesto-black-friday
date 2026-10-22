@@ -2,14 +2,14 @@ import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionPadrao as Props } from "../../content/manifesto.types";
 
-// O padrão: texto à esquerda e a lista de cenas em Lora à direita
+// O padrão: texto à esquerda e a lista de cenas em Archivo à direita
 // (empilhado no mobile), sobre pergaminho.
 export function SectionPadrao({ fundo, eyebrow, titulo, paragrafos, destaque, linkTopo, cenas }: Props) {
   return (
     <SectionShell fundo={fundo} className="py-16 md:py-24">
       <div className="relative grid gap-10 md:grid-cols-2 md:gap-14">
         <Reveal>
-          <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
             {eyebrow}
           </p>
           <h2 className="mt-4 text-balance font-display text-[clamp(1.5rem,6vw,2.1rem)] font-semibold leading-[1.15] tracking-[-0.01em] text-section-light-fg">
@@ -39,7 +39,7 @@ export function SectionPadrao({ fundo, eyebrow, titulo, paragrafos, destaque, li
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="mt-6 inline-block text-[14px] font-medium text-red-ink underline underline-offset-4 decoration-red-ink/50 hover:decoration-red-ink md:text-[15px]"
+            className="mt-6 inline-block text-[14px] font-semibold text-red-ink underline underline-offset-4 decoration-red-ink/50 hover:decoration-red-ink md:text-[15px]"
           >
             {linkTopo}
           </a>
@@ -50,7 +50,7 @@ export function SectionPadrao({ fundo, eyebrow, titulo, paragrafos, destaque, li
             {cenas.map((cena, i) => (
               <li
                 key={cena}
-                className={`relative flex gap-4 py-5 ${i > 0 ? "border-t border-black/10" : ""}`}
+                className={`relative flex gap-4 py-5 ${i > 0 ? "border-t border-on-parchment/10" : ""}`}
               >
                 <span
                   aria-hidden

@@ -44,11 +44,11 @@ export function VturbPlayer() {
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
             <span
               aria-hidden
-              className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-b from-red-primary to-red-primary-hover shadow-[0_0_40px_rgba(211,58,52,0.4)] md:h-20 md:w-20"
+              className="player-play flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-b from-red-primary to-red-primary-hover shadow-[0_0_40px_rgba(239,75,66,0.4)] md:h-20 md:w-20"
             >
               <Play className="ml-1 h-7 w-7 fill-on-red text-on-red md:h-8 md:w-8" />
             </span>
-            <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground md:text-[13px]">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-muted-foreground md:text-[13px]">
               VSL do Jonas · em produção
             </p>
           </div>

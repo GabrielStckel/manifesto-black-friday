@@ -25,7 +25,7 @@ export function SectionParaQuem({
 
       <div className="relative">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass md:text-[12px]">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-glow md:text-[12px]">
             {eyebrow}
           </p>
           <h2 className="mx-auto mt-4 max-w-3xl text-balance text-center font-display text-[clamp(1.5rem,6.4vw,2.2rem)] font-semibold leading-[1.14] tracking-[-0.015em] md:text-[clamp(1.6rem,2.9vw,2.25rem)] md:leading-[1.1]">
@@ -35,8 +35,8 @@ export function SectionParaQuem({
 
         <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:mt-14 md:grid-cols-2 md:gap-7">
           <Reveal delay={80}>
-            <div className="h-full rounded-xl border border-brass/30 bg-[rgba(214,174,98,0.10)] p-6 md:p-8">
-              <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-brass md:text-[12px]">
+            <div className="for-you h-full rounded-xl border border-brass/30 bg-[rgba(212,173,90,0.10)] p-6 md:p-8">
+              <p className="text-[11.5px] font-semibold uppercase tracking-[0.22em] text-brass-glow md:text-[12px]">
                 É para você se
               </p>
               <ul className="mt-6 space-y-4">
@@ -49,7 +49,7 @@ export function SectionParaQuem({
                       aria-hidden
                       className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-brass/40 bg-brass/10"
                     >
-                      <Check className="h-3.5 w-3.5 text-brass" />
+                      <Check className="h-3.5 w-3.5 text-brass-glow" />
                     </span>
                     <span>{item}</span>
                   </li>
@@ -59,8 +59,8 @@ export function SectionParaQuem({
           </Reveal>
 
           <Reveal delay={160}>
-            <div className="h-full rounded-xl border border-white/[0.14] bg-white/[0.02] p-6 md:p-8">
-              <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-muted-foreground md:text-[12px]">
+            <div className="h-full rounded-xl border border-border-dark/[0.14] bg-surface-light/[0.02] p-6 md:p-8">
+              <p className="text-[11.5px] font-semibold uppercase tracking-[0.22em] text-muted-foreground md:text-[12px]">
                 Não é para você se
               </p>
               <ul className="mt-6 space-y-4">
@@ -71,7 +71,7 @@ export function SectionParaQuem({
                   >
                     <span
                       aria-hidden
-                      className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.04]"
+                      className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border-dark/15 bg-surface-light/[0.04]"
                     >
                       <Minus className="h-3.5 w-3.5 text-muted-foreground" />
                     </span>

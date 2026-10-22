@@ -1,20 +1,23 @@
-import { formatarFimBF, TEM_PRAZO } from "../../lib/config";
+import { useEffect, useState } from "react";
+import { BF_FIM, formatarFimBF, TEM_PRAZO } from "../../lib/config";
+import { useVisibleAnimation } from "./useVisibleAnimation";
 
-// Faixa fina fixa no topo: marca à esquerda (some no mobile) e o selo da
-// Black Friday à direita. A data só aparece quando REGRA_PRAZO está
-// preenchida (TEM_PRAZO).
 export function Topbar() {
-  return (
-    <div className="fixed inset-x-0 top-0 z-40 border-b border-brass/20 bg-bg-black/95 backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-8">
-        <p className="hidden font-display text-[13px] font-semibold tracking-wide text-section-dark-fg/90 sm:block">
-          Manifesto Sistêmico
-        </p>
-        <p className="mx-auto text-center text-[9.5px] font-semibold uppercase leading-snug tracking-[0.14em] text-brass sm:mx-0 sm:text-[10px] sm:tracking-[0.18em]">
-          BLACK FRIDAY · PELA PRIMEIRA VEZ POR ASSINATURA
-          {TEM_PRAZO ? ` · ATÉ ${formatarFimBF().toUpperCase()}` : ""}
-        </p>
-      </div>
-    </div>
-  );
+  const { ref, visible } = useVisibleAnimation<HTMLDivElement>();
+  const [expired, setExpired] = useState(false);
+  useEffect(() => {
+    if (!TEM_PRAZO) return;
+    const update = () => setExpired(Date.now() >= BF_FIM);
+    update();
+    const timer = window.setInterval(update, 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+  const items = expired
+    ? [<>A condição de <strong>Black Friday</strong> terminou</>]
+    : [<><strong>Black Friday</strong> do Manifesto Sistêmico</>, <>Pela primeira vez <strong>por assinatura</strong></>, <><strong>12x de R$ 79</strong> no anual</>, <><strong>R$ 97 por mês</strong> no mensal</>, <>Garantia de <strong>7 dias</strong></>, ...(TEM_PRAZO ? [<strong>até {formatarFimBF()}</strong>] : [])];
+  return <div ref={ref} className={`announcement ${visible ? "animation-visible" : ""}`}>
+    <div className="ribbon-track">{[0,1].map(copy => <div className="ribbon-copy" key={copy} aria-hidden={copy === 1 ? true : undefined}>
+      {items.map((item,index) => <div className="contents" key={index}><p>{item}</p><span aria-hidden="true" className="ribbon-diamond" /></div>)}
+    </div>)}</div>
+  </div>;
 }

@@ -1,5 +1,11 @@
 # Roadmap
 
+## Acabamento da imersão
+- [x] Archivo + Inter, cores e tipografia
+- [x] Pílulas, fita, marca-texto, trilhas e ingresso anual
+- [x] Visibilidade da CTA e animações; constelação leve
+- [x] Conferência a 390px e desktop; testes de checkout preservado
+
 ## Black Friday v3
 - [x] Config: VTURB_CONTA/VTURB_PLAYER, REGRA_PRAZO (vazia = sem contadores/datas)
 - [x] Tipos e conteúdo reescritos (15 seções na nova ordem)

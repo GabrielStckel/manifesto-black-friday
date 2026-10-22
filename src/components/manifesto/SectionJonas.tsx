@@ -30,7 +30,7 @@ export function SectionJonas({ fundo, eyebrow, nome, textos, credencial, foto }:
                       opacity: 0.12,
                     }}
                   />
-                  <span className="relative font-display text-[64px] font-semibold text-brass md:text-[80px]">
+                  <span className="relative font-display text-[64px] font-semibold text-brass-glow md:text-[80px]">
                     JP
                   </span>
                 </div>
@@ -40,7 +40,7 @@ export function SectionJonas({ fundo, eyebrow, nome, textos, credencial, foto }:
         </Reveal>
 
         <Reveal delay={120}>
-          <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass md:text-[12px]">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-glow md:text-[12px]">
             {eyebrow}
           </p>
           <h2 className="mt-4 font-display text-[clamp(1.6rem,6.4vw,2.3rem)] font-semibold leading-[1.1] tracking-[-0.01em]">

@@ -30,7 +30,7 @@ export function SectionSetenios({
       <div className="relative z-10">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-on-red/70 md:text-[12px]">
+            <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-on-red/70 md:text-[12px]">
               {eyebrow}
             </p>
             <h2 className="mx-auto mt-4 max-w-[24ch] text-pretty text-center font-display font-semibold leading-[1.3] tracking-[-0.01em] text-section-red-fg text-[clamp(1.15rem,4.8vw,1.55rem)] sm:max-w-[26ch] md:max-w-3xl md:text-pretty md:text-[clamp(1.45rem,2.8vw,2.05rem)] md:leading-[1.12]">
@@ -66,7 +66,7 @@ export function SectionSetenios({
               {reguaRotulos.map((rotulo) => (
                 <p
                   key={rotulo}
-                  className="text-[9px] font-semibold uppercase leading-snug tracking-[0.12em] text-on-red/70 sm:text-[10px] md:text-[11px] md:tracking-[0.16em]"
+                  className="text-[11.5px] font-semibold uppercase leading-snug tracking-[0.12em] text-on-red/70 sm:text-[11.5px] md:text-[11px] md:tracking-[0.16em]"
                 >
                   {rotulo}
                 </p>
@@ -78,7 +78,7 @@ export function SectionSetenios({
         {/* O que esse período costuma deixar */}
         <Reveal delay={200}>
           <div className="mx-auto mt-12 max-w-4xl md:mt-14">
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-on-red/70 md:text-[12px]">
+            <p className="text-[11.5px] font-semibold uppercase tracking-[0.22em] text-on-red/70 md:text-[12px]">
               {rotuloLista}
             </p>
             <ul className="mt-6">
@@ -101,7 +101,7 @@ export function SectionSetenios({
 
         {/* Pertencimento */}
         <Reveal delay={240}>
-          <div className="mx-auto mt-10 max-w-4xl rounded-lg border border-on-red/30 bg-black/15 p-6 md:p-8">
+          <div className="mx-auto mt-10 max-w-4xl rounded-lg border border-on-red/30 bg-bg-black/15 p-6 md:p-8">
             <h3 className="font-display text-[18px] font-semibold leading-snug text-section-red-fg md:text-[21px]">
               {pertencimento.titulo}
             </h3>

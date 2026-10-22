@@ -18,7 +18,7 @@ export function SectionDepoimentos({
       <div>
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
+            <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
               {eyebrow}
             </p>
             <h2 className="mt-4 font-display font-semibold leading-[1.12] text-section-light-fg text-[clamp(1.6rem,6.8vw,2.2rem)] md:text-[clamp(1.45rem,2.5vw,1.95rem)]">
@@ -31,12 +31,12 @@ export function SectionDepoimentos({
         <ul className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-2 md:gap-7 lg:grid-cols-3">
           {itens.map((item, i) => (
             <Reveal as="li" key={`${item.nome}-${i}`} delay={i * 100} className="block h-full">
-              <figure className="flex h-full flex-col rounded-xl border border-black/10 bg-white/60 p-6 md:p-7">
+              <figure className="flex h-full flex-col rounded-xl border border-on-parchment/10 bg-surface-light/60 p-6 md:p-7">
                 <Quote aria-hidden className="h-5 w-5 text-brass-ink/70" />
                 <blockquote className="mt-4 flex-1 text-left text-[14.5px] leading-[1.7] text-section-light-fg/85 md:text-[15px]">
                   {item.texto}
                 </blockquote>
-                <figcaption className="mt-5 border-t border-black/10 pt-4 text-left">
+                <figcaption className="mt-5 border-t border-on-parchment/10 pt-4 text-left">
                   <p className="text-[13.5px] font-semibold text-section-light-fg">
                     {item.nome}
                   </p>
