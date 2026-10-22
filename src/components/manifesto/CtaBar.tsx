@@ -30,7 +30,7 @@ export function CtaBar({ resumo, detalhe, botao }: CtaBarType) {
   return (
     <div
       aria-hidden={!visivel}
-      className={`fixed inset-x-0 bottom-0 z-30 border-t border-brass/25 bg-bg-black/75 text-section-dark-fg backdrop-blur-xl transition-all duration-300 ${
+      className={`fixed inset-x-0 bottom-0 z-30 border-t border-brass/25 bg-[rgba(23,15,14,0.9)] text-section-dark-fg backdrop-blur-xl transition-all duration-300 ${
         visivel ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"
       }`}
       style={{
@@ -50,7 +50,7 @@ export function CtaBar({ resumo, detalhe, botao }: CtaBarType) {
         <a
           href="#planos"
           tabIndex={visivel ? undefined : -1}
-          className="group relative inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-cta border border-white/10 bg-gradient-to-b from-red-primary to-red-primary-hover px-4 text-center text-[12px] font-bold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_28px_rgba(211,58,52,0.28)] transition-all hover:shadow-[0_0_40px_rgba(211,58,52,0.42)] hover:brightness-110 active:scale-[0.98] min-[360px]:px-5 min-[360px]:text-[12.5px] sm:min-h-[52px] sm:px-7 sm:text-[13.5px]"
+          className="group relative inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-cta border border-white/[0.14] bg-gradient-to-b from-red-primary to-red-primary-hover px-4 text-center text-[12px] font-bold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_28px_rgba(211,58,52,0.28)] transition-all hover:shadow-[0_0_40px_rgba(211,58,52,0.42)] hover:brightness-110 active:scale-[0.98] min-[360px]:px-5 min-[360px]:text-[12.5px] sm:min-h-[52px] sm:px-7 sm:text-[13.5px]"
         >
           <span
             aria-hidden="true"

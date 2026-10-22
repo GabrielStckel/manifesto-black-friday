@@ -33,7 +33,7 @@ export function SectionMentiras({ fundo, eyebrow, titulo, itens, fecho }: Sectio
       <ul className="mt-12 grid gap-6 md:grid-cols-2 md:gap-7 md:items-stretch">
         {itens.map((item, i) => (
           <Reveal as="li" key={item.rotulo} delay={i * 120} className="h-full">
-            <article className="relative h-full overflow-hidden rounded-lg border border-white/10 bg-surface-dark/60 p-6 text-left sm:p-8">
+            <article className="relative h-full overflow-hidden rounded-lg border border-white/[0.14] bg-white/[0.06] p-6 text-left sm:p-8">
               <p className="relative z-10 text-[10px] font-semibold uppercase tracking-[0.18em] text-brass md:text-[12px]">
                 {item.rotulo}
               </p>

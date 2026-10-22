@@ -28,14 +28,14 @@ function CardPlano({
     <div
       className={`relative flex flex-col rounded-xl border p-6 text-center sm:p-8 ${
         destaque
-          ? "border-brass/60 shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)]"
-          : "border-white/10 bg-white/[0.035]"
+          ? "border-[rgba(214,174,98,0.85)] shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)]"
+          : "border-white/[0.14] bg-white/[0.06]"
       } ${className}`}
       style={
         destaque
           ? {
               background:
-                "linear-gradient(180deg, rgba(184,146,74,0.14) 0%, rgba(0,0,0,0.45) 55%)",
+                "linear-gradient(to bottom, rgba(214,174,98,0.18), rgba(42,28,26,0.95) 45%)",
             }
           : undefined
       }
@@ -76,7 +76,7 @@ function CardPlano({
         {plano.itens.map((item) => (
           <li
             key={item}
-            className="flex gap-2.5 text-[13.5px] leading-snug text-section-dark-fg/80 md:text-[14.5px]"
+            className="flex gap-2.5 text-[13.5px] leading-snug text-section-dark-fg/95 md:text-[14.5px]"
           >
             <Check aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-brass" />
             <span>{item}</span>
@@ -127,14 +127,13 @@ export function SectionOferta({
   passosCompra,
 }: SectionOfertaType) {
   return (
-    <SectionShell fundo={fundo} id="planos" className="scroll-mt-14 py-20 md:py-28">
+    <SectionShell fundo={fundo} id="planos" className="bg-oferta scroll-mt-14 py-20 md:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(55% 45% at 50% 20%, var(--red-deep) 0%, transparent 65%)",
-          opacity: 0.35,
+            "radial-gradient(max(520px,70%) 900px at 50% 38%, rgba(232,73,63,0.24), transparent 70%), radial-gradient(max(480px,60%) 420px at 50% 0%, rgba(214,174,98,0.20), transparent 70%)",
         }}
       />
       <div
@@ -173,7 +172,7 @@ export function SectionOferta({
             <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-brass md:text-[12px]">
               {porQueAgora.rotulo}
             </p>
-            <p className="mt-3 text-[15.5px] leading-[1.8] text-section-dark-fg/85 md:text-[17px]">
+            <p className="mt-3 text-[15.5px] leading-[1.8] text-section-dark-fg/95 md:text-[17px]">
               <Negrito texto={porQueAgora.texto} />
             </p>
             {TEM_PRAZO ? (
@@ -194,12 +193,12 @@ export function SectionOferta({
               {inclui.map((item) => (
                 <div
                   key={item.rotulo}
-                  className="rounded-lg border border-white/10 bg-white/[0.03] p-5 text-left md:p-6"
+                  className="rounded-lg border border-white/[0.14] bg-white/[0.03] p-5 text-left md:p-6"
                 >
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brass md:text-[11px]">
                     {item.rotulo}
                   </p>
-                  <p className="mt-3 text-[14px] leading-[1.7] text-section-dark-fg/80 md:text-[14.5px]">
+                  <p className="mt-3 text-[14px] leading-[1.7] text-section-dark-fg/95 md:text-[14.5px]">
                     {item.texto}
                   </p>
                 </div>
@@ -224,7 +223,7 @@ export function SectionOferta({
 
         {/* Garantia — logo abaixo dos planos */}
         <Reveal delay={220}>
-          <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center gap-5 rounded-lg border border-brass/20 bg-black/30 p-6 text-center sm:flex-row sm:text-left md:p-7">
+          <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center gap-5 rounded-lg border border-brass/20 bg-[rgba(214,174,98,0.10)] p-6 text-center sm:flex-row sm:text-left md:p-7">
             <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-brass/50 bg-brass/10 font-display text-[13px] font-semibold leading-tight text-brass">
               {garantia.selo}
             </span>
@@ -232,7 +231,7 @@ export function SectionOferta({
               <p className="font-display text-[17px] font-semibold text-section-dark-fg md:text-[18px]">
                 {garantia.titulo}
               </p>
-              <p className="mt-2 text-[14.5px] leading-relaxed text-section-dark-fg/75 md:text-[15.5px] md:leading-[1.75]">
+              <p className="mt-2 text-[14.5px] leading-relaxed text-section-dark-fg/95 md:text-[15.5px] md:leading-[1.75]">
                 {garantia.texto}
               </p>
             </div>
@@ -254,13 +253,13 @@ export function SectionOferta({
             <p className="text-center text-[10.5px] font-semibold uppercase tracking-[0.22em] text-brass md:text-[12px]">
               {passosCompra.rotulo}
             </p>
-            <ol className="mt-6 grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 max-[460px]:grid-cols-1 min-[461px]:grid-cols-2 lg:grid-cols-4">
+            <ol className="mt-6 grid gap-px overflow-hidden rounded-lg border border-white/[0.14] bg-white/10 max-[460px]:grid-cols-1 min-[461px]:grid-cols-2 lg:grid-cols-4">
               {passosCompra.itens.map((passo, i) => (
                 <li key={passo} className="flex gap-3 bg-section-dark-bg p-5 text-left">
                   <span className="font-display text-[18px] font-semibold leading-none text-brass">
                     {i + 1}
                   </span>
-                  <p className="text-[13px] leading-relaxed text-section-dark-fg/80 md:text-[13.5px]">
+                  <p className="text-[13px] leading-relaxed text-section-dark-fg/95 md:text-[13.5px]">
                     {passo}
                   </p>
                 </li>

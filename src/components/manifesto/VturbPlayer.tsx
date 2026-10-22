@@ -33,7 +33,7 @@ export function VturbPlayer() {
   }, [pronto]);
 
   return (
-    <div className="w-full max-w-[820px] overflow-hidden rounded-lg border border-brass/25 bg-black/60 shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)]">
+    <div className="w-full max-w-[820px] overflow-hidden rounded-lg border border-brass/25 bg-player-placeholder shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)]">
       <div className="relative aspect-video w-full">
         {pronto ? (
           <vturb-smartplayer

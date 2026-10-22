@@ -65,14 +65,14 @@ export function Hero({
   microtexto,
 }: HeroType) {
   return (
-    <section className="relative overflow-hidden bg-section-dark-bg px-5 pb-14 pt-24 text-section-dark-fg sm:px-8 md:pb-20 md:pt-28">
+    <section className="relative overflow-hidden bg-hero px-5 pb-14 pt-24 text-section-dark-fg sm:px-8 md:pb-20 md:pt-28">
       {/* Camadas de fundo — todas decorativas */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(160deg, rgba(0,0,0,0.92) 0%, rgba(18,9,9,0.88) 50%, rgba(38,13,13,0.82) 100%)",
+            "linear-gradient(160deg, rgba(10,4,4,0.45) 0%, rgba(20,8,8,0.15) 60%, transparent 100%)",
         }}
       />
       <CampoConstelacao />
@@ -84,18 +84,18 @@ export function Hero({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(62% 52% at 50% 42%, var(--red-accent) 0%, transparent 66%), radial-gradient(42% 34% at 50% 38%, var(--red-deep) 0%, transparent 70%)",
-          opacity: 0.26,
+            "radial-gradient(max(560px,70%) max(520px,52%) at 50% 42%, var(--red-accent) 0%, transparent 68%), radial-gradient(max(420px,46%) max(380px,34%) at 50% 34%, var(--red-deep) 0%, transparent 72%)",
+          opacity: 0.55,
         }}
       />
       {/* Luz rasante superior em latão */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[45%]"
+        className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(70% 100% at 50% 0%, var(--brass) 0%, transparent 70%)",
-          opacity: 0.07,
+            "radial-gradient(max(520px,80%) 420px at 50% 0%, var(--brass) 0%, transparent 72%)",
+          opacity: 0.2,
         }}
       />
       <div
@@ -103,7 +103,7 @@ export function Hero({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(100% 80% at 50% 45%, transparent 46%, rgba(0,0,0,0.68) 100%)",
+            "radial-gradient(140% 95% at 50% 42%, transparent 62%, rgba(0,0,0,0.32) 100%)",
         }}
       />
       {/* Linha de horizonte na base */}

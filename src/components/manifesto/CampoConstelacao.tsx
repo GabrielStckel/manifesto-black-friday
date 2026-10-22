@@ -13,8 +13,6 @@ export function CampoConstelacao() {
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const touch = window.matchMedia("(hover: none)").matches;
 
@@ -39,8 +37,8 @@ export function CampoConstelacao() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       // Densidade menor no mobile: tela pequena, bateria limitada.
-      const divisor = touch ? 26000 : 17000;
-      const n = Math.min(touch ? 45 : 95, Math.floor((w * h) / divisor));
+      const divisor = touch ? 14000 : 16000;
+      const n = Math.min(touch ? 75 : 95, Math.floor((w * h) / divisor));
 
       pts = Array.from({ length: n }, () => ({
         x: Math.random() * w,
@@ -122,7 +120,7 @@ export function CampoConstelacao() {
                   dy = a.y - b.y;
                 const d2 = dx * dx + dy * dy;
                 if (d2 < DIST2) {
-                  ctx.strokeStyle = `rgba(184,146,74,${(1 - d2 / DIST2) * 0.16})`;
+                  ctx.strokeStyle = `rgba(214,174,98,${(1 - d2 / DIST2) * 0.24})`;
                   ctx.beginPath();
                   ctx.moveTo(a.x, a.y);
                   ctx.lineTo(b.x, b.y);
@@ -135,10 +133,10 @@ export function CampoConstelacao() {
       }
 
       for (const p of pts) {
-        const alfa = 0.34 + Math.sin(p.f) * 0.22;
+        const alfa = 0.5 + Math.sin(p.f) * 0.25;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(214,178,104,${alfa})`;
+        ctx.fillStyle = `rgba(237,203,130,${alfa})`;
         ctx.fill();
       }
     };
@@ -156,6 +154,24 @@ export function CampoConstelacao() {
     };
 
     medir();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Movimento reduzido: um único quadro estático, sem loop.
+      for (const p of pts) {
+        p.vx = 0;
+        p.vy = 0;
+      }
+      desenhar(1000);
+      cancelAnimationFrame(raf);
+      const estatico = () => {
+        medir();
+        for (const p of pts) { p.vx = 0; p.vy = 0; }
+        ultimo = 0;
+        desenhar(1000);
+        cancelAnimationFrame(raf);
+      };
+      window.addEventListener("resize", estatico, { passive: true });
+      return () => window.removeEventListener("resize", estatico);
+    }
     raf = requestAnimationFrame(desenhar);
 
     const io = new IntersectionObserver(

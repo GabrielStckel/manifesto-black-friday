@@ -47,11 +47,11 @@ export function SectionParadigma({
               </p>
               <ul className="mt-6 space-y-6">
                 {novo.itens.map((item, i) => (
-                  <li key={item.titulo} className={i > 0 ? "border-t border-white/10 pt-6" : ""}>
+                  <li key={item.titulo} className={i > 0 ? "border-t border-white/[0.14] pt-6" : ""}>
                     <h4 className="font-display text-[16.5px] font-semibold leading-snug md:text-[18px]">
                       {item.titulo}
                     </h4>
-                    <p className="mt-2 text-[14.5px] leading-[1.7] text-section-dark-fg/75 md:text-[15.5px]">
+                    <p className="mt-2 text-[14.5px] leading-[1.7] text-section-dark-fg/95 md:text-[15.5px]">
                       {item.texto}
                     </p>
                   </li>

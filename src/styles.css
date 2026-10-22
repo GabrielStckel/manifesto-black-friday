@@ -79,10 +79,10 @@
   --radius-cta: 4px;
 
   /* Neutros escuros */
-  --bg-dark: oklch(0.1508 0.0017 17.35); /* #0C0B0B */
-  --bg-black: oklch(0 0 0); /* #000000 */
-  --surface-dark: oklch(0.205 0.0064 17.69); /* #1A1616 */
-  --border-dark: oklch(1 0 0 / 0.06);
+  --bg-dark: #1f1210;
+  --bg-black: #170d0c;
+  --surface-dark: #33201d;
+  --border-dark: rgba(255, 255, 255, 0.14);
 
   /* Neutros claros */
   --bg-light: oklch(0.9853 0.0029 84.56); /* #FBFAF8 */
@@ -90,34 +90,34 @@
   --border-light: oklch(0 0 0 / 0.08);
 
   /* Texto */
-  --text-on-dark: oklch(0.9538 0.008 73.74); /* #F3EFEA */
+  --text-on-dark: #f7f1ea;
   --text-on-light: oklch(0.1873 0.0102 52.83); /* #17120F */
-  --text-muted-value: oklch(0.6067 0.0161 57.43); /* #8A8079 */
+  --text-muted-value: #c9bcb0;
   /* Legibilidade sobre o campo escuro — halo largo e difuso, sem contorno duro */
   --text-shadow-hero: 0 12px 40px rgba(0, 0, 0, 0.45);
   --text-shadow-soft: 0 4px 18px rgba(0, 0, 0, 0.4);
 
   /* Vermelhos controlados */
-  --red-primary: oklch(0.5262 0.1842 27.69); /* #BE2B26 */
-  --red-accent: oklch(0.578 0.1909 27.26); /* #D33A34 */
-  --red-deep: oklch(0.3975 0.1288 25.24); /* #7E2020 */
-  --red-primary-hover: oklch(0.4749 0.1678 27.67); /* #A6231F */
+  --red-primary: #d2352e;
+  --red-accent: #e8493f;
+  --red-deep: #8e2623;
+  --red-primary-hover: #ae241e;
   --on-red: oklch(1 0 0);
 
   /* Acento próprio do Manifesto — permanência, não urgência */
-  --brass: oklch(0.6842 0.0918 78.5); /* #B8924A */
-  --brass-muted: oklch(0.6842 0.0918 78.5 / 0.35);
+  --brass: #d6ae62;
+  --brass-muted: rgba(214, 174, 98, 0.45);
 
   /* Latão luminoso — uso EXCLUSIVO em efeitos (partículas, halos, brilhos).
      Nunca em texto: não tem contraste para isso. */
-  --brass-glow: oklch(0.8 0.12 82);
-  --parchment: oklch(0.9101 0.0139 78.94); /* #E8E1D5 */
+  --brass-glow: #edcb82;
+  --parchment: #f0e8da;
   --on-parchment: oklch(0.1873 0.0102 52.83); /* #17120F */
 
   /* Variantes de acento para uso sobre pergaminho (fundo claro).
      O latão padrão rende só 2.23:1 sobre #E8E1D5 e reprova AA. */
   --brass-ink: oklch(0.4542 0.0745 82.1); /* #6B5220 — 5.67:1 sobre pergaminho */
-  --red-ink: var(--red-deep); /* #7E2020 — 7.64:1 sobre pergaminho */
+  --red-ink: #7e2020; /* 7.64:1 sobre pergaminho */
 
   /* Semânticos de seção — a seção clara do Manifesto é pergaminho, não branco */
   --section-dark-bg: var(--bg-dark);
@@ -149,12 +149,13 @@
   }
 
   html {
+    background-color: var(--bg-dark);
     font-family: var(--font-body);
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--color-background);
+    background-color: var(--bg-dark);
     color: var(--color-foreground);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
@@ -183,6 +184,19 @@
     );
     background-size: 3px 3px;
     opacity: 0.5;
+  }
+
+  /* Faixas escuras com luz de latão no topo e vinho na base */
+  [data-section-bg="dark"] {
+    background-image:
+      radial-gradient(90% 55% at 50% 0%, rgba(214, 174, 98, 0.09), transparent 62%),
+      radial-gradient(90% 55% at 50% 100%, rgba(142, 38, 35, 0.22), transparent 70%);
+  }
+
+  [data-section-bg="red"] {
+    background-image:
+      radial-gradient(90% 55% at 50% 0%, rgba(255, 196, 150, 0.16), transparent 62%),
+      linear-gradient(175deg, #9a2b27 0%, #8e2623 45%, #6e1b1b 100%);
   }
 
   /* Transição suave no rodapé das seções escuras */
@@ -214,4 +228,23 @@
       transition-duration: 0.01ms !important;
     }
   }
+}
+
+@utility bg-hero {
+  background: linear-gradient(172deg, #2a100e 0%, #4a1713 58%, #5e1d17 100%);
+}
+@utility bg-resumo {
+  background: linear-gradient(180deg, #24120f 0%, var(--bg-dark) 100%);
+}
+@utility bg-paraquem {
+  background:
+    radial-gradient(80% 50% at 0% 0%, rgba(214, 174, 98, 0.1), transparent 60%),
+    radial-gradient(80% 50% at 100% 100%, rgba(142, 38, 35, 0.2), transparent 65%),
+    #2a1714;
+}
+@utility bg-oferta {
+  background: linear-gradient(180deg, #1d1110 0%, var(--bg-dark) 40%, #241211 100%);
+}
+@utility bg-player-placeholder {
+  background: radial-gradient(80% 90% at 50% 40%, #4a1c18 0%, #1a0e0d 75%);
 }
