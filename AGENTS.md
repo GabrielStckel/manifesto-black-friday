@@ -13,3 +13,4 @@
 - Use dedicated pattern, pillars and optional guide sections with existing SectionShell and Reveal primitives, so the visual identity remains consistent.
 - Hide empty guide biographies and testimonial lists instead of generating filler, so only supplied evidence is shown.
 - Keep checkout offer selection and campaign deadline centralized in config; checkout builders preserve incoming tracking without allowing offer overrides.
+- Share immersion presentation through global semantic tokens, a common CTA component and viewport-aware animation primitives, so visual changes never alter content or checkout configuration.
