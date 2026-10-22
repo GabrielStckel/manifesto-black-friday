@@ -9,7 +9,7 @@ export const manifesto: ManifestoContent = {
     ogDescription: "Descubra como atualizar os princípios inconscientes que governam suas decisões silenciosamente.",
   },
   ctaBar: {
-    resumo: "Anual 12x R$ 79 · Mensal R$ 97",
+    resumo: "12x R$ 79 ou R$ 97/mês",
     detalhe: "Black Friday do Manifesto · garantia de 7 dias",
     botao: "Ver planos",
   },
