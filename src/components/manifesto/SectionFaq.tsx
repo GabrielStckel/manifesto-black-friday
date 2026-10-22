@@ -1,10 +1,10 @@
 import { useId, useState } from "react";
-import { Minus, Plus } from "lucide-react";
+import { ArrowRight, Minus, Plus } from "lucide-react";
 import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionFaq as SectionFaqType } from "../../content/manifesto.types";
 
-export function SectionFaq({ fundo, titulo, itens }: SectionFaqType) {
+export function SectionFaq({ fundo, eyebrow, titulo, itens, cta, microtexto }: SectionFaqType) {
   const [aberto, setAberto] = useState<number | null>(0);
   const baseId = useId();
 
@@ -13,7 +13,10 @@ export function SectionFaq({ fundo, titulo, itens }: SectionFaqType) {
       <div>
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <h2 className="font-display font-semibold leading-[1.12] text-section-light-fg text-[clamp(1.6rem,6.8vw,2.2rem)] md:text-[clamp(1.45rem,2.5vw,1.95rem)]">
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
+              {eyebrow}
+            </p>
+            <h2 className="mt-4 font-display font-semibold leading-[1.12] text-section-light-fg text-[clamp(1.6rem,6.8vw,2.2rem)] md:text-[clamp(1.45rem,2.5vw,1.95rem)]">
               {titulo}
             </h2>
           </Reveal>
@@ -56,7 +59,7 @@ export function SectionFaq({ fundo, titulo, itens }: SectionFaqType) {
                     style={{ gridTemplateRows: estaAberto ? "1fr" : "0fr" }}
                   >
                     <div className="min-h-0">
-                      <p className="pb-5 pr-2 text-justify hyphens-auto text-[14.5px] leading-relaxed text-section-light-fg/80 sm:pr-10 sm:text-[15px] md:text-[16px] md:leading-[1.75]">
+                      <p className="pb-5 pr-2 text-left text-[14.5px] leading-relaxed text-section-light-fg/80 sm:pr-10 sm:text-[15px] md:text-[16px] md:leading-[1.75]">
                         {item.resposta}
                       </p>
                     </div>
@@ -66,6 +69,26 @@ export function SectionFaq({ fundo, titulo, itens }: SectionFaqType) {
             })}
           </ul>
         </div>
+
+        <Reveal delay={120}>
+          <div className="mt-10 text-center md:mt-12">
+            <a
+              href="#planos"
+              className="group relative inline-flex min-h-[56px] w-full max-w-[440px] items-center justify-center gap-2 overflow-hidden rounded-cta border border-white/15 bg-gradient-to-b from-red-primary to-red-primary-hover px-6 text-center text-[14px] font-bold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_32px_rgba(211,58,52,0.32),0_22px_60px_-18px_var(--red-accent)] transition-all hover:shadow-[0_0_48px_rgba(211,58,52,0.48),0_28px_75px_-16px_var(--red-accent)] hover:brightness-110 active:scale-[0.98] sm:w-auto md:text-[15px]"
+            >
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+              />
+              <span className="relative z-10">{cta}</span>
+              <ArrowRight
+                aria-hidden="true"
+                className="relative z-10 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1"
+              />
+            </a>
+            <p className="mt-4 text-[12px] text-section-light-fg/60 md:text-[13px]">{microtexto}</p>
+          </div>
+        </Reveal>
       </div>
     </SectionShell>
   );
