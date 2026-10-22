@@ -79,22 +79,44 @@ export function Hero({
 
       <Orbe />
 
+      {/* Brilho vermelho: max() no tamanho faz o Chrome descartar o
+          gradiente inteiro, então o celular (até 640px) e o desktop usam
+          regras separadas com tamanhos válidos. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 sm:hidden"
         style={{
           background:
-            "radial-gradient(max(560px,70%) max(520px,52%) at 50% 42%, var(--red-accent) 0%, transparent 68%), radial-gradient(max(420px,46%) max(380px,34%) at 50% 34%, var(--red-deep) 0%, transparent 72%)",
+            "radial-gradient(150% 55% at 50% 42%, var(--red-accent) 0%, transparent 68%), radial-gradient(110% 38% at 50% 34%, var(--red-deep) 0%, transparent 72%)",
           opacity: 0.55,
         }}
       />
-      {/* Luz rasante superior em latão */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 hidden sm:block"
         style={{
           background:
-            "radial-gradient(max(520px,80%) 420px at 50% 0%, var(--brass) 0%, transparent 72%)",
+            "radial-gradient(70% 52% at 50% 42%, var(--red-accent) 0%, transparent 68%), radial-gradient(46% 34% at 50% 34%, var(--red-deep) 0%, transparent 72%)",
+          opacity: 0.55,
+        }}
+      />
+      {/* Luz rasante superior em latão (mesma correção de max() do brilho
+          vermelho: regras separadas por breakpoint, tamanhos válidos). */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 sm:hidden"
+        style={{
+          background:
+            "radial-gradient(160% 45% at 50% 0%, var(--brass) 0%, transparent 72%)",
+          opacity: 0.18,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden sm:block"
+        style={{
+          background:
+            "radial-gradient(80% 45% at 50% 0%, var(--brass) 0%, transparent 72%)",
           opacity: 0.2,
         }}
       />

@@ -146,7 +146,7 @@ export function SectionOferta({
         className="pointer-events-none absolute inset-0 hidden md:block"
         style={{
           background:
-            "radial-gradient(max(520px,70%) 900px at 50% 38%, rgba(232,73,63,0.24), transparent 70%), radial-gradient(max(480px,60%) 420px at 50% 0%, rgba(214,174,98,0.20), transparent 70%)",
+            "radial-gradient(70% 900px at 50% 38%, rgba(232,73,63,0.24), transparent 70%), radial-gradient(60% 420px at 50% 0%, rgba(214,174,98,0.20), transparent 70%)",
         }}
       />
       <div
