@@ -38,9 +38,9 @@ export function CtaBar({ resumo, detalhe, botao }: CtaBarType) {
         paddingBottom: "env(safe-area-inset-bottom)",
       }}
     >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-8">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2.5 px-4 py-3 sm:px-8">
         <div className="min-w-0">
-          <p className="truncate font-display text-[13.5px] font-semibold leading-tight text-section-dark-fg sm:text-[15px]">
+          <p className="font-display text-[12px] font-semibold leading-tight text-section-dark-fg min-[360px]:text-[13.5px] sm:text-[15px]">
             {resumo}
           </p>
           <p className="mt-0.5 hidden text-[10.5px] leading-tight text-muted-foreground min-[380px]:block sm:text-[11.5px]">
@@ -50,7 +50,7 @@ export function CtaBar({ resumo, detalhe, botao }: CtaBarType) {
         <a
           href="#planos"
           tabIndex={visivel ? undefined : -1}
-          className="group relative inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-cta border border-white/10 bg-gradient-to-b from-red-primary to-red-primary-hover px-5 text-center text-[12.5px] font-bold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_28px_rgba(211,58,52,0.28)] transition-all hover:shadow-[0_0_40px_rgba(211,58,52,0.42)] hover:brightness-110 active:scale-[0.98] sm:min-h-[52px] sm:px-7 sm:text-[13.5px]"
+          className="group relative inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-cta border border-white/10 bg-gradient-to-b from-red-primary to-red-primary-hover px-4 text-center text-[12px] font-bold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_28px_rgba(211,58,52,0.28)] transition-all hover:shadow-[0_0_40px_rgba(211,58,52,0.42)] hover:brightness-110 active:scale-[0.98] min-[360px]:px-5 min-[360px]:text-[12.5px] sm:min-h-[52px] sm:px-7 sm:text-[13.5px]"
         >
           <span
             aria-hidden="true"
