@@ -6,6 +6,7 @@ export function SectionComunidade({
   fundo,
   titulo,
   texto,
+  texto2,
 }: SectionComunidadeType) {
   const [primeiraLetra, ...resto] = texto;
 
@@ -57,6 +58,11 @@ export function SectionComunidade({
               </span>
               {resto.join("")}
             </p>
+            {texto2 ? (
+              <p className="mt-6 text-left text-[15.5px] leading-[1.75] text-section-red-fg/80 sm:text-[17px] md:text-justify md:hyphens-auto md:text-[17px]">
+                {texto2}
+              </p>
+            ) : null}
           </div>
         </Reveal>
 

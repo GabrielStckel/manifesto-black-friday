@@ -37,7 +37,11 @@ export const Route = createFileRoute("/")({
       { name: "twitter:title", content: manifesto.meta.ogTitle },
       { name: "twitter:description", content: manifesto.meta.ogDescription },
     ],
-    links: [{ rel: "canonical", href: "https://manifestosistemico.com.br/" }],
+    links: [
+      { rel: "canonical", href: "https://manifestosistemico.com.br/" },
+      { rel: "preconnect", href: "https://scripts.converteai.net" },
+      { rel: "preconnect", href: "https://cdn.converteai.net" },
+    ],
     scripts: FAQ_LD
       ? [
           {

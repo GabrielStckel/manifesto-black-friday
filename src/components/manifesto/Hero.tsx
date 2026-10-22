@@ -1,10 +1,18 @@
 import { ArrowRight } from "lucide-react";
 import { CampoConstelacao } from "./CampoConstelacao";
 import { Orbe } from "./Orbe";
-import { ContadorOferta } from "./ContadorOferta";
+import { VturbPlayer } from "./VturbPlayer";
 import type { Hero as HeroType } from "../../content/manifesto.types";
 
-export function Hero({ badge, h1, subtitulo, cta, microtexto }: HeroType) {
+export function Hero({
+  badge,
+  h1,
+  headlinePlayer,
+  subtitulo,
+  aviso,
+  cta,
+  microtexto,
+}: HeroType) {
   return (
     <section className="relative flex min-h-[94svh] items-center overflow-hidden bg-section-dark-bg px-5 pb-14 pt-24 text-section-dark-fg sm:px-8 md:min-h-[92vh] md:pb-24 md:pt-28">
       {/* Camadas de fundo — todas decorativas */}
@@ -69,18 +77,17 @@ export function Hero({ badge, h1, subtitulo, cta, microtexto }: HeroType) {
           {h1}
         </h1>
 
-        <div
-          aria-hidden="true"
-          className="mt-7 flex items-center justify-center gap-3 md:mt-9"
-        >
-          <span className="h-px w-10 bg-gradient-to-r from-transparent to-brass/55 md:w-16" />
-          <span className="h-1 w-1 rotate-45 bg-brass/80" />
-          <span className="h-px w-10 bg-gradient-to-l from-transparent to-brass/55 md:w-16" />
+        <p className="mt-7 max-w-[46ch] text-[15px] font-medium leading-[1.55] text-brass/95 md:mt-8 md:text-[17px]">
+          {headlinePlayer}
+        </p>
+
+        <div className="mt-6 flex w-full justify-center md:mt-8">
+          <VturbPlayer />
         </div>
 
-        <div className="mt-8 w-full max-w-[420px] md:mt-10">
-          <ContadorOferta variante="compacto" />
-        </div>
+        <p className="mt-5 max-w-[52ch] text-[12.5px] leading-snug text-muted-foreground md:text-[13px]">
+          {aviso}
+        </p>
 
         <p
           className="mt-8 max-w-[44ch] text-[15.5px] leading-[1.65] text-section-dark-fg/90 md:mt-10 md:max-w-[58ch] md:whitespace-pre-line md:text-[18px] md:leading-[1.65]"
@@ -111,4 +118,3 @@ export function Hero({ badge, h1, subtitulo, cta, microtexto }: HeroType) {
     </section>
   );
 }
-

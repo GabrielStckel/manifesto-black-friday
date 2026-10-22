@@ -5,10 +5,6 @@ export type Meta = {
   ogDescription: string;
 };
 
-export type Topbar = {
-  marca: string;
-};
-
 export type CtaBar = {
   label: string;
 };
@@ -16,13 +12,12 @@ export type CtaBar = {
 export type Hero = {
   badge: string;
   h1: string;
+  headlinePlayer: string;
   subtitulo: string;
+  aviso: string;
   cta: string;
   microtexto: string;
 };
-
-
-
 
 export type Fundo = "dark" | "light" | "red";
 
@@ -66,6 +61,8 @@ export type SectionComunidade = {
   fundo: Fundo;
   titulo: string;
   texto: string;
+  /** Segundo parágrafo opcional, exibido abaixo do texto principal. */
+  texto2?: string;
 };
 
 export type SectionColetivo = {
@@ -75,28 +72,34 @@ export type SectionColetivo = {
   texto: string;
 };
 
+export type PlanoOferta = {
+  nome: string;
+  /** Selo opcional exibido acima do card (ex.: "Menor preço por mês"). */
+  selo?: string;
+  precoGrande: string;
+  linhas: string[];
+  cta: string;
+};
+
 export type SectionOferta = {
   kind: "oferta";
   fundo: Fundo;
   titulo: string;
   inclui: string[];
-  preco: {
-    rotulo: string;
-    /** Preço "de" para comparação. Deixar ausente até haver histórico de venda. */
-    de?: string;
-    parcelado: string;
-    aVista: string;
-    nota?: string;
+  planos: {
+    anual: PlanoOferta;
+    mensal: PlanoOferta;
   };
-
-  cta: string;
+  textoPosCards: string;
   garantia: {
     rotulo: string;
     texto: string;
   };
+  blocoFinal: {
+    texto: string;
+    cta: string;
+  };
 };
-
-
 
 export type Trilha = {
   numero: string;
@@ -114,6 +117,31 @@ export type SectionTrilhas = {
   fundo: Fundo;
   titulo: string;
   trilhas: Trilha[];
+  /** Linha exibida abaixo dos cards (ex.: vivências ao vivo). */
+  rodapeLinha: string;
+};
+
+export type Depoimento = {
+  texto: string;
+  nome: string;
+  detalhe: string;
+};
+
+export type SectionDepoimentos = {
+  kind: "depoimentos";
+  fundo: Fundo;
+  titulo: string;
+  /** Lista vazia = a seção não renderiza. */
+  itens: Depoimento[];
+  nota: string;
+};
+
+export type SectionParaQuem = {
+  kind: "paraQuem";
+  fundo: Fundo;
+  titulo: string;
+  paraVoce: string[];
+  naoParaVoce: string[];
 };
 
 export type SectionFaq = {
@@ -137,13 +165,14 @@ export type ManifestoSection =
   | SectionComunidade
   | SectionColetivo
   | SectionTrilhas
+  | SectionDepoimentos
+  | SectionParaQuem
   | SectionOferta
   | SectionFaq
   | SectionRodape;
 
 export type ManifestoContent = {
   meta: Meta;
-  topbar: Topbar;
   ctaBar: CtaBar;
   hero: Hero;
   sections: ManifestoSection[];

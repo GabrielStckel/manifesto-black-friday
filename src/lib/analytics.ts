@@ -1,4 +1,10 @@
-export const CHECKOUT_SOURCES = ["hero", "oferta", "cta_bar"] as const;
+export const CHECKOUT_SOURCES = [
+  "hero",
+  "oferta",
+  "cta_bar",
+  "plano_mensal",
+  "plano_anual",
+] as const;
 export type CheckoutSource = (typeof CHECKOUT_SOURCES)[number];
 
 export function trackCheckoutClick(
