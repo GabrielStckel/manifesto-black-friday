@@ -1,28 +1,15 @@
+import { MarkedTitle } from "./MarkedTitle";
 import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionTrilhas as SectionTrilhasType } from "../../content/manifesto.types";
 
 function Medalhao({ numero }: { numero: string }) {
-  return (
-    <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-brass/45 bg-black/40 transition-colors duration-300 group-hover:border-brass/80 md:h-16 md:w-16">
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-full opacity-30 transition-opacity duration-300 group-hover:opacity-60"
-        style={{
-          background:
-            "radial-gradient(60% 60% at 50% 50%, var(--brass-glow) 0%, transparent 70%)",
-        }}
-      />
-      <span className="relative font-display text-[19px] font-semibold leading-none text-brass md:text-[20px]">
-        {numero}
-      </span>
-    </div>
-  );
+  return <div className="medallion"><span>{numero}</span></div>;
 }
 
 function Sublegenda({ children }: { children: string }) {
   return (
-    <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brass md:text-[11.5px]">
+    <p className="mt-2 text-[11.5px] font-semibold uppercase tracking-[0.22em] text-brass-glow md:text-[11.5px]">
       {children}
     </p>
   );
@@ -57,12 +44,10 @@ export function SectionTrilhas({
 
       <div className="relative">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass md:text-[12px]">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-glow md:text-[12px]">
             {eyebrow}
           </p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-balance text-center font-display text-[clamp(1.5rem,6.4vw,2.2rem)] font-semibold leading-[1.14] tracking-[-0.015em] md:text-[clamp(1.6rem,2.9vw,2.25rem)] md:leading-[1.1]">
-            {titulo}
-          </h2>
+          <MarkedTitle text={titulo} phrase="organizado em trilhas" className="mx-auto mt-4 max-w-3xl text-balance text-center font-display text-[clamp(1.5rem,6.4vw,2.2rem)] font-semibold leading-[1.14] tracking-[-0.015em] md:text-[clamp(1.6rem,2.9vw,2.25rem)] md:leading-[1.1]" />
           <p className="mx-auto mt-5 max-w-[56ch] text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16.5px]">
             {texto}
           </p>
@@ -71,41 +56,22 @@ export function SectionTrilhas({
         {/* Profundidade — as quatro trilhas */}
         <Reveal>
           <div className="mx-auto mt-12 max-w-5xl md:mt-14">
-            <h3 className="font-display text-[22px] font-semibold text-brass md:text-[25px]">
+            <h3 className="font-display text-[22px] font-semibold text-brass-glow md:text-[25px]">
               {profundidade.titulo}
             </h3>
             <Sublegenda>{profundidade.sublegenda}</Sublegenda>
           </div>
         </Reveal>
-        <ul className="relative mx-auto mt-6 grid max-w-5xl items-stretch gap-5 sm:grid-cols-2 md:mt-7 md:gap-7">
+        <ul className="relative mx-auto mt-6 grid max-w-5xl items-stretch gap-3.5 md:grid-cols-2 md:mt-7">
           {trilhas.map((trilha, i) => (
             <Reveal as="li" key={trilha.numero} delay={i * 100} className="block h-full">
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/[0.14] bg-white/[0.06] p-6 transition-colors duration-300 hover:border-brass/50 md:p-7">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-[0.13]"
-                  style={{
-                    background:
-                      "radial-gradient(70% 60% at 0% 0%, var(--brass) 0%, transparent 65%)",
-                  }}
-                />
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-brass/50 to-transparent opacity-60"
-                />
-                <div className="relative flex items-center gap-4">
-                  <Medalhao numero={trilha.numero} />
-                  <h4 className="min-w-0 font-display text-[17.5px] font-semibold leading-snug text-section-dark-fg md:text-[19px]">
-                    {trilha.titulo}
-                  </h4>
+              <article className="trail-card" data-n={trilha.numero}>
+                <Medalhao numero={trilha.numero} />
+                <div className="relative min-w-0">
+                  <p className="trail-label">TRILHA {trilha.numero}</p>
+                  <h4 className="trail-title mt-2">{trilha.titulo}</h4>
+                  <p className="trail-text mt-3">{trilha.texto}</p>
                 </div>
-                <span
-                  aria-hidden
-                  className="relative mt-4 block h-px w-14 bg-gradient-to-r from-brass/60 to-transparent transition-all duration-300 group-hover:w-24"
-                />
-                <p className="relative mt-4 text-left text-[14.5px] leading-[1.7] text-section-dark-fg/95 md:text-[15.5px] md:leading-[1.75]">
-                  {trilha.texto}
-                </p>
               </article>
             </Reveal>
           ))}
@@ -115,7 +81,7 @@ export function SectionTrilhas({
         <Reveal delay={160}>
           <div className="mx-auto mt-12 grid max-w-5xl gap-9 border-t border-brass/25 pt-9 md:grid-cols-2 md:gap-12">
             <div>
-              <h3 className="font-display text-[22px] font-semibold leading-snug text-brass md:text-[25px]">
+              <h3 className="font-display text-[22px] font-semibold leading-snug text-brass-glow md:text-[25px]">
                 {constancia.titulo}
               </h3>
               <Sublegenda>{constancia.sublegenda}</Sublegenda>
@@ -126,7 +92,7 @@ export function SectionTrilhas({
               </ul>
             </div>
             <div>
-              <h3 className="font-display text-[22px] font-semibold leading-snug text-brass md:text-[25px]">
+              <h3 className="font-display text-[22px] font-semibold leading-snug text-brass-glow md:text-[25px]">
                 {companhia.titulo}
               </h3>
               <Sublegenda>{companhia.sublegenda}</Sublegenda>
@@ -148,7 +114,7 @@ export function SectionTrilhas({
                   alt={print.alt}
                   loading="lazy"
                   decoding="async"
-                  className="w-[78%] shrink-0 snap-center rounded-lg border border-white/[0.14] object-cover sm:w-[60%] md:w-full"
+                  className="w-[78%] shrink-0 snap-center rounded-lg border border-border-dark/[0.14] object-cover sm:w-[60%] md:w-full"
                 />
               ))}
             </div>

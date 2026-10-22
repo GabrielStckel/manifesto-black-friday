@@ -2,10 +2,10 @@
 @source "../src";
 
 /* Fontes: apenas subset latin, apenas os pesos realmente usados. */
-@import "@fontsource/lora/latin-600.css";
-@import "@fontsource/lora/latin-700.css";
+@import "@fontsource/archivo/latin-400.css";
+@import "@fontsource/archivo/latin-500.css";
+@import "@fontsource/archivo/latin-600.css";
 @import "@fontsource/inter/latin-400.css";
-@import "@fontsource/inter/latin-500.css";
 @import "@fontsource/inter/latin-600.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -70,7 +70,7 @@
 
 :root {
   /* Tipografia */
-  --font-display: "Lora", ui-serif, Georgia, serif;
+  --font-display: "Archivo", ui-serif, Georgia, serif;
   --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Raio */
@@ -90,33 +90,33 @@
   --border-light: oklch(0 0 0 / 0.08);
 
   /* Texto */
-  --text-on-dark: #f7f1ea;
-  --text-on-light: oklch(0.1873 0.0102 52.83); /* #17120F */
+  --text-on-dark: #F6F3EC;
+  --text-on-light: #14120E; /* #17120F */
   --text-muted-value: #c9bcb0;
   /* Legibilidade sobre o campo escuro — halo largo e difuso, sem contorno duro */
   --text-shadow-hero: 0 12px 40px rgba(0, 0, 0, 0.45);
   --text-shadow-soft: 0 4px 18px rgba(0, 0, 0, 0.4);
 
   /* Vermelhos controlados */
-  --red-primary: #d2352e;
-  --red-accent: #e8493f;
+  --red-primary: #DA3A32;
+  --red-accent: #EF4B42;
   --red-deep: #8e2623;
-  --red-primary-hover: #ae241e;
+  --red-primary-hover: #B0221D;
   --on-red: oklch(1 0 0);
 
   /* Acento próprio do Manifesto — permanência, não urgência */
-  --brass: #d6ae62;
-  --brass-muted: rgba(214, 174, 98, 0.45);
+  --brass: #D4AD5A;
+  --brass-muted: rgba(212, 173, 90, 0.45);
 
   /* Latão luminoso — uso EXCLUSIVO em efeitos (partículas, halos, brilhos).
      Nunca em texto: não tem contraste para isso. */
-  --brass-glow: #edcb82;
-  --parchment: #f0e8da;
-  --on-parchment: oklch(0.1873 0.0102 52.83); /* #17120F */
+  --brass-glow: #F7C948;
+  --parchment: #F1EBE1;
+  --on-parchment: #14120E; /* #17120F */
 
   /* Variantes de acento para uso sobre pergaminho (fundo claro).
      O latão padrão rende só 2.23:1 sobre #E8E1D5 e reprova AA. */
-  --brass-ink: oklch(0.4542 0.0745 82.1); /* #6B5220 — 5.67:1 sobre pergaminho */
+  --brass-ink: #765914; /* #6B5220 — 5.67:1 sobre pergaminho */
   --red-ink: #7e2020; /* 7.64:1 sobre pergaminho */
 
   /* Semânticos de seção — a seção clara do Manifesto é pergaminho, não branco */
@@ -189,7 +189,7 @@
   /* Faixas escuras com luz de latão no topo e vinho na base */
   [data-section-bg="dark"] {
     background-image:
-      radial-gradient(90% 55% at 50% 0%, rgba(214, 174, 98, 0.09), transparent 62%),
+      radial-gradient(90% 55% at 50% 0%, rgba(212, 173, 90, 0.09), transparent 62%),
       radial-gradient(90% 55% at 50% 100%, rgba(142, 38, 35, 0.22), transparent 70%);
   }
 
@@ -238,7 +238,7 @@
 }
 @utility bg-paraquem {
   background:
-    radial-gradient(80% 50% at 0% 0%, rgba(214, 174, 98, 0.1), transparent 60%),
+    radial-gradient(80% 50% at 0% 0%, rgba(212, 173, 90, 0.1), transparent 60%),
     radial-gradient(80% 50% at 100% 100%, rgba(142, 38, 35, 0.2), transparent 65%),
     #2a1714;
 }

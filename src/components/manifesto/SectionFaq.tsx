@@ -1,5 +1,6 @@
+import { ManifestoCta } from "./ManifestoCta";
 import { useId, useState } from "react";
-import { ArrowRight, Minus, Plus } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionFaq as SectionFaqType } from "../../content/manifesto.types";
@@ -13,7 +14,7 @@ export function SectionFaq({ fundo, eyebrow, titulo, itens, cta, microtexto }: S
       <div>
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
+            <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
               {eyebrow}
             </p>
             <h2 className="mt-4 font-display font-semibold leading-[1.12] text-section-light-fg text-[clamp(1.6rem,6.8vw,2.2rem)] md:text-[clamp(1.45rem,2.5vw,1.95rem)]">
@@ -31,7 +32,7 @@ export function SectionFaq({ fundo, eyebrow, titulo, itens, cta, microtexto }: S
               const painelId = `${baseId}-p-${i}`;
 
               return (
-                <Reveal as="li" key={item.pergunta} className="border-b border-black/10">
+                <Reveal as="li" key={item.pergunta} className="border-b border-on-parchment/10">
               <button
                 type="button"
                 id={botaoId}
@@ -40,12 +41,12 @@ export function SectionFaq({ fundo, eyebrow, titulo, itens, cta, microtexto }: S
                 onClick={() => setAberto(estaAberto ? null : i)}
                 className="flex w-full items-center justify-between gap-4 py-5 text-left"
               >
-                <h3 className="text-[15px] font-medium leading-snug text-section-light-fg sm:text-[17px] md:text-[17px]">
+                <h3 className="text-[15px] font-semibold leading-snug text-section-light-fg sm:text-[17px] md:text-[17px]">
                   {item.pergunta}
                 </h3>
                 <span
                   aria-hidden
-                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brass/40 bg-transparent text-brass-ink"
+                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brass/40 bg-transparent text-red-primary"
                 >
                   {estaAberto ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                 </span>
@@ -72,20 +73,7 @@ export function SectionFaq({ fundo, eyebrow, titulo, itens, cta, microtexto }: S
 
         <Reveal delay={120}>
           <div className="mt-10 text-center md:mt-12">
-            <a
-              href="#planos"
-              className="group relative inline-flex min-h-[56px] w-full max-w-[440px] items-center justify-center gap-2 overflow-hidden rounded-cta border border-white/15 bg-gradient-to-b from-red-primary to-red-primary-hover px-6 text-center text-[14px] font-bold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_32px_rgba(211,58,52,0.32),0_22px_60px_-18px_var(--red-accent)] transition-all hover:shadow-[0_0_48px_rgba(211,58,52,0.48),0_28px_75px_-16px_var(--red-accent)] hover:brightness-110 active:scale-[0.98] sm:w-auto md:text-[15px]"
-            >
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full transition-transform duration-700 ease-in-out group-hover:translate-x-full"
-              />
-              <span className="relative z-10">{cta}</span>
-              <ArrowRight
-                aria-hidden="true"
-                className="relative z-10 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1"
-              />
-            </a>
+            <ManifestoCta href="#planos" className="w-full max-w-[440px] sm:w-auto">{cta}</ManifestoCta>
             <p className="mt-4 text-[12px] text-section-light-fg/60 md:text-[13px]">{microtexto}</p>
           </div>
         </Reveal>

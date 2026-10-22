@@ -62,7 +62,7 @@ export function ContadorOferta({
 
   return (
     <div
-      className={`w-full rounded-lg border border-brass/25 bg-bg-black/60 backdrop-blur-sm ${
+      className={`w-full rounded-lg border border-brass/25 bg-bg-bg-black/60 ${
         compacto ? "px-4 py-4 sm:px-5" : "px-5 py-6 sm:px-7"
       }`}
       style={{ boxShadow: "inset 0 1px 0 rgba(197,162,103,0.12)" }}
@@ -73,7 +73,7 @@ export function ContadorOferta({
         </p>
       ) : (
         <>
-          <p className="flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brass md:text-[11px]">
+          <p className="flex items-center justify-center gap-2 text-[11.5px] font-semibold uppercase tracking-[0.2em] text-brass-glow md:text-[11px]">
             <Clock aria-hidden className="h-3.5 w-3.5" />
             A condição de Black Friday termina em
           </p>
@@ -85,7 +85,7 @@ export function ContadorOferta({
             {blocos.map((b) => (
               <div
                 key={b.rotulo}
-                className={`flex min-w-[58px] flex-col items-center rounded-md border border-white/[0.14] bg-white/[0.04] px-2 py-2 sm:min-w-[66px] ${
+                className={`flex min-w-[58px] flex-col items-center rounded-md border border-border-dark/[0.14] bg-surface-light/[0.04] px-2 py-2 sm:min-w-[66px] ${
                   compacto ? "" : "sm:px-3 sm:py-3"
                 }`}
               >
@@ -98,7 +98,7 @@ export function ContadorOferta({
                 >
                   {b.valor}
                 </span>
-                <span className="mt-1.5 text-[9.5px] uppercase tracking-[0.16em] text-muted-foreground">
+                <span className="mt-1.5 text-[11.5px] uppercase tracking-[0.16em] text-muted-foreground">
                   {b.rotulo}
                 </span>
               </div>

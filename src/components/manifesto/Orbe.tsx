@@ -7,8 +7,8 @@ export function Orbe() {
         width: "min(110vw, 760px)",
         aspectRatio: "1",
         background: `
-          radial-gradient(circle at 50% 50%, rgba(211,58,52,0.16) 0%, transparent 62%),
-          radial-gradient(circle at 44% 36%, rgba(214,178,104,0.08) 0%, transparent 46%),
+          radial-gradient(circle at 50% 50%, rgba(239,75,66,0.16) 0%, transparent 62%),
+          radial-gradient(circle at 44% 36%, rgba(247,201,72,0.08) 0%, transparent 46%),
           radial-gradient(circle at 50% 50%, rgba(31,18,16,0.3) 30%, transparent 70%)
         `,
         maskImage:
@@ -20,7 +20,7 @@ export function Orbe() {
       <div
         className="absolute inset-0 rounded-full"
         style={{
-          boxShadow: "inset 0 -1px 80px rgba(214,178,104,0.10)",
+          boxShadow: "inset 0 -1px 80px rgba(247,201,72,0.10)",
         }}
       />
       <div className="absolute inset-[10%] rounded-full border border-brass/8" />

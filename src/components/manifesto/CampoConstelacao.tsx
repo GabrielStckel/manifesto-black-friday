@@ -120,7 +120,7 @@ export function CampoConstelacao() {
                   dy = a.y - b.y;
                 const d2 = dx * dx + dy * dy;
                 if (d2 < DIST2) {
-                  ctx.strokeStyle = `rgba(214,174,98,${(1 - d2 / DIST2) * 0.24})`;
+                  ctx.strokeStyle = `rgba(212,173,90,${(1 - d2 / DIST2) * 0.24})`;
                   ctx.beginPath();
                   ctx.moveTo(a.x, a.y);
                   ctx.lineTo(b.x, b.y);
@@ -136,7 +136,7 @@ export function CampoConstelacao() {
         const alfa = 0.5 + Math.sin(p.f) * 0.25;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(237,203,130,${alfa})`;
+        ctx.fillStyle = `rgba(247,201,72,${alfa})`;
         ctx.fill();
       }
     };

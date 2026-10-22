@@ -30,7 +30,7 @@ export function CtaBar({ resumo, detalhe, botao }: CtaBarType) {
   return (
     <div
       aria-hidden={!visivel}
-      className={`fixed inset-x-0 bottom-0 z-30 border-t border-brass/25 bg-[rgba(23,15,14,0.9)] text-section-dark-fg backdrop-blur-xl transition-all duration-300 ${
+      className={`fixed inset-x-0 bottom-0 z-30 border-t border-brass/25 bg-[rgba(23,15,14,0.9)] text-section-dark-fg transition-all duration-300 ${
         visivel ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"
       }`}
       style={{
@@ -43,18 +43,18 @@ export function CtaBar({ resumo, detalhe, botao }: CtaBarType) {
           <p className="font-display text-[12px] font-semibold leading-tight text-section-dark-fg min-[360px]:text-[13.5px] sm:text-[15px]">
             {resumo}
           </p>
-          <p className="mt-0.5 hidden text-[10.5px] leading-tight text-muted-foreground min-[380px]:block sm:text-[11.5px]">
+          <p className="mt-0.5 hidden text-[11.5px] leading-tight text-muted-foreground min-[380px]:block sm:text-[11.5px]">
             {detalhe}
           </p>
         </div>
         <a
           href="#planos"
           tabIndex={visivel ? undefined : -1}
-          className="group relative inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-cta border border-white/[0.14] bg-gradient-to-b from-red-primary to-red-primary-hover px-4 text-center text-[12px] font-bold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_28px_rgba(211,58,52,0.28)] transition-all hover:shadow-[0_0_40px_rgba(211,58,52,0.42)] hover:brightness-110 active:scale-[0.98] min-[360px]:px-5 min-[360px]:text-[12.5px] sm:min-h-[52px] sm:px-7 sm:text-[13.5px]"
+          className="group relative inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-cta border border-border-dark/[0.14] bg-gradient-to-b from-red-primary to-red-primary-hover px-4 text-center text-[12px] font-semibold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_28px_rgba(239,75,66,0.28)] transition-all hover:shadow-[0_0_40px_rgba(239,75,66,0.42)] hover:brightness-110 active:scale-[0.98] min-[360px]:px-5 min-[360px]:text-[12.5px] sm:min-h-[52px] sm:px-7 sm:text-[13.5px]"
         >
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-surface-light/10 to-transparent -translate-x-full transition-transform duration-700 ease-in-out group-hover:translate-x-full"
           />
           <span className="relative z-10">{botao}</span>
           <ArrowRight
