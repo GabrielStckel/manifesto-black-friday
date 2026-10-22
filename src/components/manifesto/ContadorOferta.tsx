@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Clock } from "lucide-react";
-import { BF_FIM } from "../../lib/config";
+import { BF_FIM, TEM_PRAZO } from "../../lib/config";
 
 type Estado = {
   dias: number;
@@ -24,6 +24,9 @@ function calcular(agora: number): Estado {
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
+// Contador honesto: igual para todo visitante, conta até BF_FIM e nunca
+// reinicia. Enquanto REGRA_PRAZO estiver vazia (TEM_PRAZO falso), não
+// renderiza nada — a página fica sem nenhum contador, data ou prazo.
 export function ContadorOferta({
   variante = "completo",
 }: {
@@ -32,11 +35,14 @@ export function ContadorOferta({
   const [estado, setEstado] = useState<Estado | null>(null);
 
   useEffect(() => {
+    if (!TEM_PRAZO) return;
     const tick = () => setEstado(calcular(Date.now()));
     tick();
     const id = window.setInterval(tick, 1000);
     return () => window.clearInterval(id);
   }, []);
+
+  if (!TEM_PRAZO) return null;
 
   const compacto = variante === "compacto";
 

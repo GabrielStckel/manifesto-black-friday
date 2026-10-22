@@ -5,6 +5,7 @@ import type { SectionDepoimentos as SectionDepoimentosType } from "../../content
 
 export function SectionDepoimentos({
   fundo,
+  eyebrow,
   titulo,
   itens,
   nota,
@@ -17,7 +18,10 @@ export function SectionDepoimentos({
       <div>
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <h2 className="font-display font-semibold leading-[1.12] text-section-light-fg text-[clamp(1.6rem,6.8vw,2.2rem)] md:text-[clamp(1.45rem,2.5vw,1.95rem)]">
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
+              {eyebrow}
+            </p>
+            <h2 className="mt-4 font-display font-semibold leading-[1.12] text-section-light-fg text-[clamp(1.6rem,6.8vw,2.2rem)] md:text-[clamp(1.45rem,2.5vw,1.95rem)]">
               {titulo}
             </h2>
           </Reveal>

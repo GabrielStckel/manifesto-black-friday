@@ -1,25 +1,20 @@
-import { useEffect, useState } from "react";
-import { BF_FIM, formatarFimBF } from "../../lib/config";
+import { formatarFimBF, TEM_PRAZO } from "../../lib/config";
 
-// Faixa fina fixa no topo com o prazo da Black Friday.
-// Some quando a campanha expira; nunca reinicia.
+// Faixa fina fixa no topo: marca à esquerda (some no mobile) e o selo da
+// Black Friday à direita. A data só aparece quando REGRA_PRAZO está
+// preenchida (TEM_PRAZO).
 export function Topbar() {
-  const [expirado, setExpirado] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const tick = () => setExpirado(Date.now() >= BF_FIM);
-    tick();
-    const id = window.setInterval(tick, 30000);
-    return () => window.clearInterval(id);
-  }, []);
-
-  if (expirado) return null;
-
   return (
     <div className="fixed inset-x-0 top-0 z-40 border-b border-brass/20 bg-black/85 backdrop-blur-md">
-      <p className="px-4 py-2 text-center text-[10px] font-semibold uppercase leading-snug tracking-[0.16em] text-brass sm:text-[10.5px] sm:tracking-[0.2em]">
-        BLACK FRIDAY · PELA PRIMEIRA VEZ, O MANIFESTO POR ASSINATURA · ATÉ {formatarFimBF()}
-      </p>
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-8">
+        <p className="hidden font-display text-[13px] font-semibold tracking-wide text-section-dark-fg/90 sm:block">
+          Manifesto Sistêmico
+        </p>
+        <p className="mx-auto text-center text-[9.5px] font-semibold uppercase leading-snug tracking-[0.14em] text-brass sm:mx-0 sm:text-[10px] sm:tracking-[0.18em]">
+          BLACK FRIDAY · PELA PRIMEIRA VEZ POR ASSINATURA
+          {TEM_PRAZO ? ` · ATÉ ${formatarFimBF().toUpperCase()}` : ""}
+        </p>
+      </div>
     </div>
   );
 }

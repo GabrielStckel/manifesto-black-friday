@@ -15,8 +15,21 @@ export type PlanoId = keyof typeof PLANOS;
 // CONFIRMAR antes de publicar.
 export const BF_FIM = new Date("2026-11-30T23:59:00-03:00").getTime();
 
-// ID do player VTurb da VSL. Enquanto vazio, o hero mostra um placeholder.
-export const VTURB_PLAYER_ID = "";
+// Uma frase dizendo o que de fato termina no prazo (ex.: "A condição de
+// Black Friday — entrada por assinatura a partir de 12x de R$ 79 — termina
+// em 30/11 às 23h59."). Enquanto estiver VAZIA, a página não mostra nenhum
+// contador, data ou prazo: a topbar fica sem a parte da data, o eyebrow da
+// oferta fica só "BLACK FRIDAY" e os contadores somem.
+export const REGRA_PRAZO = "";
+
+// Verdadeiro quando há uma regra de prazo definida — só então a página
+// mostra datas e contadores.
+export const TEM_PRAZO = REGRA_PRAZO.trim().length > 0;
+
+// Player VTurb da VSL: conta + ID do player. Com os dois preenchidos, o
+// player real renderiza; vazio, o hero mostra um placeholder escuro 16:9.
+export const VTURB_CONTA = "";
+export const VTURB_PLAYER = "";
 
 // Dados da empresa para o rodapé. Enquanto vazios, a linha não renderiza.
 export const EMPRESA = {

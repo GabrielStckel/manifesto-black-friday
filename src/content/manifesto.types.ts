@@ -6,23 +6,55 @@ export type Meta = {
 };
 
 export type CtaBar = {
-  label: string;
+  /** Texto principal à esquerda (ex.: "Anual 12x R$ 79 · Mensal R$ 97"). */
+  resumo: string;
+  /** Linha menor abaixo do resumo (escondida em telas muito estreitas). */
+  detalhe: string;
+  /** Rótulo do botão. */
+  botao: string;
 };
 
 export type Hero = {
   badge: string;
   h1: string;
   headlinePlayer: string;
+  /** Trecho da headline exibido em destaque (latão). */
+  headlineDestaque: string;
   subtitulo: string;
+  /** Trechos do subtítulo exibidos em latão claro (preços). */
+  subtituloDestaques: string[];
   cta: string;
   microtexto: string;
 };
 
 export type Fundo = "dark" | "light" | "red";
 
+export type SectionResumo = {
+  kind: "resumo";
+  fundo: Fundo;
+  eyebrow: string;
+  titulo: string;
+  blocos: { rotulo: string; texto: string }[];
+  cta: string;
+  nota: string;
+};
+
+export type SectionPadrao = {
+  kind: "padrao";
+  fundo: Fundo;
+  eyebrow: string;
+  titulo: string;
+  paragrafos: string[];
+  /** Frase em negrito dentro do último parágrafo. */
+  destaque: string;
+  linkTopo: string;
+  cenas: string[];
+};
+
 export type SectionMentiras = {
   kind: "mentiras";
   fundo: Fundo;
+  eyebrow: string;
   titulo: string;
   fecho: string;
   itens: {
@@ -36,104 +68,82 @@ export type SectionMentiras = {
 export type SectionSetenios = {
   kind: "setenios";
   fundo: Fundo;
+  eyebrow: string;
   titulo: string;
   abertura: string;
+  /** Marcas da régua (ex.: "0", "7", "14", "21 anos"). */
+  marcas: string[];
+  /** Rótulos dos três setênios sob a régua. */
+  reguaRotulos: string[];
+  rotuloLista: string;
   elos: { titulo: string; texto: string }[];
+  pertencimento: { titulo: string; texto: string };
   fecho: string;
 };
 
 export type SectionParadigma = {
   kind: "paradigma";
   fundo: Fundo;
+  eyebrow: string;
   titulo: string;
   antigo: {
+    rotulo: string;
     nome: string;
     texto: string;
   };
   novo: {
-    nome: string;
-    transicao: string;
+    rotulo: string;
     itens: { titulo: string; texto: string }[];
   };
-};
-
-export type SectionPadrao = {
-  kind: "padrao";
-  fundo: Fundo;
-  titulo: string;
-  paragrafos: string[];
 };
 
 export type SectionPilares = {
   kind: "pilares";
   fundo: Fundo;
+  eyebrow: string;
   titulo: string;
-  intro: string;
   itens: { titulo: string; texto: string }[];
-  sozinho: { titulo: string; texto: string };
   fecho: string;
-};
-
-export type SectionJonas = {
-  kind: "jonas";
-  fundo: Fundo;
-  titulo: string;
-  nome: string;
-  texto: string;
-};
-
-export type PlanoOferta = {
-  nome: string;
-  /** Selo opcional exibido acima do card (ex.: "Menor preço por mês"). */
-  selo?: string;
-  precoGrande: string;
-  linhas: string[];
-  cta: string;
-};
-
-export type SectionOferta = {
-  kind: "oferta";
-  fundo: Fundo;
-  titulo: string;
-  porQueAgora: { titulo: string; texto: string };
-  inclui: { rotulo?: string; texto: string }[];
-  compraSegura: { titulo: string; texto: string };
-  planos: {
-    anual: PlanoOferta;
-    mensal: PlanoOferta;
-  };
-  textoPosCards: string;
-  garantia: {
-    rotulo: string;
-    texto: string;
-  };
-  blocoFinal: {
-    resumo: string;
-    texto: string;
-    cta: string;
-  };
 };
 
 export type Trilha = {
   numero: string;
-  rotulo: string;
   titulo: string;
   texto: string;
-  /** Preenchido quando as capas existirem. Enquanto vazio, o card usa a capa tipográfica. */
-  poster?: { src: string; alt: string; width: number; height: number };
-  /** Selo opcional, ex.: conteúdo ainda não disponível. */
-  status?: string;
 };
 
 export type SectionTrilhas = {
   kind: "trilhas";
   fundo: Fundo;
+  eyebrow: string;
   titulo: string;
+  texto: string;
+  profundidade: { titulo: string; sublegenda: string };
   trilhas: Trilha[];
-  profundidadeTitulo: string;
-  constancia: { titulo: string; itens: string[] };
-  companhia: { titulo: string; texto: string };
-  primeiraSemana: string;
+  constancia: { titulo: string; sublegenda: string; itens: string[] };
+  companhia: { titulo: string; sublegenda: string; texto: string };
+  /** Imagens da área de membros. Vazio = a faixa não renderiza. */
+  prints?: { src: string; alt: string }[];
+};
+
+export type SectionPassos7 = {
+  kind: "passos7";
+  fundo: Fundo;
+  eyebrow: string;
+  titulo: string;
+  passos: { titulo: string; texto: string }[];
+};
+
+export type SectionJonas = {
+  kind: "jonas";
+  fundo: Fundo;
+  eyebrow: string;
+  nome: string;
+  textos: string[];
+  /** Parágrafo extra, só renderiza se preenchido. */
+  credencial?: string;
+  /** Retrato 4:5. Sem foto, mostra o monograma "JP". */
+  foto?: { src: string; alt: string };
 };
 
 export type Depoimento = {
@@ -145,6 +155,7 @@ export type Depoimento = {
 export type SectionDepoimentos = {
   kind: "depoimentos";
   fundo: Fundo;
+  eyebrow: string;
   titulo: string;
   /** Lista vazia = a seção não renderiza. */
   itens: Depoimento[];
@@ -154,16 +165,66 @@ export type SectionDepoimentos = {
 export type SectionParaQuem = {
   kind: "paraQuem";
   fundo: Fundo;
+  eyebrow: string;
   titulo: string;
   paraVoce: string[];
   naoParaVoce: string[];
 };
 
+export type PlanoOferta = {
+  rotulo: string;
+  /** Selo opcional exibido acima do card (ex.: "MAIS EM CONTA QUE O MENSAL"). */
+  selo?: string;
+  /** Linha acima do preço (ex.: "12x de"). */
+  precoPre?: string;
+  preco: string;
+  /** Linha ao lado/abaixo do preço (ex.: "por mês"). */
+  precoPos?: string;
+  /** Linha de apoio sob o preço. */
+  linha: string;
+  itens: string[];
+  cta: string;
+  /** Texto pequeno sob o botão. */
+  nota: string;
+};
+
+export type SectionOferta = {
+  kind: "oferta";
+  fundo: Fundo;
+  titulo: string;
+  porQueAgora: { rotulo: string; texto: string };
+  inclui: { rotulo: string; texto: string }[];
+  planos: {
+    anual: PlanoOferta;
+    mensal: PlanoOferta;
+  };
+  textoPosCards: string;
+  garantia: {
+    selo: string;
+    titulo: string;
+    texto: string;
+  };
+  passosCompra: { rotulo: string; itens: string[] };
+};
+
+export type SectionDoisCaminhos = {
+  kind: "doisCaminhos";
+  fundo: Fundo;
+  eyebrow: string;
+  titulo: string;
+  cards: { titulo: string; texto: string; destaque?: boolean }[];
+  cta: string;
+  microtexto: string;
+};
+
 export type SectionFaq = {
   kind: "faq";
   fundo: Fundo;
+  eyebrow: string;
   titulo: string;
   itens: { pergunta: string; resposta: string }[];
+  cta: string;
+  microtexto: string;
 };
 
 export type SectionRodape = {
@@ -174,16 +235,19 @@ export type SectionRodape = {
 };
 
 export type ManifestoSection =
+  | SectionResumo
+  | SectionPadrao
   | SectionMentiras
   | SectionSetenios
   | SectionParadigma
-  | SectionPadrao
   | SectionPilares
-  | SectionJonas
   | SectionTrilhas
+  | SectionPassos7
+  | SectionJonas
   | SectionDepoimentos
   | SectionParaQuem
   | SectionOferta
+  | SectionDoisCaminhos
   | SectionFaq
   | SectionRodape;
 
