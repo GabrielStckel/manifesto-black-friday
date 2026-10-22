@@ -1,68 +1,28 @@
-import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { CtaBar as CtaBarType } from "../../content/manifesto.types";
+import { ManifestoCta } from "./ManifestoCta";
+import { shouldShowFloatingCta } from "../../lib/cta-visibility";
 
-// Barra fixa inferior: preta translúcida com desfoque e borda superior em
-// latão. Aparece depois que o hero sai da tela e some quando #planos está
-// visível. Respeita a área segura do iPhone.
-export function CtaBar({ resumo, detalhe, botao }: CtaBarType) {
+export function CtaBar({ resumo, botao }: CtaBarType) {
   const [visivel, setVisivel] = useState(false);
-
   useEffect(() => {
-    const atualizar = () => {
-      const planos = document.getElementById("planos");
-      const planosVisivel =
-        !!planos && planos.getBoundingClientRect().top <= window.innerHeight - 40;
-
-      const deveMostrar = window.scrollY > 400 && !planosVisivel;
-      setVisivel(deveMostrar);
-    };
-
-    atualizar();
-    window.addEventListener("scroll", atualizar, { passive: true });
-    window.addEventListener("resize", atualizar);
-    return () => {
-      window.removeEventListener("scroll", atualizar);
-      window.removeEventListener("resize", atualizar);
-    };
+    const hero = document.getElementById("hero");
+    const plans = document.getElementById("planos");
+    const ctas = Array.from(document.querySelectorAll<HTMLAnchorElement>('a[href="#planos"]')).filter(el => !el.closest('.floating-cta'));
+    const elements = [hero, plans, ...ctas].filter((el): el is HTMLElement => el !== null);
+    const visible = new Map<Element, boolean>();
+    const update = () => setVisivel(shouldShowFloatingCta(visible.get(hero as Element) ?? true, visible.get(plans as Element) ?? true, ctas.some(el => visible.get(el))));
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) visible.set(entry.target, entry.isIntersecting);
+      update();
+    });
+    elements.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
-
-  return (
-    <div
-      aria-hidden={!visivel}
-      className={`fixed inset-x-0 bottom-0 z-30 border-t border-brass/25 bg-[rgba(23,15,14,0.9)] text-section-dark-fg transition-all duration-300 ${
-        visivel ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"
-      }`}
-      style={{
-        boxShadow: "0 -12px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(197,162,103,0.12)",
-        paddingBottom: "env(safe-area-inset-bottom)",
-      }}
-    >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2.5 px-4 py-3 sm:px-8">
-        <div className="min-w-0">
-          <p className="font-display text-[12px] font-semibold leading-tight text-section-dark-fg min-[360px]:text-[13.5px] sm:text-[15px]">
-            {resumo}
-          </p>
-          <p className="mt-0.5 hidden text-[11.5px] leading-tight text-muted-foreground min-[380px]:block sm:text-[11.5px]">
-            {detalhe}
-          </p>
-        </div>
-        <a
-          href="#planos"
-          tabIndex={visivel ? undefined : -1}
-          className="group relative inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-cta border border-border-dark/[0.14] bg-gradient-to-b from-red-primary to-red-primary-hover px-4 text-center text-[12px] font-semibold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_28px_rgba(239,75,66,0.28)] transition-all hover:shadow-[0_0_40px_rgba(239,75,66,0.42)] hover:brightness-110 active:scale-[0.98] min-[360px]:px-5 min-[360px]:text-[12.5px] sm:min-h-[52px] sm:px-7 sm:text-[13.5px]"
-        >
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-surface-light/10 to-transparent -translate-x-full transition-transform duration-700 ease-in-out group-hover:translate-x-full"
-          />
-          <span className="relative z-10">{botao}</span>
-          <ArrowRight
-            aria-hidden="true"
-            className="relative z-10 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1"
-          />
-        </a>
-      </div>
-    </div>
-  );
+  const parts = resumo.split(/(12x R\$ 79|R\$ 97\/mês)/g);
+  return <div aria-hidden={!visivel} className={`floating-cta ${visivel ? "is-visible" : ""}`}>
+    <ManifestoCta href="#planos" arrow={false} tabIndex={visivel ? undefined : -1}>
+      {botao} · {parts.map((part, index) => /^(12x R\$ 79|R\$ 97\/mês)$/.test(part) ? <strong key={index}>{part}</strong> : part)}
+    </ManifestoCta>
+  </div>;
 }
