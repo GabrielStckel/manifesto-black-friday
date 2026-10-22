@@ -1,0 +1,217 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+/* Fontes: apenas subset latin, apenas os pesos realmente usados. */
+@import "@fontsource/lora/latin-600.css";
+@import "@fontsource/lora/latin-700.css";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-pill: var(--radius-pill);
+  --radius-cta: var(--radius-cta);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-body: var(--font-body);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  /* Semânticos de seção — a página alterna fundos */
+  --color-section-dark-bg: var(--section-dark-bg);
+  --color-section-dark-fg: var(--section-dark-fg);
+  --color-section-light-bg: var(--section-light-bg);
+  --color-section-light-fg: var(--section-light-fg);
+  --color-section-red-bg: var(--section-red-bg);
+  --color-section-red-fg: var(--section-red-fg);
+
+  --color-bg-black: var(--bg-black);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-light: var(--surface-light);
+  --color-border-dark: var(--border-dark);
+  --color-border-light: var(--border-light);
+  --color-text-on-dark: var(--text-on-dark);
+  --color-text-on-light: var(--text-on-light);
+
+  --color-red-primary: var(--red-primary);
+  --color-red-primary-hover: var(--red-primary-hover);
+  --color-red-accent: var(--red-accent);
+  --color-red-deep: var(--red-deep);
+  --color-on-red: var(--on-red);
+
+  /* Acento próprio do Manifesto */
+  --color-brass: var(--brass);
+  --color-brass-muted: var(--brass-muted);
+  --color-brass-glow: var(--brass-glow);
+  --color-brass-ink: var(--brass-ink);
+  --color-red-ink: var(--red-ink);
+  --color-parchment: var(--parchment);
+  --color-on-parchment: var(--on-parchment);
+}
+
+:root {
+  /* Tipografia */
+  --font-display: "Lora", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Raio */
+  --radius: 0.75rem;
+  --radius-pill: 999px;
+  --radius-cta: 4px;
+
+  /* Neutros escuros */
+  --bg-dark: oklch(0.1508 0.0017 17.35); /* #0C0B0B */
+  --bg-black: oklch(0 0 0); /* #000000 */
+  --surface-dark: oklch(0.205 0.0064 17.69); /* #1A1616 */
+  --border-dark: oklch(1 0 0 / 0.06);
+
+  /* Neutros claros */
+  --bg-light: oklch(0.9853 0.0029 84.56); /* #FBFAF8 */
+  --surface-light: oklch(1 0 0);
+  --border-light: oklch(0 0 0 / 0.08);
+
+  /* Texto */
+  --text-on-dark: oklch(0.9538 0.008 73.74); /* #F3EFEA */
+  --text-on-light: oklch(0.1873 0.0102 52.83); /* #17120F */
+  --text-muted-value: oklch(0.6067 0.0161 57.43); /* #8A8079 */
+  /* Legibilidade sobre o campo escuro — halo largo e difuso, sem contorno duro */
+  --text-shadow-hero: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --text-shadow-soft: 0 4px 18px rgba(0, 0, 0, 0.4);
+
+  /* Vermelhos controlados */
+  --red-primary: oklch(0.5262 0.1842 27.69); /* #BE2B26 */
+  --red-accent: oklch(0.578 0.1909 27.26); /* #D33A34 */
+  --red-deep: oklch(0.3975 0.1288 25.24); /* #7E2020 */
+  --red-primary-hover: oklch(0.4749 0.1678 27.67); /* #A6231F */
+  --on-red: oklch(1 0 0);
+
+  /* Acento próprio do Manifesto — permanência, não urgência */
+  --brass: oklch(0.6842 0.0918 78.5); /* #B8924A */
+  --brass-muted: oklch(0.6842 0.0918 78.5 / 0.35);
+
+  /* Latão luminoso — uso EXCLUSIVO em efeitos (partículas, halos, brilhos).
+     Nunca em texto: não tem contraste para isso. */
+  --brass-glow: oklch(0.8 0.12 82);
+  --parchment: oklch(0.9101 0.0139 78.94); /* #E8E1D5 */
+  --on-parchment: oklch(0.1873 0.0102 52.83); /* #17120F */
+
+  /* Variantes de acento para uso sobre pergaminho (fundo claro).
+     O latão padrão rende só 2.23:1 sobre #E8E1D5 e reprova AA. */
+  --brass-ink: oklch(0.4542 0.0745 82.1); /* #6B5220 — 5.67:1 sobre pergaminho */
+  --red-ink: var(--red-deep); /* #7E2020 — 7.64:1 sobre pergaminho */
+
+  /* Semânticos de seção — a seção clara do Manifesto é pergaminho, não branco */
+  --section-dark-bg: var(--bg-dark);
+  --section-dark-fg: var(--text-on-dark);
+  --section-light-bg: var(--parchment);
+  --section-light-fg: var(--on-parchment);
+  --section-red-bg: var(--red-deep);
+  --section-red-fg: var(--on-red);
+
+  /* Base do tema (escuro por padrão) */
+  --background: var(--bg-dark);
+  --foreground: var(--text-on-dark);
+  --card: var(--surface-dark);
+  --card-foreground: var(--text-on-dark);
+  --primary: var(--red-primary);
+  --primary-foreground: var(--on-red);
+  --primary-hover: var(--red-primary-hover);
+  --muted: var(--surface-dark);
+  --muted-foreground: var(--text-muted-value);
+  --accent: var(--red-accent);
+  --accent-foreground: var(--on-red);
+  --border: var(--border-dark);
+  --ring: var(--red-accent);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+
+  /* Grão de papel nas seções em pergaminho */
+  [data-section-bg="light"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(90, 68, 25, 0.22) 0.5px,
+      transparent 0.6px
+    );
+    background-size: 3px 3px;
+    opacity: 0.5;
+  }
+
+  /* Transição suave no rodapé das seções escuras */
+  [data-section-bg="dark"]::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 120px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, rgba(126, 32, 32, 0.09));
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--red-accent);
+    outline-offset: 2px;
+  }
+
+  /* Acessibilidade: desliga todo movimento para quem pediu */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
