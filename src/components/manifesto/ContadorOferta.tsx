@@ -62,7 +62,7 @@ export function ContadorOferta({
 
   return (
     <div
-      className={`w-full rounded-lg border border-brass/25 bg-black/40 backdrop-blur-sm ${
+      className={`w-full rounded-lg border border-brass/25 bg-bg-black/60 backdrop-blur-sm ${
         compacto ? "px-4 py-4 sm:px-5" : "px-5 py-6 sm:px-7"
       }`}
       style={{ boxShadow: "inset 0 1px 0 rgba(197,162,103,0.12)" }}
