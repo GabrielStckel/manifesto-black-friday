@@ -135,7 +135,7 @@ export function Hero({
       />
 
       <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center text-center md:max-w-4xl">
-        <p className="inline-flex items-center gap-2.5 rounded-full border border-brass/25 bg-surface-light/[0.04] px-4 py-2 text-[11.5px] font-semibold uppercase leading-[1.6] tracking-[0.2em] text-brass-glow sm:text-[11.5px] sm:tracking-[0.26em]">
+        <p className="hero-badge inline-flex items-center gap-2.5 rounded-full border border-brass/25 bg-surface-light/[0.04] px-4 py-2 text-[11.5px] font-semibold uppercase leading-[1.6] tracking-[0.2em] text-brass-glow sm:text-[11.5px] sm:tracking-[0.26em]">
           <span
             aria-hidden="true"
             className="h-1.5 w-1.5 shrink-0 rotate-45 bg-brass"
