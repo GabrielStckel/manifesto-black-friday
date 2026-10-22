@@ -374,3 +374,6 @@ main .gold-number { font:600 44px/1 var(--font-display); letter-spacing:-.04em; 
  .mk mark { background-size:40% 100%,100% 100%; }
 }
 main .counter-caption { font-size:11px; }
+@media (max-width:560px) {
+  .hero-badge { white-space:nowrap; font-size:11px; letter-spacing:0.14em; padding:6px 12px; }
+}
