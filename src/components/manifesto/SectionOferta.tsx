@@ -128,9 +128,20 @@ export function SectionOferta({
 }: SectionOfertaType) {
   return (
     <SectionShell fundo={fundo} id="planos" className="bg-oferta scroll-mt-14 py-20 md:py-28">
+      {/* Brilho vermelho: no celular vira uma luz larga e suave (pelo menos
+          160% da largura da tela, centrada), para não formar uma coluna de
+          luz atrás dos cards. No desktop o halo alto continua igual. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 md:hidden"
+        style={{
+          background:
+            "radial-gradient(160vw 60vw at 50% 21%, rgba(232,73,63,0.17), transparent 76%), radial-gradient(max(480px,60%) 420px at 50% 0%, rgba(214,174,98,0.20), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden md:block"
         style={{
           background:
             "radial-gradient(max(520px,70%) 900px at 50% 38%, rgba(232,73,63,0.24), transparent 70%), radial-gradient(max(480px,60%) 420px at 50% 0%, rgba(214,174,98,0.20), transparent 70%)",
