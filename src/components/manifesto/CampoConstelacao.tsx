@@ -181,6 +181,10 @@ export function CampoConstelacao() {
         ultimo = 0;
         raf = requestAnimationFrame(desenhar);
       }
+      if (started && rodando && !document.hidden && staticFrame) {
+        ultimo = 0;
+        desenhar(1000);
+      }
     };
     const io = new IntersectionObserver((entries) => {
       rodando = entries[0]?.isIntersecting ?? false;

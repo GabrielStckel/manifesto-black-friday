@@ -326,12 +326,12 @@ main [data-section-bg] { content-visibility:auto; contain-intrinsic-size:auto 90
 .mk mark { color:inherit; background-color:transparent; padding:0 .1em; border-radius:.14em; -webkit-box-decoration-break:clone; box-decoration-break:clone; background-image:linear-gradient(100deg,transparent,var(--marker-glint) 50%,transparent),linear-gradient(100deg,var(--marker-fill),var(--marker-end)); background-repeat:no-repeat; background-size:40% 100%,0% 100%; background-position:-60% 0,0 0; transition:background-size 1.1s cubic-bezier(.22,1,.36,1) .35s; }
 [data-section-bg="light"] .mk mark { --marker-glint:var(--marker-light-glint); --marker-fill:var(--marker-light-fill); --marker-end:var(--marker-light-end); }
 .mk.is-in mark { background-size:40% 100%,100% 100%; animation:mk-brilho 5.5s ease-in-out 1.6s infinite; animation-play-state:paused; }
-.animation-visible .mk.is-in mark { animation-play-state:running; }
+.mk.is-in.animation-visible mark { animation-play-state:running; }
 @keyframes mk-brilho { 0% { background-position:-60% 0,0 0; } 55%,100% { background-position:160% 0,0 0; } }
 .trail-card { position:relative; display:grid; grid-template-columns:52px minmax(0,1fr); gap:16px; align-items:start; height:100%; padding:20px 20px 22px 18px; border-radius:16px; overflow:hidden; background:linear-gradient(180deg,color-mix(in srgb,var(--white) 7.5%,transparent),color-mix(in srgb,var(--white) 3%,transparent)); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--white) 13%,transparent); }
 .trail-card::before { content:attr(data-n); position:absolute; right:-2px; bottom:-22px; color:color-mix(in srgb,var(--brass-glow) 7%,transparent); font:600 92px/1 var(--font-display); letter-spacing:-.06em; pointer-events:none; }
 .trail-card::after { content:""; position:absolute; inset:0; border-radius:inherit; opacity:0; pointer-events:none; background:radial-gradient(80% 90% at 0 30%,color-mix(in srgb,var(--brass-glow) 14%,transparent),transparent 62%); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--brass-glow) 60%,transparent); animation:guia 7.2s linear infinite; animation-play-state:paused; }
-.animation-visible .trail-card::after { animation-play-state:running; }
+.trail-card.animation-visible::after { animation-play-state:running; }
 .trail-card[data-n="02"]::after { animation-delay:1.8s; }
 .trail-card[data-n="03"]::after { animation-delay:3.6s; }
 .trail-card[data-n="04"]::after { animation-delay:5.4s; }
@@ -373,4 +373,4 @@ main .gold-number { font:600 44px/1 var(--font-display); letter-spacing:-.04em; 
  .btn::before,.ribbon-copy,.trail-card::after,.mk.is-in mark { animation:none; }
  .mk mark { background-size:40% 100%,100% 100%; }
 }
-@supports not (animation-timeline:view()) { }
+main .counter-caption { font-size:11px; }

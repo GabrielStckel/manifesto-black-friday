@@ -1,4 +1,6 @@
 import { MarkedTitle } from "./MarkedTitle";
+import { useVisibleAnimation } from "./useVisibleAnimation";
+import type { Trilha } from "../../content/manifesto.types";
 import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionTrilhas as SectionTrilhasType } from "../../content/manifesto.types";
@@ -13,6 +15,18 @@ function Sublegenda({ children }: { children: string }) {
       {children}
     </p>
   );
+}
+
+function TrailCard({ trilha }: { trilha: Trilha }) {
+  const { ref, visible } = useVisibleAnimation<HTMLElement>();
+  return <article ref={ref} className={`trail-card ${visible ? "animation-visible" : ""}`} data-n={trilha.numero}>
+    <Medalhao numero={trilha.numero} />
+    <div className="relative min-w-0">
+      <p className="trail-label">TRILHA {trilha.numero}</p>
+      <h4 className="trail-title mt-2">{trilha.titulo}</h4>
+      <p className="trail-text mt-3">{trilha.texto}</p>
+    </div>
+  </article>;
 }
 
 // O Manifesto por dentro: os três grupos (Profundidade com as 4 trilhas,
@@ -65,14 +79,7 @@ export function SectionTrilhas({
         <ul className="relative mx-auto mt-6 grid max-w-5xl items-stretch gap-3.5 md:grid-cols-2 md:mt-7">
           {trilhas.map((trilha, i) => (
             <Reveal as="li" key={trilha.numero} delay={i * 100} className="block h-full">
-              <article className="trail-card" data-n={trilha.numero}>
-                <Medalhao numero={trilha.numero} />
-                <div className="relative min-w-0">
-                  <p className="trail-label">TRILHA {trilha.numero}</p>
-                  <h4 className="trail-title mt-2">{trilha.titulo}</h4>
-                  <p className="trail-text mt-3">{trilha.texto}</p>
-                </div>
-              </article>
+              <TrailCard trilha={trilha} />
             </Reveal>
           ))}
         </ul>
