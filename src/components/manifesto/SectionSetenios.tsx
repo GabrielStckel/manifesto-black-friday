@@ -7,6 +7,7 @@ export function SectionSetenios({
   titulo,
   abertura,
   elos,
+  fecho,
 }: SectionSeteniosType) {
   return (
     <SectionShell fundo={fundo} className="overflow-hidden py-20 md:py-28">
@@ -84,6 +85,9 @@ export function SectionSetenios({
             </Reveal>
           ))}
         </ol>
+        <Reveal delay={240}>
+          <p className="mx-auto mt-10 max-w-3xl text-center font-display text-[19px] font-semibold leading-relaxed text-brass md:text-[22px]">{fecho}</p>
+        </Reveal>
       </div>
     </SectionShell>
   );
