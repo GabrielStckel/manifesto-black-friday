@@ -2,7 +2,7 @@ import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionMentiras as SectionMentirasType } from "../../content/manifesto.types";
 
-export function SectionMentiras({ fundo, titulo, itens, fecho }: SectionMentirasType) {
+export function SectionMentiras({ fundo, eyebrow, titulo, itens, fecho }: SectionMentirasType) {
   return (
     <SectionShell fundo={fundo}>
       <div
@@ -17,7 +17,10 @@ export function SectionMentiras({ fundo, titulo, itens, fecho }: SectionMentiras
 
       <div className="relative z-10">
       <Reveal className="mx-auto max-w-3xl text-center">
-        <h2 className="mx-auto max-w-[24ch] text-pretty text-center font-display font-semibold leading-[1.35] text-[clamp(1rem,4.2vw,1.35rem)] sm:max-w-[26ch] sm:text-[clamp(1.1rem,4.6vw,1.55rem)] md:max-w-3xl md:text-pretty md:text-[clamp(1.35rem,2.6vw,2rem)] md:leading-[1.14]">
+        <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass md:text-[12px]">
+          {eyebrow}
+        </p>
+        <h2 className="mx-auto mt-4 max-w-[24ch] text-pretty text-center font-display font-semibold leading-[1.3] text-[clamp(1.15rem,4.8vw,1.55rem)] sm:max-w-[26ch] md:max-w-3xl md:text-pretty md:text-[clamp(1.4rem,2.6vw,2rem)] md:leading-[1.14]">
           {titulo}
         </h2>
         <div aria-hidden className="mt-7 flex items-center justify-center gap-3">
@@ -35,7 +38,7 @@ export function SectionMentiras({ fundo, titulo, itens, fecho }: SectionMentiras
                 {item.rotulo}
               </p>
 
-              <p className="relative z-10 mt-4 font-display text-[clamp(1.05rem,1.5vw,1.12rem)] italic leading-snug text-muted-foreground lg:whitespace-nowrap">
+              <p className="relative z-10 mt-4 font-display text-[clamp(1.15rem,1.8vw,1.3rem)] italic leading-snug text-section-dark-fg/90">
                 {"\u201C"}
                 {item.mentira}
                 {"\u201D"}
@@ -47,7 +50,7 @@ export function SectionMentiras({ fundo, titulo, itens, fecho }: SectionMentiras
                 {item.rotuloVerdade}
               </p>
 
-              <p className="relative z-10 mt-3 text-justify hyphens-auto text-[15px] leading-relaxed text-section-dark-fg/90 sm:text-base md:text-[17px] md:leading-[1.75]">
+              <p className="relative z-10 mt-3 text-left text-[15px] leading-relaxed text-section-dark-fg/90 sm:text-base md:text-[17px] md:leading-[1.75]">
                 {item.verdade}
               </p>
 

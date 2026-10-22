@@ -1,90 +1,65 @@
-import { ArrowDown, ArrowRight } from "lucide-react";
 import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionParadigma as SectionParadigmaType } from "../../content/manifesto.types";
 
+// A virada: dois painéis sobre pergaminho — o olhar cartesiano (claro,
+// inerte) e o olhar sistêmico (escuro, com os quatro pontos).
 export function SectionParadigma({
   fundo,
+  eyebrow,
   titulo,
   antigo,
   novo,
 }: SectionParadigmaType) {
   return (
-    <SectionShell fundo={fundo} className="py-14">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(45% 40% at 85% 40%, var(--red-deep) 0%, transparent 65%)",
-          opacity: 0.28,
-        }}
-      />
-
-      <div className="relative z-10">
-      <Reveal>
-        <h2 className="mx-auto max-w-[22ch] text-pretty text-center font-display font-semibold leading-[1.35] text-[clamp(1.05rem,4.4vw,1.45rem)] sm:max-w-[24ch] sm:text-[clamp(1.15rem,4.8vw,1.65rem)] md:max-w-4xl md:text-pretty md:text-[clamp(1.5rem,2.7vw,2.1rem)] md:leading-[1.12]">
-          {titulo}
-        </h2>
-      </Reveal>
-
-      <div className="mt-14 grid gap-8 md:grid-cols-12 md:items-start md:gap-10">
-        {/* Bloco antigo — única caixa da seção, inerte */}
-        <Reveal className="md:col-span-5">
-          <div className="rounded-lg border border-white/8 bg-black/40 p-6 text-left sm:p-8">
-            <h3 className="font-display text-[20px] font-semibold leading-snug text-section-dark-fg/70 sm:text-[22px] md:text-[21px]">
-              {antigo.nome}
-            </h3>
-            <p className="mt-5 text-justify hyphens-auto text-[15px] leading-relaxed text-section-dark-fg/50 sm:text-base md:text-[17px] md:leading-[1.75]">
-              {antigo.texto}
-            </p>
-          </div>
+    <SectionShell fundo={fundo} className="py-16 md:py-24">
+      <div className="relative">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
+            {eyebrow}
+          </p>
+          <h2 className="mx-auto mt-4 max-w-[24ch] text-pretty text-center font-display font-semibold leading-[1.3] text-section-light-fg text-[clamp(1.15rem,4.8vw,1.55rem)] sm:max-w-[26ch] md:max-w-3xl md:text-pretty md:text-[clamp(1.45rem,2.7vw,2.05rem)] md:leading-[1.12]">
+            {titulo}
+          </h2>
         </Reveal>
 
-        {/* Divisor de transição — decorativo */}
-        <div aria-hidden className="md:col-span-2 md:self-stretch">
-          <div className="flex items-center gap-4 py-2 md:hidden">
-            <span className="h-px flex-1 bg-brass/25" />
-            <ArrowDown className="h-5 w-5 text-brass/70" />
-            <span className="h-px flex-1 bg-brass/25" />
-          </div>
-          <div className="hidden h-full flex-col items-center justify-center md:flex">
-            <span className="w-px flex-1 bg-brass/25" />
-            <ArrowRight className="my-4 h-5 w-5 text-brass/70" />
-            <span className="w-px flex-1 bg-brass/25" />
-          </div>
-        </div>
-
-        {/* Bloco novo — aberto */}
-        <div className="text-left md:col-span-5">
-          <Reveal>
-            <h3 className="font-display text-[20px] font-semibold leading-snug text-section-dark-fg sm:text-[22px] md:text-[21px]">
-              {novo.nome}
-            </h3>
-            <p className="mt-5 text-justify hyphens-auto text-[15px] leading-relaxed text-section-dark-fg/80 sm:text-base md:text-[17px] md:leading-[1.75]">
-              {novo.transicao}
-            </p>
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:mt-14 md:grid-cols-2 md:gap-7 md:items-stretch">
+          {/* Painel claro — o olhar que nos moldou */}
+          <Reveal className="h-full">
+            <div className="h-full rounded-xl border border-black/10 bg-white/50 p-6 md:p-8">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-section-light-fg/50 md:text-[11px]">
+                {antigo.rotulo}
+              </p>
+              <h3 className="mt-4 font-display text-[20px] font-semibold leading-snug text-section-light-fg/75 md:text-[22px]">
+                {antigo.nome}
+              </h3>
+              <p className="mt-4 text-[15px] leading-[1.75] text-section-light-fg/65 md:text-[16px]">
+                {antigo.texto}
+              </p>
+            </div>
           </Reveal>
 
-          <ul className="mt-8 space-y-6">
-            {novo.itens.map((item, i) => (
-              <Reveal
-                as="li"
-                key={item.titulo}
-                delay={(i + 1) * 100}
-                className="relative block border-l border-brass/30 pl-5"
-              >
-                <h4 className="font-display text-[16px] font-semibold leading-snug text-section-dark-fg sm:text-[17px] md:text-[18px]">
-                  {item.titulo}
-                </h4>
-                <p className="mt-2 text-justify hyphens-auto text-[14.5px] leading-relaxed text-section-dark-fg/75 sm:text-[15px] md:text-[16px] md:leading-[1.7]">
-                  {item.texto}
-                </p>
-              </Reveal>
-            ))}
-          </ul>
+          {/* Painel escuro — o olhar sistêmico */}
+          <Reveal delay={120} className="h-full">
+            <div className="h-full rounded-xl border border-brass/30 bg-section-dark-bg p-6 text-section-dark-fg shadow-[0_30px_90px_-40px_rgba(0,0,0,0.7)] md:p-8">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brass md:text-[11px]">
+                {novo.rotulo}
+              </p>
+              <ul className="mt-6 space-y-6">
+                {novo.itens.map((item, i) => (
+                  <li key={item.titulo} className={i > 0 ? "border-t border-white/10 pt-6" : ""}>
+                    <h4 className="font-display text-[16.5px] font-semibold leading-snug md:text-[18px]">
+                      {item.titulo}
+                    </h4>
+                    <p className="mt-2 text-[14.5px] leading-[1.7] text-section-dark-fg/75 md:text-[15.5px]">
+                      {item.texto}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         </div>
-      </div>
       </div>
     </SectionShell>
   );

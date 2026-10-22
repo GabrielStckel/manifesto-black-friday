@@ -1,57 +1,59 @@
 import { useEffect } from "react";
-import { VTURB_PLAYER_ID } from "../../lib/config";
+import { Play } from "lucide-react";
+import { VTURB_CONTA, VTURB_PLAYER } from "../../lib/config";
 
-declare module "react" {
-  namespace JSX {
-    interface IntrinsicElements {
-      "vturb-smartplayer": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
+// Declara o elemento customizado do VTurb para o JSX.
+declare global {
+  namespace React {
+    namespace JSX {
+      interface IntrinsicElements {
+        "vturb-smartplayer": React.DetailedHTMLProps<
+          React.HTMLAttributes<HTMLElement>,
+          HTMLElement
+        >;
+      }
     }
   }
 }
 
-const SCRIPT_SRC =
-  "https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js";
-
-// Player da VSL (VTurb). Sem lazy-load: a VSL é o conteúdo principal do hero.
-// Enquanto VTURB_PLAYER_ID estiver vazio, mostra um placeholder escuro.
+// Player da VSL. Com VTURB_CONTA e VTURB_PLAYER preenchidos, renderiza o
+// <vturb-smartplayer> e injeta uma única vez o script oficial do VTurb.
+// Vazio: placeholder escuro 16:9 com botão de play vermelho.
 export function VturbPlayer() {
+  const pronto = VTURB_CONTA.trim() !== "" && VTURB_PLAYER.trim() !== "";
+
   useEffect(() => {
-    if (!VTURB_PLAYER_ID) return;
-    if (document.querySelector(`script[src="${SCRIPT_SRC}"]`)) return;
+    if (!pronto) return;
+    const src = `https://scripts.converteai.net/${VTURB_CONTA}/players/${VTURB_PLAYER}/v4/player.js`;
+    if (document.querySelector(`script[src="${src}"]`)) return;
     const script = document.createElement("script");
-    script.src = SCRIPT_SRC;
+    script.src = src;
     script.async = true;
     document.head.appendChild(script);
-  }, []);
+  }, [pronto]);
 
   return (
-    <div
-      className="w-full max-w-[760px] overflow-hidden rounded-lg border border-brass/25 bg-black/40"
-      style={{
-        aspectRatio: "16 / 9",
-        boxShadow: "inset 0 1px 0 rgba(197,162,103,0.12)",
-      }}
-    >
-      {VTURB_PLAYER_ID ? (
-        <vturb-smartplayer
-          id={`vid-${VTURB_PLAYER_ID}`}
-          style={{
-            display: "block",
-            margin: "0 auto",
-            width: "100%",
-            height: "100%",
-          }}
-        />
-      ) : (
-        <div className="flex h-full w-full items-center justify-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground md:text-[12px]">
-            VSL em produção
-          </p>
-        </div>
-      )}
+    <div className="w-full max-w-[820px] overflow-hidden rounded-lg border border-brass/25 bg-black/60 shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)]">
+      <div className="relative aspect-video w-full">
+        {pronto ? (
+          <vturb-smartplayer
+            id={`vid-${VTURB_PLAYER}`}
+            style={{ display: "block", width: "100%", height: "100%" }}
+          />
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+            <span
+              aria-hidden
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-b from-red-primary to-red-primary-hover shadow-[0_0_40px_rgba(211,58,52,0.4)] md:h-20 md:w-20"
+            >
+              <Play className="ml-1 h-7 w-7 fill-on-red text-on-red md:h-8 md:w-8" />
+            </span>
+            <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground md:text-[13px]">
+              VSL do Jonas · em produção
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

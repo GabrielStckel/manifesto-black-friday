@@ -1,16 +1,17 @@
-import { Check, X } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionParaQuem as SectionParaQuemType } from "../../content/manifesto.types";
 
 export function SectionParaQuem({
   fundo,
+  eyebrow,
   titulo,
   paraVoce,
   naoParaVoce,
 }: SectionParaQuemType) {
   return (
-    <SectionShell fundo={fundo} className="overflow-hidden">
+    <SectionShell fundo={fundo} className="overflow-hidden bg-surface-dark">
       {/* Luz superior em latão */}
       <div
         aria-hidden
@@ -23,8 +24,11 @@ export function SectionParaQuem({
       />
 
       <div className="relative">
-        <Reveal>
-          <h2 className="mx-auto max-w-3xl text-balance text-center font-display text-[clamp(1.65rem,6.6vw,2.25rem)] font-semibold leading-[1.14] tracking-[-0.015em] md:text-[clamp(1.7rem,2.9vw,2.25rem)] md:leading-[1.1]">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass md:text-[12px]">
+            {eyebrow}
+          </p>
+          <h2 className="mx-auto mt-4 max-w-3xl text-balance text-center font-display text-[clamp(1.5rem,6.4vw,2.2rem)] font-semibold leading-[1.14] tracking-[-0.015em] md:text-[clamp(1.6rem,2.9vw,2.25rem)] md:leading-[1.1]">
             {titulo}
           </h2>
         </Reveal>
@@ -69,7 +73,7 @@ export function SectionParaQuem({
                       aria-hidden
                       className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.04]"
                     >
-                      <X className="h-3.5 w-3.5 text-muted-foreground" />
+                      <Minus className="h-3.5 w-3.5 text-muted-foreground" />
                     </span>
                     <span>{item}</span>
                   </li>

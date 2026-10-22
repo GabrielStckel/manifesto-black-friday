@@ -4,16 +4,68 @@ import { Orbe } from "./Orbe";
 import { VturbPlayer } from "./VturbPlayer";
 import type { Hero as HeroType } from "../../content/manifesto.types";
 
+// Destaca um trecho da headline em latão.
+function HeadlinePlayer({ texto, destaque }: { texto: string; destaque: string }) {
+  const idx = texto.indexOf(destaque);
+  if (idx === -1) return <>{texto}</>;
+  return (
+    <>
+      {texto.slice(0, idx)}
+      <strong className="font-semibold text-brass">{destaque}</strong>
+      {texto.slice(idx + destaque.length)}
+    </>
+  );
+}
+
+// Destaca os preços do subtítulo em latão claro.
+function Subtitulo({ texto, destaques }: { texto: string; destaques: string[] }) {
+  const partes: { trecho: string; destaque: boolean }[] = [];
+  let restante = texto;
+  while (restante.length > 0) {
+    let menorIdx = -1;
+    let destaqueAchado = "";
+    for (const d of destaques) {
+      const i = restante.indexOf(d);
+      if (i !== -1 && (menorIdx === -1 || i < menorIdx)) {
+        menorIdx = i;
+        destaqueAchado = d;
+      }
+    }
+    if (menorIdx === -1) {
+      partes.push({ trecho: restante, destaque: false });
+      break;
+    }
+    if (menorIdx > 0) partes.push({ trecho: restante.slice(0, menorIdx), destaque: false });
+    partes.push({ trecho: destaqueAchado, destaque: true });
+    restante = restante.slice(menorIdx + destaqueAchado.length);
+  }
+  return (
+    <>
+      {partes.map((p, i) =>
+        p.destaque ? (
+          <strong key={i} className="font-semibold text-brass">
+            {p.trecho}
+          </strong>
+        ) : (
+          <span key={i}>{p.trecho}</span>
+        ),
+      )}
+    </>
+  );
+}
+
 export function Hero({
   badge,
   h1,
   headlinePlayer,
+  headlineDestaque,
   subtitulo,
+  subtituloDestaques,
   cta,
   microtexto,
 }: HeroType) {
   return (
-    <section className="relative flex min-h-[94svh] items-center overflow-hidden bg-section-dark-bg px-5 pb-14 pt-24 text-section-dark-fg sm:px-8 md:min-h-[92vh] md:pb-24 md:pt-28">
+    <section className="relative overflow-hidden bg-section-dark-bg px-5 pb-14 pt-24 text-section-dark-fg sm:px-8 md:pb-20 md:pt-28">
       {/* Camadas de fundo — todas decorativas */}
       <div
         aria-hidden="true"
@@ -76,8 +128,8 @@ export function Hero({
           {h1}
         </h1>
 
-        <p className="mt-7 max-w-[46ch] text-[15px] font-medium leading-[1.55] text-brass/95 md:mt-8 md:text-[17px]">
-          {headlinePlayer}
+        <p className="mt-7 max-w-[46ch] text-[15px] font-medium leading-[1.55] text-section-dark-fg/90 md:mt-8 md:text-[17px]">
+          <HeadlinePlayer texto={headlinePlayer} destaque={headlineDestaque} />
         </p>
 
         <div className="mt-6 flex w-full justify-center md:mt-8">
@@ -85,14 +137,14 @@ export function Hero({
         </div>
 
         <p
-          className="mt-8 max-w-[44ch] text-[15.5px] leading-[1.65] text-section-dark-fg/90 md:mt-10 md:max-w-[58ch] md:whitespace-pre-line md:text-[18px] md:leading-[1.65]"
+          className="mt-8 max-w-[44ch] text-[15.5px] leading-[1.65] text-section-dark-fg/90 md:mt-10 md:max-w-[58ch] md:text-[18px] md:leading-[1.65]"
           style={{ textShadow: "var(--text-shadow-soft)" }}
         >
-          {subtitulo}
+          <Subtitulo texto={subtitulo} destaques={subtituloDestaques} />
         </p>
 
         <a
-          href="#oferta"
+          href="#planos"
           className="group relative mt-8 flex min-h-[60px] w-full max-w-[440px] items-center justify-center gap-2 overflow-hidden rounded-cta border border-white/15 bg-gradient-to-b from-red-primary to-red-primary-hover px-6 text-center text-[14.5px] font-bold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_32px_rgba(211,58,52,0.32),0_22px_60px_-18px_var(--red-accent)] transition-all hover:shadow-[0_0_48px_rgba(211,58,52,0.48),0_28px_75px_-16px_var(--red-accent)] hover:brightness-110 active:scale-[0.98] md:mt-10 md:text-[16px]"
         >
           <span
