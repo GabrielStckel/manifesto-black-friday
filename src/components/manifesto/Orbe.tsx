@@ -9,7 +9,7 @@ export function Orbe() {
         background: `
           radial-gradient(circle at 50% 50%, rgba(211,58,52,0.16) 0%, transparent 62%),
           radial-gradient(circle at 44% 36%, rgba(214,178,104,0.08) 0%, transparent 46%),
-          radial-gradient(circle at 50% 50%, rgba(12,11,11,0.55) 30%, transparent 70%)
+          radial-gradient(circle at 50% 50%, rgba(31,18,16,0.3) 30%, transparent 70%)
         `,
         maskImage:
           "radial-gradient(circle at 50% 50%, #000 55%, transparent 78%)",
