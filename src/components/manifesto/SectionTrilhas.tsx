@@ -39,7 +39,7 @@ function Medalhao({ trilha }: { trilha: Trilha }) {
   );
 }
 
-export function SectionTrilhas({ fundo, titulo, trilhas }: SectionTrilhasType) {
+export function SectionTrilhas({ fundo, titulo, trilhas, rodapeLinha }: SectionTrilhasType) {
   return (
     <SectionShell fundo={fundo} className="overflow-hidden md:py-28">
       {/* Luz superior em latão */}
@@ -120,6 +120,12 @@ export function SectionTrilhas({ fundo, titulo, trilhas }: SectionTrilhasType) {
             </Reveal>
           ))}
         </ul>
+
+        <Reveal delay={200}>
+          <p className="mx-auto mt-10 max-w-2xl text-center text-[13.5px] leading-relaxed text-muted-foreground md:mt-12 md:text-[14.5px]">
+            {rodapeLinha}
+          </p>
+        </Reveal>
 
         {/* Ornamento inferior */}
         <div

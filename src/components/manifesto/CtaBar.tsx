@@ -1,7 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { CHECKOUT_URL } from "../../lib/config";
-import { handleCheckoutClick } from "../../lib/analytics";
 
 
 
@@ -61,8 +59,7 @@ export function CtaBar({ label }: { label: string }) {
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-center px-4 py-3 sm:px-8">
         <a
-          href={CHECKOUT_URL}
-          onClick={handleCheckoutClick("cta_bar", CHECKOUT_URL)}
+          href="#oferta"
           tabIndex={visivel ? undefined : -1}
           className="group relative inline-flex min-h-[52px] w-full items-center justify-center gap-2 overflow-hidden rounded-cta border border-white/10 bg-gradient-to-b from-red-primary to-red-primary-hover px-6 text-center text-[13.5px] font-bold uppercase leading-snug tracking-[0.06em] text-on-red shadow-[0_0_28px_rgba(211,58,52,0.28)] transition-all hover:shadow-[0_0_40px_rgba(211,58,52,0.42)] hover:brightness-110 active:scale-[0.98] sm:w-auto sm:min-w-[320px] md:min-h-[56px] md:text-[15px]"
         >
