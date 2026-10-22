@@ -104,7 +104,7 @@ export function SectionOferta({
   blocoFinal,
 }: SectionOfertaType) {
   return (
-    <SectionShell fundo={fundo} id="oferta" className="scroll-mt-12 py-20 md:py-28">
+    <SectionShell fundo={fundo} id="oferta" className="scroll-mt-16 py-20 md:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
