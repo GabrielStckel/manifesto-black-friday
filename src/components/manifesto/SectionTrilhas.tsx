@@ -39,7 +39,7 @@ function Medalhao({ trilha }: { trilha: Trilha }) {
   );
 }
 
-export function SectionTrilhas({ fundo, titulo, trilhas, rodapeLinha }: SectionTrilhasType) {
+export function SectionTrilhas({ fundo, titulo, trilhas, profundidadeTitulo, constancia, companhia, primeiraSemana }: SectionTrilhasType) {
   return (
     <SectionShell fundo={fundo} className="overflow-hidden md:py-28">
       {/* Luz superior em latão */}
@@ -67,7 +67,10 @@ export function SectionTrilhas({ fundo, titulo, trilhas, rodapeLinha }: SectionT
           </h2>
         </Reveal>
 
-        <ul className="relative mx-auto mt-10 grid max-w-5xl items-stretch gap-5 sm:grid-cols-2 md:mt-16 md:gap-7">
+        <Reveal>
+          <h3 className="mx-auto mt-10 max-w-5xl font-display text-[22px] font-semibold text-brass md:mt-14 md:text-[25px]">{profundidadeTitulo}</h3>
+        </Reveal>
+        <ul className="relative mx-auto mt-6 grid max-w-5xl items-stretch gap-5 sm:grid-cols-2 md:mt-8 md:gap-7">
           {trilhas.map((trilha, i) => (
             <Reveal
               as="li"
@@ -122,9 +125,19 @@ export function SectionTrilhas({ fundo, titulo, trilhas, rodapeLinha }: SectionT
         </ul>
 
         <Reveal delay={200}>
-          <p className="mx-auto mt-10 max-w-2xl text-center text-[13.5px] leading-relaxed text-muted-foreground md:mt-12 md:text-[14.5px]">
-            {rodapeLinha}
-          </p>
+          <div className="mx-auto mt-12 grid max-w-5xl gap-9 border-t border-brass/25 pt-9 md:grid-cols-2 md:gap-12">
+            <div>
+              <h3 className="font-display text-[22px] font-semibold leading-snug text-brass md:text-[25px]">{constancia.titulo}</h3>
+              <ul className="mt-5 space-y-4 text-[16px] leading-[1.75] text-section-dark-fg/80">
+                {constancia.itens.map((texto) => <li key={texto} className="border-l border-brass/30 pl-4">{texto}</li>)}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-display text-[22px] font-semibold leading-snug text-brass md:text-[25px]">{companhia.titulo}</h3>
+              <p className="mt-5 text-[16px] leading-[1.75] text-section-dark-fg/80">{companhia.texto}</p>
+            </div>
+          </div>
+          <p className="mx-auto mt-10 max-w-3xl border-l-2 border-brass pl-5 text-[16px] leading-[1.75] text-section-dark-fg/90 md:mt-12 md:text-[18px]">{primeiraSemana}</p>
         </Reveal>
 
         {/* Ornamento inferior */}

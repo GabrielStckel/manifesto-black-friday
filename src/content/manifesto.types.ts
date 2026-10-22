@@ -14,7 +14,6 @@ export type Hero = {
   h1: string;
   headlinePlayer: string;
   subtitulo: string;
-  aviso: string;
   cta: string;
   microtexto: string;
 };
@@ -25,6 +24,7 @@ export type SectionMentiras = {
   kind: "mentiras";
   fundo: Fundo;
   titulo: string;
+  fecho: string;
   itens: {
     rotulo: string;
     mentira: string;
@@ -39,6 +39,7 @@ export type SectionSetenios = {
   titulo: string;
   abertura: string;
   elos: { titulo: string; texto: string }[];
+  fecho: string;
 };
 
 export type SectionParadigma = {
@@ -56,19 +57,28 @@ export type SectionParadigma = {
   };
 };
 
-export type SectionComunidade = {
-  kind: "comunidade";
+export type SectionPadrao = {
+  kind: "padrao";
   fundo: Fundo;
   titulo: string;
-  texto: string;
-  /** Segundo parágrafo opcional, exibido abaixo do texto principal. */
-  texto2?: string;
+  paragrafos: string[];
 };
 
-export type SectionColetivo = {
-  kind: "coletivo";
+export type SectionPilares = {
+  kind: "pilares";
   fundo: Fundo;
   titulo: string;
+  intro: string;
+  itens: { titulo: string; texto: string }[];
+  sozinho: { titulo: string; texto: string };
+  fecho: string;
+};
+
+export type SectionJonas = {
+  kind: "jonas";
+  fundo: Fundo;
+  titulo: string;
+  nome: string;
   texto: string;
 };
 
@@ -85,7 +95,9 @@ export type SectionOferta = {
   kind: "oferta";
   fundo: Fundo;
   titulo: string;
-  inclui: string[];
+  porQueAgora: { titulo: string; texto: string };
+  inclui: { rotulo?: string; texto: string }[];
+  compraSegura: { titulo: string; texto: string };
   planos: {
     anual: PlanoOferta;
     mensal: PlanoOferta;
@@ -96,6 +108,7 @@ export type SectionOferta = {
     texto: string;
   };
   blocoFinal: {
+    resumo: string;
     texto: string;
     cta: string;
   };
@@ -117,8 +130,10 @@ export type SectionTrilhas = {
   fundo: Fundo;
   titulo: string;
   trilhas: Trilha[];
-  /** Linha exibida abaixo dos cards (ex.: vivências ao vivo). */
-  rodapeLinha: string;
+  profundidadeTitulo: string;
+  constancia: { titulo: string; itens: string[] };
+  companhia: { titulo: string; texto: string };
+  primeiraSemana: string;
 };
 
 export type Depoimento = {
@@ -162,8 +177,9 @@ export type ManifestoSection =
   | SectionMentiras
   | SectionSetenios
   | SectionParadigma
-  | SectionComunidade
-  | SectionColetivo
+  | SectionPadrao
+  | SectionPilares
+  | SectionJonas
   | SectionTrilhas
   | SectionDepoimentos
   | SectionParaQuem

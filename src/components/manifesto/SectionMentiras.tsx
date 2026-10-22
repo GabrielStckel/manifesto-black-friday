@@ -2,7 +2,7 @@ import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionMentiras as SectionMentirasType } from "../../content/manifesto.types";
 
-export function SectionMentiras({ fundo, titulo, itens }: SectionMentirasType) {
+export function SectionMentiras({ fundo, titulo, itens, fecho }: SectionMentirasType) {
   return (
     <SectionShell fundo={fundo}>
       <div
@@ -61,6 +61,9 @@ export function SectionMentiras({ fundo, titulo, itens }: SectionMentirasType) {
           </Reveal>
         ))}
       </ul>
+      <Reveal delay={240}>
+        <p className="mx-auto mt-9 max-w-3xl text-center font-display text-[19px] font-semibold leading-relaxed text-brass md:text-[22px]">{fecho}</p>
+      </Reveal>
       </div>
     </SectionShell>
   );

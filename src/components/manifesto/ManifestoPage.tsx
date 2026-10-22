@@ -3,8 +3,9 @@ import { Hero } from "./Hero";
 import { SectionMentiras } from "./SectionMentiras";
 import { SectionSetenios } from "./SectionSetenios";
 import { SectionParadigma } from "./SectionParadigma";
-import { SectionComunidade } from "./SectionComunidade";
-import { SectionColetivo } from "./SectionColetivo";
+import { SectionPadrao } from "./SectionPadrao";
+import { SectionPilares } from "./SectionPilares";
+import { SectionJonas } from "./SectionJonas";
 import { SectionTrilhas } from "./SectionTrilhas";
 import { SectionDepoimentos } from "./SectionDepoimentos";
 import { SectionParaQuem } from "./SectionParaQuem";
@@ -19,7 +20,7 @@ import type {
 
 // Exaustividade em tempo de compilação: adicionar um novo `kind` à união
 // sem tratar aqui quebra o build.
-type KindsTratados = "mentiras" | "setenios" | "paradigma" | "comunidade" | "coletivo" | "trilhas" | "depoimentos" | "paraQuem" | "oferta" | "faq" | "rodape";
+type KindsTratados = "padrao" | "mentiras" | "setenios" | "paradigma" | "pilares" | "trilhas" | "jonas" | "depoimentos" | "paraQuem" | "oferta" | "faq" | "rodape";
 type _Exaustivo = Exclude<ManifestoSection["kind"], KindsTratados> extends never
   ? true
   : ["kind sem case em ManifestoPage", Exclude<ManifestoSection["kind"], KindsTratados>];
@@ -35,16 +36,18 @@ export function ManifestoPage({ content }: { content: ManifestoContent }) {
       {content.sections.map((s, i) => {
         const key = `${s.kind}-${i}`;
         switch (s.kind) {
+          case "padrao":
+            return <SectionPadrao key={key} {...s} />;
           case "mentiras":
             return <SectionMentiras key={key} {...s} />;
           case "setenios":
             return <SectionSetenios key={key} {...s} />;
           case "paradigma":
             return <SectionParadigma key={key} {...s} />;
-          case "comunidade":
-            return <SectionComunidade key={key} {...s} />;
-          case "coletivo":
-            return <SectionColetivo key={key} {...s} />;
+          case "pilares":
+            return <SectionPilares key={key} {...s} />;
+          case "jonas":
+            return <SectionJonas key={key} {...s} />;
           case "trilhas":
             return <SectionTrilhas key={key} {...s} />;
           case "depoimentos":

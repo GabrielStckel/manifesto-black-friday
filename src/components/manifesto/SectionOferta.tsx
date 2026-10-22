@@ -95,14 +95,16 @@ function CardPlano({
 export function SectionOferta({
   fundo,
   titulo,
+  porQueAgora,
   inclui,
+  compraSegura,
   planos,
   textoPosCards,
   garantia,
   blocoFinal,
 }: SectionOfertaType) {
   return (
-    <SectionShell fundo={fundo} id="oferta" className="scroll-mt-12 py-20 md:py-28">
+    <SectionShell fundo={fundo} id="oferta" className="scroll-mt-16 py-20 md:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -130,6 +132,10 @@ export function SectionOferta({
           <h2 className="mx-auto mt-4 max-w-3xl text-balance text-center font-display font-semibold leading-[1.08] tracking-[-0.01em] text-[clamp(2rem,8vw,2.7rem)] md:mt-5 md:text-[clamp(2rem,3.6vw,2.75rem)]">
             {titulo}
           </h2>
+          <div className="mx-auto mt-8 max-w-3xl text-left">
+            <h3 className="font-display text-[22px] font-semibold text-brass md:text-[25px]">{porQueAgora.titulo}</h3>
+            <p className="mt-4 text-[16px] leading-[1.8] text-section-dark-fg/85 md:text-[18px]">{porQueAgora.texto}</p>
+          </div>
           <div aria-hidden className="mt-7 flex items-center justify-center gap-3">
             <span className="h-px w-14 bg-gradient-to-r from-transparent to-brass/60 md:w-20" />
             <span className="h-1.5 w-1.5 rotate-45 bg-brass" />
@@ -148,7 +154,7 @@ export function SectionOferta({
               <ul className="mx-auto mt-7 max-w-xl space-y-5">
                 {inclui.map((item) => (
                   <li
-                    key={item}
+                    key={item.texto}
                     className="flex gap-3.5 text-[15px] leading-relaxed text-section-dark-fg/85 md:text-[16px] md:leading-[1.7]"
                   >
                     <span
@@ -157,7 +163,7 @@ export function SectionOferta({
                     >
                       <Check className="h-3.5 w-3.5 text-brass" />
                     </span>
-                    <span className="text-left">{item}</span>
+                    <span className="text-left">{item.rotulo ? <><strong>{item.rotulo}</strong>{" "}</> : null}{item.texto}</span>
                   </li>
                 ))}
               </ul>
@@ -211,6 +217,10 @@ export function SectionOferta({
 
         {/* Selos */}
         <Reveal delay={260}>
+          <div className="mx-auto mt-8 max-w-3xl text-center">
+            <h3 className="font-display text-[21px] font-semibold text-brass">{compraSegura.titulo}</h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-section-dark-fg/80 md:text-[16px]">{compraSegura.texto}</p>
+          </div>
           <ul className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-x-5 gap-y-4 sm:grid-cols-3">
             {SELOS.map((selo) => (
               <li key={selo.titulo} className="flex items-start gap-2.5 text-left">
@@ -237,6 +247,7 @@ export function SectionOferta({
             <p className="text-[10.5px] font-semibold uppercase tracking-[0.26em] text-brass md:text-[12px]">
               Dois caminhos
             </p>
+            <p className="mx-auto mt-5 max-w-[58ch] text-left text-[16px] leading-[1.75] text-brass md:text-[18px]">{blocoFinal.resumo}</p>
             <p className="mx-auto mt-5 max-w-[58ch] text-justify hyphens-auto text-[15.5px] leading-[1.75] text-section-dark-fg/85 md:text-[17px] md:leading-[1.8]">
               {blocoFinal.texto}
             </p>

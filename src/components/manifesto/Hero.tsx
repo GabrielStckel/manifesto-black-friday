@@ -9,7 +9,6 @@ export function Hero({
   h1,
   headlinePlayer,
   subtitulo,
-  aviso,
   cta,
   microtexto,
 }: HeroType) {
@@ -84,10 +83,6 @@ export function Hero({
         <div className="mt-6 flex w-full justify-center md:mt-8">
           <VturbPlayer />
         </div>
-
-        <p className="mt-5 max-w-[52ch] text-[12.5px] leading-snug text-muted-foreground md:text-[13px]">
-          {aviso}
-        </p>
 
         <p
           className="mt-8 max-w-[44ch] text-[15.5px] leading-[1.65] text-section-dark-fg/90 md:mt-10 md:max-w-[58ch] md:whitespace-pre-line md:text-[18px] md:leading-[1.65]"
