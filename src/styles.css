@@ -2,11 +2,11 @@
 @source "../src";
 
 /* Fontes: apenas subset latin, apenas os pesos realmente usados. */
-@import "@fontsource/archivo/latin-400.css";
-@import "@fontsource/archivo/latin-500.css";
-@import "@fontsource/archivo/latin-600.css";
-@import "@fontsource/inter/latin-400.css";
-@import "@fontsource/inter/latin-600.css";
+@font-face { font-family:"Archivo"; font-style:normal; font-weight:400; font-display:swap; src:url("@fontsource/archivo/files/archivo-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family:"Archivo"; font-style:normal; font-weight:500; font-display:swap; src:url("@fontsource/archivo/files/archivo-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family:"Archivo"; font-style:normal; font-weight:600; font-display:swap; src:url("@fontsource/archivo/files/archivo-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family:"Inter"; font-style:normal; font-weight:400; font-display:swap; src:url("@fontsource/inter/files/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family:"Inter"; font-style:normal; font-weight:600; font-display:swap; src:url("@fontsource/inter/files/inter-latin-600-normal.woff2") format("woff2"); }
 
 @custom-variant dark (&:is(.dark *));
 
@@ -70,7 +70,7 @@
 
 :root {
   /* Tipografia */
-  --font-display: "Archivo", ui-serif, Georgia, serif;
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Raio */
@@ -108,8 +108,7 @@
   --brass: #D4AD5A;
   --brass-muted: rgba(212, 173, 90, 0.45);
 
-  /* Latão luminoso — uso EXCLUSIVO em efeitos (partículas, halos, brilhos).
-     Nunca em texto: não tem contraste para isso. */
+  /* Dourado luminoso: efeitos e detalhes sobre fundos escuros. */
   --brass-glow: #F7C948;
   --parchment: #F1EBE1;
   --on-parchment: #14120E; /* #17120F */
@@ -303,6 +302,7 @@ main [data-section-bg] { content-visibility:auto; contain-intrinsic-size:auto 90
 }
 .btn::before { content:""; position:absolute; top:0; bottom:0; left:0; width:400%; z-index:-1; pointer-events:none; background:linear-gradient(110deg,transparent 0%,transparent 19%,var(--button-shine) 25%,transparent 31%,transparent 69%,var(--button-shine) 75%,transparent 81%,transparent 100%); animation:brilho 7s linear infinite; animation-play-state:paused; }
 .btn.animation-visible::before { animation-play-state:running; }
+#hero .btn::before { animation:none; }
 @keyframes brilho { to { transform:translateX(-50%); } }
 .btn:hover { transform:translateY(-2px); filter:brightness(1.06); box-shadow:var(--button-hover-shadow); }
 .btn:active { transform:scale(.98); }

@@ -170,8 +170,8 @@ export function CampoConstelacao() {
     let idle: number | undefined;
     let fallback: number | undefined;
     const schedule = () => {
-      if ("requestIdleCallback" in window) idle = window.requestIdleCallback(begin, { timeout: 1200 });
-      else fallback = window.setTimeout(begin, 0);
+      if (typeof window.requestIdleCallback === "function") idle = window.requestIdleCallback(begin, { timeout: 1200 });
+      else fallback = globalThis.setTimeout(begin, 0);
     };
     if (document.readyState === "complete") schedule();
     else window.addEventListener("load", schedule, { once: true });
