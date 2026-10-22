@@ -63,7 +63,7 @@ export function SectionTrilhas({
           <h2 className="mx-auto mt-4 max-w-3xl text-balance text-center font-display text-[clamp(1.5rem,6.4vw,2.2rem)] font-semibold leading-[1.14] tracking-[-0.015em] md:text-[clamp(1.6rem,2.9vw,2.25rem)] md:leading-[1.1]">
             {titulo}
           </h2>
-          <p className="mx-auto mt-5 max-w-[56ch] text-[15px] leading-[1.75] text-section-dark-fg/80 md:text-[16.5px]">
+          <p className="mx-auto mt-5 max-w-[56ch] text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16.5px]">
             {texto}
           </p>
         </Reveal>
@@ -80,7 +80,7 @@ export function SectionTrilhas({
         <ul className="relative mx-auto mt-6 grid max-w-5xl items-stretch gap-5 sm:grid-cols-2 md:mt-7 md:gap-7">
           {trilhas.map((trilha, i) => (
             <Reveal as="li" key={trilha.numero} delay={i * 100} className="block h-full">
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-white/[0.035] p-6 transition-colors duration-300 hover:border-brass/50 md:p-7">
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/[0.14] bg-white/[0.06] p-6 transition-colors duration-300 hover:border-brass/50 md:p-7">
                 <span
                   aria-hidden
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-[0.13]"
@@ -103,7 +103,7 @@ export function SectionTrilhas({
                   aria-hidden
                   className="relative mt-4 block h-px w-14 bg-gradient-to-r from-brass/60 to-transparent transition-all duration-300 group-hover:w-24"
                 />
-                <p className="relative mt-4 text-left text-[14.5px] leading-[1.7] text-section-dark-fg/75 md:text-[15.5px] md:leading-[1.75]">
+                <p className="relative mt-4 text-left text-[14.5px] leading-[1.7] text-section-dark-fg/95 md:text-[15.5px] md:leading-[1.75]">
                   {trilha.texto}
                 </p>
               </article>
@@ -119,7 +119,7 @@ export function SectionTrilhas({
                 {constancia.titulo}
               </h3>
               <Sublegenda>{constancia.sublegenda}</Sublegenda>
-              <ul className="mt-5 space-y-4 text-[15px] leading-[1.75] text-section-dark-fg/80 md:text-[16px]">
+              <ul className="mt-5 space-y-4 text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16px]">
                 {constancia.itens.map((item) => (
                   <li key={item} className="border-l border-brass/30 pl-4">{item}</li>
                 ))}
@@ -130,7 +130,7 @@ export function SectionTrilhas({
                 {companhia.titulo}
               </h3>
               <Sublegenda>{companhia.sublegenda}</Sublegenda>
-              <p className="mt-5 text-[15px] leading-[1.75] text-section-dark-fg/80 md:text-[16px]">
+              <p className="mt-5 text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16px]">
                 {companhia.texto}
               </p>
             </div>
@@ -148,7 +148,7 @@ export function SectionTrilhas({
                   alt={print.alt}
                   loading="lazy"
                   decoding="async"
-                  className="w-[78%] shrink-0 snap-center rounded-lg border border-white/10 object-cover sm:w-[60%] md:w-full"
+                  className="w-[78%] shrink-0 snap-center rounded-lg border border-white/[0.14] object-cover sm:w-[60%] md:w-full"
                 />
               ))}
             </div>

@@ -48,12 +48,12 @@ export function SectionJonas({ fundo, eyebrow, nome, textos, credencial, foto }:
           </h2>
           <div className="mt-6 space-y-5">
             {textos.map((texto) => (
-              <p key={texto} className="text-[15px] leading-[1.8] text-section-dark-fg/85 md:text-[16.5px]">
+              <p key={texto} className="text-[15px] leading-[1.8] text-section-dark-fg/95 md:text-[16.5px]">
                 {texto}
               </p>
             ))}
             {credencial && credencial.trim() ? (
-              <p className="text-[15px] leading-[1.8] text-section-dark-fg/85 md:text-[16.5px]">
+              <p className="text-[15px] leading-[1.8] text-section-dark-fg/95 md:text-[16.5px]">
                 {credencial}
               </p>
             ) : null}

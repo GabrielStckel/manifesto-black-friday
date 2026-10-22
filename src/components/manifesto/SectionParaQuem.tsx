@@ -11,7 +11,7 @@ export function SectionParaQuem({
   naoParaVoce,
 }: SectionParaQuemType) {
   return (
-    <SectionShell fundo={fundo} className="overflow-hidden bg-surface-dark">
+    <SectionShell fundo={fundo} className="overflow-hidden bg-paraquem">
       {/* Luz superior em latão */}
       <div
         aria-hidden
@@ -35,7 +35,7 @@ export function SectionParaQuem({
 
         <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:mt-14 md:grid-cols-2 md:gap-7">
           <Reveal delay={80}>
-            <div className="h-full rounded-xl border border-brass/30 bg-white/[0.035] p-6 md:p-8">
+            <div className="h-full rounded-xl border border-brass/30 bg-[rgba(214,174,98,0.10)] p-6 md:p-8">
               <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-brass md:text-[12px]">
                 É para você se
               </p>
@@ -43,7 +43,7 @@ export function SectionParaQuem({
                 {paraVoce.map((item) => (
                   <li
                     key={item}
-                    className="flex gap-3 text-left text-[14.5px] leading-relaxed text-section-dark-fg/85 md:text-[15.5px]"
+                    className="flex gap-3 text-left text-[14.5px] leading-relaxed text-section-dark-fg/95 md:text-[15.5px]"
                   >
                     <span
                       aria-hidden
@@ -59,7 +59,7 @@ export function SectionParaQuem({
           </Reveal>
 
           <Reveal delay={160}>
-            <div className="h-full rounded-xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+            <div className="h-full rounded-xl border border-white/[0.14] bg-white/[0.02] p-6 md:p-8">
               <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-muted-foreground md:text-[12px]">
                 Não é para você se
               </p>

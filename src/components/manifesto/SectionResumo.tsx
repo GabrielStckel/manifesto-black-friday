@@ -10,7 +10,7 @@ import type { SectionResumo as Props } from "../../content/manifesto.types";
 // ir direto ao ponto. Fundo preto com borda superior em latão.
 export function SectionResumo({ fundo, eyebrow, titulo, blocos, cta, nota }: Props) {
   return (
-    <SectionShell fundo={fundo} className="border-t border-brass/25 bg-bg-black py-14 md:py-20">
+    <SectionShell fundo={fundo} className="border-t border-brass/25 bg-resumo py-14 md:py-20">
       <div className="relative">
         <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end md:gap-12">
           <Reveal>
@@ -30,11 +30,11 @@ export function SectionResumo({ fundo, eyebrow, titulo, blocos, cta, nota }: Pro
 
         <div className="mt-10 grid gap-8 md:mt-12 md:grid-cols-3 md:gap-10">
           {blocos.map((bloco, i) => (
-            <Reveal key={bloco.rotulo} delay={i * 100}>
+            <Reveal key={bloco.rotulo} delay={i * 100} className="rounded-lg border border-white/[0.14] bg-surface-dark p-5">
               <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-brass md:text-[11.5px]">
                 {bloco.rotulo}
               </p>
-              <p className="mt-3 text-[15px] leading-[1.75] text-section-dark-fg/85 md:text-[16px]">
+              <p className="mt-3 text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16px]">
                 <Negrito texto={bloco.texto} />
               </p>
             </Reveal>

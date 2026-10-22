@@ -4,7 +4,7 @@ export function Orbe() {
       aria-hidden="true"
       className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
       style={{
-        width: "min(94vw, 760px)",
+        width: "min(110vw, 760px)",
         aspectRatio: "1",
         background: `
           radial-gradient(circle at 50% 50%, rgba(211,58,52,0.16) 0%, transparent 62%),

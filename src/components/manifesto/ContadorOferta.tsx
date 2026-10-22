@@ -85,7 +85,7 @@ export function ContadorOferta({
             {blocos.map((b) => (
               <div
                 key={b.rotulo}
-                className={`flex min-w-[58px] flex-col items-center rounded-md border border-white/10 bg-white/[0.04] px-2 py-2 sm:min-w-[66px] ${
+                className={`flex min-w-[58px] flex-col items-center rounded-md border border-white/[0.14] bg-white/[0.04] px-2 py-2 sm:min-w-[66px] ${
                   compacto ? "" : "sm:px-3 sm:py-3"
                 }`}
               >

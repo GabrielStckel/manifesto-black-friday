@@ -5,7 +5,7 @@ import { formatarFimBF, TEM_PRAZO } from "../../lib/config";
 // preenchida (TEM_PRAZO).
 export function Topbar() {
   return (
-    <div className="fixed inset-x-0 top-0 z-40 border-b border-brass/20 bg-black/85 backdrop-blur-md">
+    <div className="fixed inset-x-0 top-0 z-40 border-b border-brass/20 bg-bg-black/95 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-8">
         <p className="hidden font-display text-[13px] font-semibold tracking-wide text-section-dark-fg/90 sm:block">
           Manifesto Sistêmico
