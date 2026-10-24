@@ -30,7 +30,7 @@ export const manifesto: ManifestoContent = {
       titulo: "A Black Friday do Manifesto, em resumo",
       blocos: [
         { rotulo: "O QUE É", texto: "Um streaming de autoconhecimento sistêmico no Hotmart Club: **4 trilhas** em ordem, com exercícios, **vivências ao vivo a cada dois meses** com o Jonas e a equipe, e uma **comunidade de membros**." },
-        { rotulo: "O QUE MUDA AGORA", texto: "Até hoje, a entrada era um pagamento único de R$ 997, por 2 anos de acesso. Nesta Black Friday, **pela primeira vez, dá para entrar por assinatura** e começar com menos." },
+        { rotulo: "O QUE MUDA AGORA", texto: "Até hoje, a entrada era um pagamento único de R$ 997, por 1 ano de acesso. Nesta Black Friday, **pela primeira vez, dá para entrar por assinatura** e começar com menos." },
         { rotulo: "QUANTO CUSTA", texto: "**12x de R$ 79** no anual (R$ 948 por ano) ou **R$ 97 por mês**. Garantia de 7 dias nos dois planos." },
       ],
       cta: "Escolher meu plano",
@@ -176,7 +176,7 @@ export const manifesto: ManifestoContent = {
       titulo: "Escolha como entrar no Manifesto",
       porQueAgora: {
         rotulo: "POR QUE AGORA",
-        texto: "Até hoje, a entrada no Manifesto era um pagamento único de **R$ 997**, por 2 anos de acesso. Nesta Black Friday, pela primeira vez, dá para entrar por assinatura e começar com menos: **R$ 97 no primeiro mês**, ou **12x de R$ 79** no anual. Você decide com a experiência na mão.",
+        texto: "Até hoje, a entrada no Manifesto era um pagamento único de **R$ 997**, por 1 ano de acesso. Nesta Black Friday, pela primeira vez, dá para entrar por assinatura e começar com menos: **R$ 97 no primeiro mês**, ou **12x de R$ 79** no anual. Você decide com a experiência na mão.",
       },
       inclui: [
         { rotulo: "PROFUNDIDADE", texto: "As 4 trilhas completas no Hotmart Club, com exercícios práticos." },
