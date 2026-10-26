@@ -55,3 +55,10 @@ export function formatarFimBF(): string {
     .replace(":", "h");
   return `${data} às ${hora}`;
 }
+
+// Verdadeiro quando o player da VSL está configurado. Sem VSL, a página
+// esconde o player e as frases que pedem para assistir ao vídeo.
+export const TEM_VSL = VTURB_CONTA.trim() !== "" && VTURB_PLAYER.trim() !== "";
+
+// Script do player VTurb (usado no player e no preload do head).
+export const VTURB_SCRIPT = `https://scripts.converteai.net/${VTURB_CONTA}/players/${VTURB_PLAYER}/v4/player.js`;

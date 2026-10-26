@@ -7,29 +7,28 @@ export const CHECKOUT_SOURCES = [
 ] as const;
 export type CheckoutSource = (typeof CHECKOUT_SOURCES)[number];
 
-export function trackCheckoutClick(
-  source: CheckoutSource,
-  href: string,
-): Promise<void> {
-  return fetch("/api/public/track-checkout-click", {
+const ENDPOINT = "/api/public/track-checkout-click";
+
+// Registro "dispara e esquece": nunca segura a ida ao checkout.
+export function trackCheckoutClick(source: CheckoutSource, href: string): void {
+  const body = JSON.stringify({ source, href });
+  try {
+    if (navigator.sendBeacon?.(ENDPOINT, new Blob([body], { type: "application/json" }))) return;
+  } catch {
+    /* cai no fetch abaixo */
+  }
+  void fetch(ENDPOINT, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ source, href }),
+    body,
     keepalive: true,
-  }).then(
-    () => undefined,
-    () => undefined,
-  );
+  }).catch(() => undefined);
 }
 
+// onClick dos links de checkout: registra e deixa o navegador seguir o href
+// normalmente (sem preventDefault — nova aba e clique do meio funcionam).
 export function handleCheckoutClick(
   source: CheckoutSource,
-  href: string,
 ): (event: React.MouseEvent<HTMLAnchorElement>) => void {
-  return (event) => {
-    event.preventDefault();
-    trackCheckoutClick(source, href).finally(() => {
-      window.location.href = href;
-    });
-  };
+  return (event) => trackCheckoutClick(source, event.currentTarget.href);
 }

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Play } from "lucide-react";
-import { VTURB_CONTA, VTURB_PLAYER } from "../../lib/config";
+import { TEM_VSL, VTURB_PLAYER, VTURB_SCRIPT } from "../../lib/config";
 
 // Declara o elemento customizado do VTurb para o JSX.
 declare global {
@@ -20,11 +20,11 @@ declare global {
 // <vturb-smartplayer> e injeta uma única vez o script oficial do VTurb.
 // Vazio: placeholder escuro 16:9 com botão de play vermelho.
 export function VturbPlayer() {
-  const pronto = VTURB_CONTA.trim() !== "" && VTURB_PLAYER.trim() !== "";
+  const pronto = TEM_VSL;
 
   useEffect(() => {
     if (!pronto) return;
-    const src = `https://scripts.converteai.net/${VTURB_CONTA}/players/${VTURB_PLAYER}/v4/player.js`;
+    const src = VTURB_SCRIPT;
     if (document.querySelector(`script[src="${src}"]`)) return;
     const script = document.createElement("script");
     script.src = src;

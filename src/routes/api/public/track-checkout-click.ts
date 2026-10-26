@@ -1,29 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { CHECKOUT_SOURCES } from "@/lib/analytics";
 
 const bodySchema = z.object({
-  source: z.enum(["hero", "oferta", "cta_bar"]),
+  source: z.enum(CHECKOUT_SOURCES),
   href: z.string().max(2048),
 });
 
-async function sha256(input: string): Promise<string> {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(input);
-  const hashBuffer = await globalThis.crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
-}
-
-function getClientIp(request: Request): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) {
-    const first = forwarded.split(",")[0];
-    return first ? first.trim() : "unknown";
-  }
-  const realIp = request.headers.get("x-real-ip");
-  if (realIp) return realIp;
-  return "unknown";
-}
+const json = (data: unknown, status: number) =>
+  new Response(JSON.stringify(data), {
+    status,
+    headers: { "Content-Type": "application/json" },
+  });
 
 export const Route = createFileRoute("/api/public/track-checkout-click")({
   server: {
@@ -33,56 +21,33 @@ export const Route = createFileRoute("/api/public/track-checkout-click")({
         try {
           body = await request.json();
         } catch {
-          return new Response(JSON.stringify({ error: "Invalid JSON" }), {
-            status: 400,
-            headers: { "Content-Type": "application/json" },
-          });
+          return json({ error: "Invalid JSON" }, 400);
         }
 
         const parsed = bodySchema.safeParse(body);
         if (!parsed.success) {
-          return new Response(
-            JSON.stringify({
-              error: "Invalid body",
-              issues: parsed.error.issues,
-            }),
-            {
-              status: 400,
-              headers: { "Content-Type": "application/json" },
-            },
-          );
+          return json({ error: "Invalid body", issues: parsed.error.issues }, 400);
         }
 
         const { supabaseAdmin } = await import(
           "@/integrations/supabase/client.server"
         );
 
-        const ip = getClientIp(request);
-        const ipHash = await sha256(ip);
-
+        // ip_hash fica nulo: não é preciso para contar cliques.
         const { error } = await supabaseAdmin.from("checkout_clicks").insert({
           source: parsed.data.source,
           url: parsed.data.href,
           user_agent: request.headers.get("user-agent") ?? null,
-          ip_hash: ipHash,
+          ip_hash: null,
           referrer: request.headers.get("referer") ?? null,
         });
 
         if (error) {
           console.error("track-checkout-click error:", error);
-          return new Response(
-            JSON.stringify({ error: "Failed to record click" }),
-            {
-              status: 500,
-              headers: { "Content-Type": "application/json" },
-            },
-          );
+          return json({ error: "Failed to record click" }, 500);
         }
 
-        return new Response(JSON.stringify({ ok: true }), {
-          status: 200,
-          headers: { "Content-Type": "application/json" },
-        });
+        return json({ ok: true }, 200);
       },
     },
   },
