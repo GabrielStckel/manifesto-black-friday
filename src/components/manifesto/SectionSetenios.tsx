@@ -17,7 +17,7 @@ export function SectionSetenios({
   fecho,
 }: SectionSeteniosType) {
   return (
-    <SectionShell fundo={fundo} className="overflow-hidden py-16 md:py-24">
+    <SectionShell fundo={fundo} className="overflow-hidden py-14 md:py-24">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -39,7 +39,7 @@ export function SectionSetenios({
           </Reveal>
 
           <Reveal delay={120}>
-            <p className="mx-auto mt-7 max-w-[60ch] text-left text-[15px] leading-relaxed text-section-red-fg/85 sm:text-base md:text-[17px] md:leading-[1.75]">
+            <p className="texto texto-centro mx-auto mt-7 max-w-[60ch] text-[15px] leading-relaxed text-section-red-fg/85 sm:text-base md:text-[17px] md:leading-[1.75]">
               {abertura}
             </p>
           </Reveal>
@@ -47,7 +47,7 @@ export function SectionSetenios({
 
         {/* Régua dos setênios */}
         <Reveal delay={160}>
-          <div className="mx-auto mt-12 max-w-3xl md:mt-14">
+          <div className="mx-auto mt-12 max-w-3xl px-6 sm:px-4 md:mt-14 md:px-0">
             <div className="relative h-px bg-on-red/30">
               {marcas.map((marca, i) => (
                 <span
@@ -63,14 +63,23 @@ export function SectionSetenios({
               ))}
             </div>
             <div className="mt-10 grid grid-cols-3 gap-2 text-center">
-              {reguaRotulos.map((rotulo) => (
-                <p
-                  key={rotulo}
-                  className="text-[11.5px] font-semibold uppercase leading-snug tracking-[0.12em] text-on-red/70 sm:text-[11.5px] md:text-[11px] md:tracking-[0.16em]"
-                >
-                  {rotulo}
-                </p>
-              ))}
+              {reguaRotulos.map((rotulo) => {
+                const [nome, faixa] = rotulo.split(" · ");
+                return (
+                  <p
+                    key={rotulo}
+                    className="text-[11px] font-semibold leading-snug tracking-[0.12em] text-on-red/70 md:tracking-[0.16em]"
+                  >
+                    <span className="block whitespace-nowrap uppercase md:inline">{nome}</span>
+                    {faixa ? (
+                      <>
+                        <span aria-hidden className="hidden md:inline"> · </span>
+                        <span className="block whitespace-nowrap md:inline md:uppercase">{faixa.toLowerCase()}</span>
+                      </>
+                    ) : null}
+                  </p>
+                );
+              })}
             </div>
           </div>
         </Reveal>
@@ -90,7 +99,7 @@ export function SectionSetenios({
                   <h3 className="font-display text-[18px] font-semibold leading-snug text-section-red-fg md:text-[20px]">
                     {elo.titulo}
                   </h3>
-                  <p className="text-[15px] leading-[1.75] text-section-red-fg/85 md:text-[16px]">
+                  <p className="texto text-[15px] leading-[1.75] text-section-red-fg/85 md:text-[16px]">
                     {elo.texto}
                   </p>
                 </li>
@@ -105,7 +114,7 @@ export function SectionSetenios({
             <h3 className="font-display text-[18px] font-semibold leading-snug text-section-red-fg md:text-[21px]">
               {pertencimento.titulo}
             </h3>
-            <p className="mt-4 text-[15px] leading-[1.8] text-section-red-fg/90 md:text-[16.5px]">
+            <p className="texto mt-4 text-[15px] leading-[1.8] text-section-red-fg/90 md:text-[16.5px]">
               {pertencimento.texto}
             </p>
           </div>

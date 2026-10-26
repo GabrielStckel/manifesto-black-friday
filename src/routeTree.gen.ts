@@ -10,17 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AnalyticsCheckoutRouteImport } from './routes/analytics.checkout'
 import { Route as ApiPublicTrackCheckoutClickRouteImport } from './routes/api/public/track-checkout-click'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AnalyticsCheckoutRoute = AnalyticsCheckoutRouteImport.update({
-  id: '/analytics/checkout',
-  path: '/analytics/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicTrackCheckoutClickRoute =
@@ -32,35 +26,27 @@ const ApiPublicTrackCheckoutClickRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/analytics/checkout': typeof AnalyticsCheckoutRoute
   '/api/public/track-checkout-click': typeof ApiPublicTrackCheckoutClickRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/analytics/checkout': typeof AnalyticsCheckoutRoute
   '/api/public/track-checkout-click': typeof ApiPublicTrackCheckoutClickRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/analytics/checkout': typeof AnalyticsCheckoutRoute
   '/api/public/track-checkout-click': typeof ApiPublicTrackCheckoutClickRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/analytics/checkout' | '/api/public/track-checkout-click'
+  fullPaths: '/' | '/api/public/track-checkout-click'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/analytics/checkout' | '/api/public/track-checkout-click'
-  id:
-    | '__root__'
-    | '/'
-    | '/analytics/checkout'
-    | '/api/public/track-checkout-click'
+  to: '/' | '/api/public/track-checkout-click'
+  id: '__root__' | '/' | '/api/public/track-checkout-click'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AnalyticsCheckoutRoute: typeof AnalyticsCheckoutRoute
   ApiPublicTrackCheckoutClickRoute: typeof ApiPublicTrackCheckoutClickRoute
 }
 
@@ -71,13 +57,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/analytics/checkout': {
-      id: '/analytics/checkout'
-      path: '/analytics/checkout'
-      fullPath: '/analytics/checkout'
-      preLoaderRoute: typeof AnalyticsCheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/track-checkout-click': {
@@ -92,7 +71,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AnalyticsCheckoutRoute: AnalyticsCheckoutRoute,
   ApiPublicTrackCheckoutClickRoute: ApiPublicTrackCheckoutClickRoute,
 }
 export const routeTree = rootRouteImport

@@ -1,12 +1,14 @@
 import type { ManifestoContent } from "./manifesto.types";
+import jonas480 from "../assets/jonas-peres-480.webp.asset.json";
+import jonas720 from "../assets/jonas-peres-720.webp.asset.json";
 
 // Textos com **trecho** rendem o trecho em negrito/destaque (ver Negrito.tsx).
 export const manifesto: ManifestoContent = {
   meta: {
     title: "Black Friday do Manifesto Sistêmico: 12x de R$ 79 ou R$ 97/mês",
-    description: "Descubra como atualizar os princípios inconscientes que governam suas decisões silenciosamente.",
+    description: "Black Friday do Manifesto Sistêmico: pela primeira vez por assinatura, 12x de R$ 79 no anual ou R$ 97 por mês, com garantia de 7 dias.",
     ogTitle: "Black Friday do Manifesto Sistêmico: 12x de R$ 79 ou R$ 97/mês",
-    ogDescription: "Descubra como atualizar os princípios inconscientes que governam suas decisões silenciosamente.",
+    ogDescription: "Black Friday do Manifesto Sistêmico: pela primeira vez por assinatura, 12x de R$ 79 no anual ou R$ 97 por mês, com garantia de 7 dias.",
   },
   ctaBar: {
     resumo: "12x R$ 79 ou R$ 97/mês",
@@ -34,7 +36,8 @@ export const manifesto: ManifestoContent = {
         { rotulo: "QUANTO CUSTA", texto: "**12x de R$ 79** no anual (R$ 948 por ano) ou **R$ 97 por mês**. Garantia de 7 dias nos dois planos." },
       ],
       cta: "Escolher meu plano",
-      nota: "Prefere entender antes? O argumento completo está logo abaixo, e no vídeo acima.",
+      nota: "Prefere entender antes? O argumento completo está logo abaixo.",
+      notaComVsl: "Prefere entender antes? O argumento completo está logo abaixo, e no vídeo acima.",
     },
     {
       kind: "padrao", fundo: "light",
@@ -149,6 +152,11 @@ export const manifesto: ManifestoContent = {
         "No Manifesto, é ele quem conduz as trilhas e, com a equipe, as vivências ao vivo, explicando conceitos profundos de forma didática, com exemplos de relacionamentos, carreira e dinheiro.",
       ],
       credencial: "",
+      foto: {
+        src: jonas720.url,
+        srcSet: `${jonas480.url} 480w, ${jonas720.url} 720w`,
+        alt: "Jonas Peres falando ao microfone em um evento",
+      },
     },
     {
       kind: "depoimentos", fundo: "light",
@@ -176,7 +184,7 @@ export const manifesto: ManifestoContent = {
       titulo: "Escolha como entrar no Manifesto",
       porQueAgora: {
         rotulo: "POR QUE AGORA",
-        texto: "Até hoje, a entrada no Manifesto era um pagamento único de **R$ 997**, por 1 ano de acesso. Nesta Black Friday, pela primeira vez, dá para entrar por assinatura e começar com menos: **R$ 97 no primeiro mês**, ou **12x de R$ 79** no anual. Você decide com a experiência na mão.",
+        texto: "Até hoje, a entrada no Manifesto era um pagamento único de **R$ 997**, por 1 ano de acesso. Nesta Black Friday, pela primeira vez, dá para entrar por assinatura e começar com menos: **R$ 97 por mês**, ou **12x de R$ 79** no anual. Você decide com a experiência na mão.",
       },
       inclui: [
         { rotulo: "PROFUNDIDADE", texto: "As 4 trilhas completas no Hotmart Club, com exercícios práticos." },

@@ -13,7 +13,7 @@ export function SectionParadigma({
   novo,
 }: SectionParadigmaType) {
   return (
-    <SectionShell fundo={fundo} className="py-16 md:py-24">
+    <SectionShell fundo={fundo} className="py-14 md:py-24">
       <div className="relative">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
@@ -32,7 +32,7 @@ export function SectionParadigma({
               <h3 className="mt-4 font-display text-[20px] font-semibold leading-snug text-section-light-fg/75 md:text-[22px]">
                 {antigo.nome}
               </h3>
-              <p className="mt-4 text-[15px] leading-[1.75] text-section-light-fg/65 md:text-[16px]">
+              <p className="texto mt-4 text-[15px] leading-[1.75] text-section-light-fg/65 md:text-[16px]">
                 {antigo.texto}
               </p>
             </div>
@@ -50,7 +50,7 @@ export function SectionParadigma({
                     <h4 className="font-display text-[16.5px] font-semibold leading-snug md:text-[18px]">
                       {item.titulo}
                     </h4>
-                    <p className="mt-2 text-[14.5px] leading-[1.7] text-section-dark-fg/95 md:text-[15.5px]">
+                    <p className="texto mt-2 text-[14.5px] leading-[1.7] text-section-dark-fg/95 md:text-[15.5px]">
                       {item.texto}
                     </p>
                   </li>

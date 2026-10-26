@@ -51,7 +51,7 @@ export function SectionParaQuem({
                     >
                       <Check className="h-3.5 w-3.5 text-brass-glow" />
                     </span>
-                    <span>{item}</span>
+                    <span className="texto min-w-0 flex-1">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -75,7 +75,7 @@ export function SectionParaQuem({
                     >
                       <Minus className="h-3.5 w-3.5 text-muted-foreground" />
                     </span>
-                    <span>{item}</span>
+                    <span className="texto min-w-0 flex-1">{item}</span>
                   </li>
                 ))}
               </ul>

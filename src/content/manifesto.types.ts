@@ -37,6 +37,8 @@ export type SectionResumo = {
   blocos: { rotulo: string; texto: string }[];
   cta: string;
   nota: string;
+  /** Versão da nota usada quando há VSL (cita o vídeo). */
+  notaComVsl: string;
 };
 
 export type SectionPadrao = {
@@ -143,7 +145,7 @@ export type SectionJonas = {
   /** Parágrafo extra, só renderiza se preenchido. */
   credencial?: string;
   /** Retrato 4:5. Sem foto, mostra o monograma "JP". */
-  foto?: { src: string; alt: string };
+  foto?: { src: string; alt: string; srcSet?: string };
 };
 
 export type Depoimento = {

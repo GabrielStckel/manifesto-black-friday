@@ -12,7 +12,7 @@ export function Footer({ fundo, marca, copyright }: SectionRodape) {
           {marca}
         </p>
         <span aria-hidden className="h-px w-24 bg-surface-light/10" />
-        <p className="max-w-xl text-[11.5px] leading-relaxed text-muted-foreground md:text-[12px]">
+        <p className="texto texto-centro max-w-xl text-[11.5px] leading-relaxed text-muted-foreground md:text-[12px]">
           Conteúdo educativo de autoconhecimento, que não substitui
           acompanhamento psicológico ou médico. Experiência individual; os
           resultados variam.

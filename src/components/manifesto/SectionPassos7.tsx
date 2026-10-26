@@ -7,7 +7,7 @@ import type { SectionPassos7 as Props } from "../../content/manifesto.types";
 // (empilhados no mobile), sobre pergaminho.
 export function SectionPassos7({ fundo, eyebrow, titulo, passos }: Props) {
   return (
-    <SectionShell fundo={fundo} className="py-16 md:py-24">
+    <SectionShell fundo={fundo} className="py-14 md:py-24">
       <div className="relative">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-ink md:text-[12px]">
@@ -23,16 +23,18 @@ export function SectionPassos7({ fundo, eyebrow, titulo, passos }: Props) {
             className="pointer-events-none absolute left-[16%] right-[16%] top-6 hidden h-px bg-bg-black/15 md:block"
           />
           {passos.map((passo, i) => (
-            <Reveal as="li" key={passo.titulo} delay={i * 120} className="relative block text-center">
-              <span className="medallion step-medallion relative z-10 mx-auto">
+            <Reveal as="li" key={passo.titulo} delay={i * 120} className="relative grid grid-cols-[44px_1fr] items-start gap-[14px] text-left md:block md:text-center">
+              <span className="medallion step-medallion relative z-10 md:mx-auto">
                 {i + 1}
               </span>
-              <h3 className="mt-5 font-display text-[18px] font-semibold leading-snug text-section-light-fg md:text-[19px]">
+              <div className="min-w-0">
+              <h3 className="font-display md:mt-5 text-[18px] font-semibold leading-snug text-section-light-fg md:text-[19px]">
                 {passo.titulo}
               </h3>
-              <p className="mx-auto mt-3 max-w-[34ch] text-[14.5px] leading-[1.7] text-section-light-fg/80 md:text-[15px]">
+              <p className="texto texto-centro-md mt-2 md:mx-auto md:mt-3 md:max-w-[34ch] text-[14.5px] leading-[1.7] text-section-light-fg/80 md:text-[15px]">
                 {passo.texto}
               </p>
+              </div>
             </Reveal>
           ))}
         </ol>

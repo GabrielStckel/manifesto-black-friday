@@ -6,7 +6,7 @@ import type { SectionDoisCaminhos as Props } from "../../content/manifesto.types
 // Dois caminhos: fecho emocional antes do FAQ. Fundo vinho.
 export function SectionDoisCaminhos({ fundo, eyebrow, titulo, cards, cta, microtexto }: Props) {
   return (
-    <SectionShell fundo={fundo} className="overflow-hidden py-16 md:py-24">
+    <SectionShell fundo={fundo} className="overflow-hidden py-14 md:py-24">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -39,7 +39,7 @@ export function SectionDoisCaminhos({ fundo, eyebrow, titulo, cards, cta, microt
                 <h3 className="font-display text-[19px] font-semibold leading-snug md:text-[21px]">
                   {card.titulo}
                 </h3>
-                <p className="mt-3 text-[15px] leading-[1.75] text-section-red-fg/85 md:text-[16px]">
+                <p className="texto mt-3 text-[15px] leading-[1.75] text-section-red-fg/85 md:text-[16px]">
                   {card.texto}
                 </p>
               </div>

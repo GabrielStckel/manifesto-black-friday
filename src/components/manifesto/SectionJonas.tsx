@@ -2,18 +2,32 @@ import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
 import type { SectionJonas as Props } from "../../content/manifesto.types";
 
-// Quem conduz: retrato 4:5 com borda latão (ou monograma "JP" sem foto) +
-// textos. Duas colunas no desktop, empilhado no mobile.
+// Quem conduz. Celular: olho + nome centralizados, foto, textos.
+// Desktop: foto à esquerda (até 380px) e cabeçalho + textos à direita.
+// Sem foto, mostra o monograma "JP".
 export function SectionJonas({ fundo, eyebrow, nome, textos, credencial, foto }: Props) {
   return (
-    <SectionShell fundo={fundo} className="py-16 md:py-24">
-      <div className="relative mx-auto grid max-w-4xl items-center gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-14">
-        <Reveal>
-          <div className="mx-auto w-full max-w-[300px] md:max-w-none">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-brass/35 bg-surface-dark shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)]">
+    <SectionShell fundo={fundo} className="py-14 md:py-24">
+      <div className="relative mx-auto grid max-w-4xl gap-8 md:grid-cols-[minmax(0,380px)_minmax(0,1fr)] md:grid-rows-[auto_1fr] md:gap-x-14 md:gap-y-0">
+        <Reveal className="text-center md:col-start-2 md:row-start-1 md:self-end md:text-left">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-glow md:text-[12px]">
+            {eyebrow}
+          </p>
+          <h2 className="mt-4 font-display text-[clamp(1.6rem,6.4vw,2.3rem)] font-semibold leading-[1.1] tracking-[-0.01em]">
+            {nome}
+          </h2>
+        </Reveal>
+
+        <Reveal className="md:col-start-1 md:row-span-2 md:row-start-1 md:self-center">
+          <div className="mx-auto w-full max-w-[400px] md:max-w-[380px]">
+            <div className="jonas-foto relative aspect-[4/5] overflow-hidden bg-surface-dark">
               {foto ? (
                 <img
                   src={foto.src}
+                  srcSet={foto.srcSet}
+                  sizes="(min-width: 768px) 380px, 100vw"
+                  width={720}
+                  height={900}
                   alt={foto.alt}
                   loading="lazy"
                   decoding="async"
@@ -39,21 +53,15 @@ export function SectionJonas({ fundo, eyebrow, nome, textos, credencial, foto }:
           </div>
         </Reveal>
 
-        <Reveal delay={120}>
-          <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-brass-glow md:text-[12px]">
-            {eyebrow}
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(1.6rem,6.4vw,2.3rem)] font-semibold leading-[1.1] tracking-[-0.01em]">
-            {nome}
-          </h2>
-          <div className="mt-6 space-y-5">
+        <Reveal className="md:col-start-2 md:row-start-2">
+          <div className="space-y-5 md:mt-6">
             {textos.map((texto) => (
-              <p key={texto} className="text-[15px] leading-[1.8] text-section-dark-fg/95 md:text-[16.5px]">
+              <p key={texto} className="texto text-[15px] leading-[1.8] text-section-dark-fg/95 md:text-[16.5px]">
                 {texto}
               </p>
             ))}
             {credencial && credencial.trim() ? (
-              <p className="text-[15px] leading-[1.8] text-section-dark-fg/95 md:text-[16.5px]">
+              <p className="texto text-[15px] leading-[1.8] text-section-dark-fg/95 md:text-[16.5px]">
                 {credencial}
               </p>
             ) : null}

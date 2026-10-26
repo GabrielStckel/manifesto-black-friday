@@ -49,7 +49,7 @@ export function SectionMentiras({ fundo, eyebrow, titulo, itens, fecho }: Sectio
                 {item.rotuloVerdade}
               </p>
 
-              <p className="relative z-10 mt-3 text-left text-[15px] leading-relaxed text-section-dark-fg/90 sm:text-base md:text-[17px] md:leading-[1.75]">
+              <p className="texto relative z-10 mt-3 text-left text-[15px] leading-relaxed text-section-dark-fg/90 sm:text-base md:text-[17px] md:leading-[1.75]">
                 {item.verdade}
               </p>
 

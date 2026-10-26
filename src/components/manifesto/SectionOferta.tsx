@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { MarkedTitle } from "./MarkedTitle";
 import { ManifestoCta } from "./ManifestoCta";
 import { Check } from "lucide-react";
@@ -25,6 +26,9 @@ function CardPlano({
   className?: string;
 }) {
   const source = planoId === "anual" ? "plano_anual" : "plano_mensal";
+  // href já completo (com utm_*, src, sck) depois de montar no cliente.
+  const [href, setHref] = useState(() => checkoutHrefEstatico(planoId));
+  useEffect(() => setHref(buildCheckoutUrl(planoId)), [planoId]);
 
   return (
     <div
@@ -70,22 +74,19 @@ function CardPlano({
             className="flex gap-2.5 text-[13.5px] leading-snug text-section-dark-fg/95 md:text-[14.5px]"
           >
             <Check aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-brass-glow" />
-            <span>{item}</span>
+            <span className="texto min-w-0 flex-1">{item}</span>
           </li>
         ))}
       </ul>
 
       <ManifestoCta
-        href={checkoutHrefEstatico(planoId)}
-        onClick={(event) => {
-          const url = buildCheckoutUrl(planoId);
-          handleCheckoutClick(source, url)(event);
-        }}
+        href={href}
+        onClick={handleCheckoutClick(source)}
         secondary={!destaque}
         className="plan-cta mt-7 w-full"
       >{plano.cta}</ManifestoCta>
 
-      <p className="mt-4 text-[11.5px] leading-relaxed text-muted-foreground md:text-[12px]">
+      <p className="texto texto-centro mt-4 text-[11.5px] leading-relaxed text-muted-foreground md:text-[12px]">
         {plano.nota}
       </p>
     </div>
@@ -103,7 +104,7 @@ export function SectionOferta({
   passosCompra,
 }: SectionOfertaType) {
   return (
-    <SectionShell fundo={fundo} id="planos" className="bg-oferta scroll-mt-14 py-20 md:py-28">
+    <SectionShell fundo={fundo} id="planos" className="bg-oferta scroll-mt-14 py-14 md:py-28">
       {/* Brilho vermelho: no celular vira uma luz larga e suave (mais de 160%
           da largura da tela, centrada), para não formar uma coluna de luz
           atrás dos cards. Unidades em vw: com max() dentro do gradiente o
@@ -159,11 +160,11 @@ export function SectionOferta({
             <p className="text-[11.5px] font-semibold uppercase tracking-[0.22em] text-brass-glow md:text-[12px]">
               {porQueAgora.rotulo}
             </p>
-            <p className="mt-3 text-[15.5px] leading-[1.8] text-section-dark-fg/95 md:text-[17px]">
+            <p className="texto mt-3 text-[15.5px] leading-[1.8] text-section-dark-fg/95 md:text-[17px]">
               <Negrito texto={porQueAgora.texto} />
             </p>
             {TEM_PRAZO ? (
-              <p className="mt-3 text-[14.5px] leading-[1.75] text-brass-glow md:text-[15.5px]">
+              <p className="texto mt-3 text-[14.5px] leading-[1.75] text-brass-glow md:text-[15.5px]">
                 {REGRA_PRAZO}
               </p>
             ) : null}
@@ -176,7 +177,7 @@ export function SectionOferta({
             <p className="text-center text-[11.5px] font-semibold uppercase tracking-[0.22em] text-brass-glow md:text-[12px]">
               Tudo o que você recebe
             </p>
-            <div className="mt-6 grid gap-5 md:grid-cols-3 md:gap-6">
+            <div className="card-unico mt-6 grid gap-5 md:grid-cols-3 md:gap-6">
               {inclui.map((item) => (
                 <div
                   key={item.rotulo}
@@ -185,7 +186,7 @@ export function SectionOferta({
                   <p className="text-[11.5px] font-semibold uppercase tracking-[0.2em] text-brass-glow md:text-[11px]">
                     {item.rotulo}
                   </p>
-                  <p className="mt-3 text-[14px] leading-[1.7] text-section-dark-fg/95 md:text-[14.5px]">
+                  <p className="texto mt-3 text-[14px] leading-[1.7] text-section-dark-fg/95 md:text-[14.5px]">
                     {item.texto}
                   </p>
                 </div>
@@ -203,7 +204,7 @@ export function SectionOferta({
         </Reveal>
 
         <Reveal delay={200}>
-          <p className="mx-auto mt-8 max-w-2xl text-center text-[12.5px] leading-relaxed text-muted-foreground md:text-[13.5px]">
+          <p className="texto texto-centro mx-auto mt-8 max-w-2xl text-[12.5px] leading-relaxed text-muted-foreground md:text-[13.5px]">
             {textoPosCards}
           </p>
         </Reveal>
@@ -218,7 +219,7 @@ export function SectionOferta({
               <p className="font-display text-[17px] font-semibold text-section-dark-fg md:text-[18px]">
                 {garantia.titulo}
               </p>
-              <p className="mt-2 text-[14.5px] leading-relaxed text-section-dark-fg/95 md:text-[15.5px] md:leading-[1.75]">
+              <p className="texto texto-centro texto-centro-sm-off mt-2 text-[14.5px] leading-relaxed text-section-dark-fg/95 md:text-[15.5px] md:leading-[1.75]">
                 {garantia.texto}
               </p>
             </div>
@@ -246,7 +247,7 @@ export function SectionOferta({
                   <span className="purchase-number">
                     {i + 1}
                   </span>
-                  <p className="text-[13px] leading-relaxed text-section-dark-fg/95 md:text-[13.5px]">
+                  <p className="texto min-w-0 flex-1 text-[13px] leading-relaxed text-section-dark-fg/95 md:text-[13.5px]">
                     {passo}
                   </p>
                 </li>

@@ -14,3 +14,6 @@
 - Hide empty guide biographies and testimonial lists instead of generating filler, so only supplied evidence is shown.
 - Keep checkout offer selection and campaign deadline centralized in config; checkout builders preserve incoming tracking without allowing offer overrides.
 - Share immersion presentation through global semantic tokens, a common CTA component and viewport-aware animation primitives, so visual changes never alter content or checkout configuration.
+- Keep the visitor bundle free of the backend client and React Query; backend access happens only in server routes, so initial JS stays small.
+- Reveal is CSS-only (animation-timeline: view()) and content is visible in the HTML by default, so slow networks never hide text before hydration.
+- Checkout links carry the full tracked URL in href and log clicks with sendBeacon without preventDefault, so tracking never delays or blocks the checkout.
