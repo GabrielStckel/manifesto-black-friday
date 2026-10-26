@@ -23,7 +23,7 @@ export function SectionShell({ fundo, id, children, className }: Props) {
       id={id}
       data-section-bg={fundo}
       className={twMerge(
-        "relative px-5 py-16 sm:px-8 sm:py-20 md:py-24",
+        "relative px-5 py-14 sm:px-8 sm:py-20 md:py-24",
         BG[fundo],
         visible ? "animation-visible" : "",
         className,
