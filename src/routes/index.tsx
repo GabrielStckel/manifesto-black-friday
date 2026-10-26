@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ManifestoPage } from "../components/manifesto/ManifestoPage";
 import { manifesto } from "../content/manifesto";
 import type { ManifestoSection } from "../content/manifesto.types";
+import { TEM_VSL, VTURB_SCRIPT } from "../lib/config";
 
 const faqSection = manifesto.sections.find(
   (s): s is Extract<ManifestoSection, { kind: "faq" }> => s.kind === "faq",
@@ -22,6 +23,9 @@ const FAQ_LD = faqSection
     }
   : null;
 
+const OG_IMAGE = "https://manifestosistemico.com.br/og-black-friday.jpg";
+const OG_IMAGE_ALT = "Black Friday do Manifesto Sistêmico com Jonas Peres";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -33,14 +37,25 @@ export const Route = createFileRoute("/")({
       { property: "og:locale", content: "pt_BR" },
       { property: "og:site_name", content: "Manifesto Sistêmico" },
       { property: "og:url", content: "https://manifestosistemico.com.br/" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: OG_IMAGE_ALT },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: manifesto.meta.ogTitle },
       { name: "twitter:description", content: manifesto.meta.ogDescription },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:image:alt", content: OG_IMAGE_ALT },
     ],
     links: [
       { rel: "canonical", href: "https://manifestosistemico.com.br/" },
-      { rel: "preconnect", href: "https://scripts.converteai.net" },
-      { rel: "preconnect", href: "https://cdn.converteai.net" },
+      ...(TEM_VSL
+        ? [
+            { rel: "preconnect", href: "https://scripts.converteai.net" },
+            { rel: "preconnect", href: "https://cdn.converteai.net" },
+            { rel: "preload", as: "script", href: VTURB_SCRIPT },
+          ]
+        : []),
     ],
     scripts: FAQ_LD
       ? [
@@ -57,4 +72,3 @@ export const Route = createFileRoute("/")({
 function Index() {
   return <ManifestoPage content={manifesto} />;
 }
-
