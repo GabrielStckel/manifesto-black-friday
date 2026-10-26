@@ -377,3 +377,33 @@ main .counter-caption { font-size:11px; }
 @media (max-width:560px) {
   main .hero-badge { white-space:nowrap; font-size:11px; letter-spacing:0.14em; padding:6px 12px; }
 }
+
+/* Revelação só em CSS: conteúdo visível no HTML; anima ao entrar na tela
+   apenas onde há animation-timeline e sem pedido de menos movimento. */
+@keyframes reveal-in { from { opacity:0; transform:translateY(14px); } }
+@media (prefers-reduced-motion:no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal { animation:reveal-in linear both; animation-timeline:view(); animation-range:entry 0% entry 35%; }
+  }
+}
+
+/* Texto corrido justificado com hifenização (html lang="pt-BR"). */
+.texto { text-align:justify; text-justify:inter-word; -webkit-hyphens:auto; hyphens:auto; hyphenate-limit-chars:6 3 2; overflow-wrap:break-word; text-wrap:pretty; }
+.texto-centro { text-align-last:center; }
+@media (min-width:640px) { .texto-centro-sm-off { text-align-last:auto; } }
+@media (min-width:768px) { .texto-centro-md { text-align-last:center; } }
+
+/* Pílula dourada nas seções de fundo vinho (o vermelho some no vinho). */
+[data-section-bg="red"] .btn:not(.btn-secondary) { background:linear-gradient(180deg,#FBD86A 0%,#F7C948 50%,#E0B43C 100%); color:#14120E; text-shadow:none; --button-shine:rgba(255,255,255,0.45); box-shadow:0 14px 40px -14px rgba(0,0,0,0.55); }
+[data-section-bg="red"] .btn:not(.btn-secondary):hover { box-shadow:0 18px 48px -14px rgba(0,0,0,0.6); }
+
+/* Retrato do Jonas */
+.jonas-foto { border-radius:16px; border:1px solid rgba(247,201,72,0.45); box-shadow:0 30px 80px -30px rgba(0,0,0,0.9); }
+.jonas-foto::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(to top, rgba(31,18,16,0.5), transparent 40%); }
+
+/* Cards empilhados viram um card só no celular */
+@media (max-width:767px) {
+  .card-unico { border-radius:12px; border:1px solid var(--border-dark); background:var(--surface-dark); padding:18px; gap:16px; }
+  .card-unico > * { border:0; border-radius:0; background:transparent; padding:0; }
+  .card-unico > * + * { border-top:1px solid var(--border-dark); padding-top:16px; }
+}
