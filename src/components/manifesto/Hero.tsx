@@ -2,6 +2,7 @@ import { ManifestoCta } from "./ManifestoCta";
 import { CampoConstelacao } from "./CampoConstelacao";
 import { Orbe } from "./Orbe";
 import { VturbPlayer } from "./VturbPlayer";
+import { TEM_VSL } from "../../lib/config";
 import type { Hero as HeroType } from "../../content/manifesto.types";
 
 // Destaca um trecho da headline em latão.
@@ -150,16 +151,20 @@ export function Hero({
           {h1}
         </h1>
 
-        <p className="mt-7 max-w-[46ch] text-[15px] font-semibold leading-[1.55] text-section-dark-fg/90 md:mt-8 md:text-[17px]">
-          <HeadlinePlayer texto={headlinePlayer} destaque={headlineDestaque} />
-        </p>
+        {TEM_VSL ? (
+          <>
+            <p className="texto texto-centro mt-7 max-w-[46ch] text-[15px] font-semibold leading-[1.55] text-section-dark-fg/90 md:mt-8 md:text-[17px]">
+              <HeadlinePlayer texto={headlinePlayer} destaque={headlineDestaque} />
+            </p>
 
-        <div className="mt-6 flex w-full justify-center md:mt-8">
-          <VturbPlayer />
-        </div>
+            <div className="mt-6 flex w-full justify-center md:mt-8">
+              <VturbPlayer />
+            </div>
+          </>
+        ) : null}
 
         <p
-          className="mt-8 max-w-[44ch] text-[15.5px] leading-[1.65] text-section-dark-fg/90 md:mt-10 md:max-w-[58ch] md:text-[18px] md:leading-[1.65]"
+          className="texto texto-centro mt-8 max-w-[44ch] text-[15.5px] leading-[1.65] text-section-dark-fg/90 md:mt-10 md:max-w-[58ch] md:text-[18px] md:leading-[1.65]"
           style={{ textShadow: "var(--text-shadow-soft)" }}
         >
           <Subtitulo texto={subtitulo} destaques={subtituloDestaques} />

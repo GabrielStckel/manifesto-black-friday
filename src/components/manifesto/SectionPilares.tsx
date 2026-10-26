@@ -6,7 +6,7 @@ import type { SectionPilares as Props } from "../../content/manifesto.types";
 // mobile), palavra grande em Archivo + texto. Fundo vinho.
 export function SectionPilares({ fundo, eyebrow, titulo, itens, fecho }: Props) {
   return (
-    <SectionShell fundo={fundo} className="overflow-hidden py-16 md:py-24">
+    <SectionShell fundo={fundo} className="overflow-hidden py-14 md:py-24">
       <div className="relative">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-on-red/70 md:text-[12px]">
@@ -30,7 +30,7 @@ export function SectionPilares({ fundo, eyebrow, titulo, itens, fecho }: Props) 
               <h3 className="font-display text-[26px] font-semibold leading-tight md:text-[30px]">
                 {item.titulo}
               </h3>
-              <p className="mt-4 text-[15px] leading-[1.75] text-section-red-fg/85 md:text-[16px]">
+              <p className="texto mt-4 text-[15px] leading-[1.75] text-section-red-fg/85 md:text-[16px]">
                 {item.texto}
               </p>
             </Reveal>

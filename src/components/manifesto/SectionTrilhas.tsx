@@ -24,7 +24,7 @@ function TrailCard({ trilha }: { trilha: Trilha }) {
     <div className="relative min-w-0">
       <p className="trail-label">TRILHA {trilha.numero}</p>
       <h4 className="trail-title mt-2">{trilha.titulo}</h4>
-      <p className="trail-text mt-3">{trilha.texto}</p>
+      <p className="trail-text texto mt-3">{trilha.texto}</p>
     </div>
   </article>;
 }
@@ -62,7 +62,7 @@ export function SectionTrilhas({
             {eyebrow}
           </p>
           <MarkedTitle text={titulo} phrase="organizado em trilhas" className="mx-auto mt-4 max-w-3xl text-balance text-center font-display text-[clamp(1.5rem,6.4vw,2.2rem)] font-semibold leading-[1.14] tracking-[-0.015em] md:text-[clamp(1.6rem,2.9vw,2.25rem)] md:leading-[1.1]" />
-          <p className="mx-auto mt-5 max-w-[56ch] text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16.5px]">
+          <p className="texto texto-centro mx-auto mt-5 max-w-[56ch] text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16.5px]">
             {texto}
           </p>
         </Reveal>
@@ -94,7 +94,7 @@ export function SectionTrilhas({
               <Sublegenda>{constancia.sublegenda}</Sublegenda>
               <ul className="mt-5 space-y-4 text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16px]">
                 {constancia.itens.map((item) => (
-                  <li key={item} className="border-l border-brass/30 pl-4">{item}</li>
+                  <li key={item} className="texto border-l border-brass/30 pl-4">{item}</li>
                 ))}
               </ul>
             </div>
@@ -103,7 +103,7 @@ export function SectionTrilhas({
                 {companhia.titulo}
               </h3>
               <Sublegenda>{companhia.sublegenda}</Sublegenda>
-              <p className="mt-5 text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16px]">
+              <p className="texto mt-5 text-[15px] leading-[1.75] text-section-dark-fg/95 md:text-[16px]">
                 {companhia.texto}
               </p>
             </div>
