@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import archivo500Url from "@fontsource/archivo/files/archivo-latin-500-normal.woff2?url";
 import inter400Url from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { META_PIXEL_ID } from "../lib/config";
+import { metaPixelHeadScript } from "../lib/meta-pixel";
 
 function NotFoundComponent() {
   return (
@@ -76,6 +78,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 
 export const Route = createRootRoute({
   head: () => ({
+    scripts: [{ children: metaPixelHeadScript(META_PIXEL_ID) }],
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },

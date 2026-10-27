@@ -1,5 +1,11 @@
 # Roadmap
 
+## Pixel da Meta sem banner
+- [x] Instalar PageView único e carregamento após load, com bloqueio regional e de localização desconhecida
+- [x] Política de privacidade e link no rodapé
+- [x] 51 testes passaram; bloqueio regional e retirada conferidos no preview
+- [ ] Confirmar transmissão: Meta bloqueou o domínio do preview pelas permissões de tráfego do Pixel; requer liberação em Eventos da Meta ou teste no domínio permitido após publicação
+
 ## Acabamento da imersão
 - [x] Archivo + Inter, cores e tipografia
 - [x] Pílulas, fita, marca-texto, trilhas e ingresso anual

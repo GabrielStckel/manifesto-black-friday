@@ -2,6 +2,7 @@
 // TODO CTA da página deve importar daqui — nunca escrever a URL inline.
 
 export const CHECKOUT_BASE = "https://pay.hotmart.com/A107112795R";
+export const META_PIXEL_ID = "489930819102829";
 
 // Códigos de oferta (off) de cada plano no checkout.
 export const PLANOS = {
