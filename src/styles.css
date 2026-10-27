@@ -407,3 +407,6 @@ main .counter-caption { font-size:11px; }
   .card-unico > * { border:0; border-radius:0; background:transparent; padding:0; }
   .card-unico > * + * { border-top:1px solid var(--border-dark); padding-top:16px; }
 }
+
+/* Conteúdo revelado pelo VTurb no pitch da VSL (ele aplica display:block inline). */
+.vsl-revelar { display: none; }
