@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { CtaBar as CtaBarType } from "../../content/manifesto.types";
 import { ManifestoCta } from "./ManifestoCta";
 import { shouldShowFloatingCta } from "../../lib/cta-visibility";
+import { TEM_VSL, VSL_REVELAR } from "../../lib/config";
 
 export function CtaBar({ resumo, botao }: CtaBarType) {
   const [visivel, setVisivel] = useState(false);
@@ -20,9 +21,10 @@ export function CtaBar({ resumo, botao }: CtaBarType) {
     return () => observer.disconnect();
   }, []);
   const parts = resumo.split(/(12x R\$ 79|R\$ 97\/mês)/g);
-  return <div aria-hidden={!visivel} className={`floating-cta ${visivel ? "is-visible" : ""}`}>
+  const floatingCta = <div aria-hidden={!visivel} className={`floating-cta ${visivel ? "is-visible" : ""}`}>
     <ManifestoCta href="#planos" arrow={false} tabIndex={visivel ? undefined : -1}>
       {botao} · {parts.map((part, index) => /^(12x R\$ 79|R\$ 97\/mês)$/.test(part) ? <strong key={index}>{part}</strong> : part)}
     </ManifestoCta>
   </div>;
+  return TEM_VSL ? <div className={VSL_REVELAR}>{floatingCta}</div> : floatingCta;
 }

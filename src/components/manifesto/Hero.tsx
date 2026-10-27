@@ -2,7 +2,7 @@ import { ManifestoCta } from "./ManifestoCta";
 import { CampoConstelacao } from "./CampoConstelacao";
 import { Orbe } from "./Orbe";
 import { VturbPlayer } from "./VturbPlayer";
-import { TEM_VSL } from "../../lib/config";
+import { TEM_VSL, VSL_REVELAR } from "../../lib/config";
 import type { Hero as HeroType } from "../../content/manifesto.types";
 
 // Destaca um trecho da headline em latão.
@@ -135,7 +135,7 @@ export function Hero({
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brass/25 to-transparent"
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center text-center md:max-w-4xl">
+      <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center text-center md:max-w-4xl">
         <p className="hero-badge inline-flex items-center gap-2.5 rounded-full border border-brass/25 bg-surface-light/[0.04] px-4 py-2 text-[11.5px] font-semibold uppercase leading-[1.6] tracking-[0.2em] text-brass-glow sm:text-[11.5px] sm:tracking-[0.26em]">
           <span
             aria-hidden="true"
@@ -170,11 +170,21 @@ export function Hero({
           <Subtitulo texto={subtitulo} destaques={subtituloDestaques} />
         </p>
 
-        <ManifestoCta href="#planos" className="mt-8 w-full max-w-[440px] md:mt-10">{cta}</ManifestoCta>
-
-        <p className="mt-4 max-w-[34ch] text-[12px] leading-snug text-muted-foreground md:mt-5 md:max-w-none md:text-[13px]">
-          {microtexto}
-        </p>
+        {TEM_VSL ? (
+          <div className={`${VSL_REVELAR} w-full`}>
+            <ManifestoCta href="#planos" className="mx-auto mt-8 w-full max-w-[440px] md:mt-10">{cta}</ManifestoCta>
+            <p className="mx-auto mt-4 max-w-[34ch] text-[12px] leading-snug text-muted-foreground md:mt-5 md:max-w-none md:text-[13px]">
+              {microtexto}
+            </p>
+          </div>
+        ) : (
+          <>
+            <ManifestoCta href="#planos" className="mt-8 w-full max-w-[440px] md:mt-10">{cta}</ManifestoCta>
+            <p className="mt-4 max-w-[34ch] text-[12px] leading-snug text-muted-foreground md:mt-5 md:max-w-none md:text-[13px]">
+              {microtexto}
+            </p>
+          </>
+        )}
       </div>
     </section>
   );

@@ -18,5 +18,5 @@
 ## Antes de publicar (pendências do usuário, em src/lib/config.ts)
 - [ ] Confirmar BF_FIM (30/11/2026 23:59 BRT)
 - [ ] Preencher REGRA_PRAZO (frase do que termina no prazo) — liga datas e contadores
-- [ ] Preencher VTURB_CONTA e VTURB_PLAYER (VSL)
+- [x] Preencher VTURB_CONTA e VTURB_PLAYER (VSL)
 - [ ] Preencher EMPRESA (razão social, CNPJ, e-mail)

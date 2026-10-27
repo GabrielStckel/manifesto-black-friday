@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ManifestoPage } from "../components/manifesto/ManifestoPage";
 import { manifesto } from "../content/manifesto";
 import type { ManifestoSection } from "../content/manifesto.types";
-import { TEM_VSL, VTURB_SCRIPT } from "../lib/config";
+import { TEM_VSL, VTURB_SCRIPT, VTURB_LIB, VTURB_HLS } from "../lib/config";
 
 const faqSection = manifesto.sections.find(
   (s): s is Extract<ManifestoSection, { kind: "faq" }> => s.kind === "faq",
@@ -54,6 +54,12 @@ export const Route = createFileRoute("/")({
             { rel: "preconnect", href: "https://scripts.converteai.net" },
             { rel: "preconnect", href: "https://cdn.converteai.net" },
             { rel: "preload", as: "script", href: VTURB_SCRIPT },
+            { rel: "preload", as: "script", href: VTURB_LIB },
+            { rel: "preload", as: "fetch", href: VTURB_HLS },
+            { rel: "dns-prefetch", href: "https://cdn.converteai.net" },
+            { rel: "dns-prefetch", href: "https://scripts.converteai.net" },
+            { rel: "dns-prefetch", href: "https://images.converteai.net" },
+            { rel: "dns-prefetch", href: "https://license.vturb.com" },
           ]
         : []),
     ],
