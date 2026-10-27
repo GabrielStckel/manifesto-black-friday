@@ -1,5 +1,10 @@
 # Roadmap
 
+## Pixel da Meta sem banner
+- [ ] Instalar PageView único e carregamento após load, com bloqueio regional e de localização desconhecida
+- [ ] Política de privacidade e link no rodapé
+- [ ] Testes de bloqueio, duplicação e transmissão no preview
+
 ## Acabamento da imersão
 - [x] Archivo + Inter, cores e tipografia
 - [x] Pílulas, fita, marca-texto, trilhas e ingresso anual
