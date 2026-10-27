@@ -18,3 +18,4 @@
 - Reveal is CSS-only (animation-timeline: view()) and content is visible in the HTML by default, so slow networks never hide text before hydration.
 - Checkout links carry the full tracked URL in href and log clicks with sendBeacon without preventDefault, so tracking never delays or blocks the checkout.
 - Gate only the hero CTA and floating CTA with the configured VTurb reveal class when VSL is enabled; keep the hero content free of a z-index stacking context so player overlays can rise above navigation.
+- Serialize a self-contained Meta Pixel bootstrap into the root head, limiting initialization to the sales page and deferring the SDK after load; gate all reporting on the same-origin hosting country signal and current advertising refusal so SSR and hydration cannot duplicate events.

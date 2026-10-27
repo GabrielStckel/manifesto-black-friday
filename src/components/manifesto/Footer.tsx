@@ -1,4 +1,5 @@
 import { SectionShell } from "./SectionShell";
+import { Link } from "@tanstack/react-router";
 import { EMPRESA } from "../../lib/config";
 import type { SectionRodape } from "../../content/manifesto.types";
 
@@ -26,6 +27,7 @@ export function Footer({ fundo, marca, copyright }: SectionRodape) {
           </p>
         ) : null}
         <p className="text-[12px] text-muted-foreground md:text-[13px]">{copyright}</p>
+        <Link to="/privacidade" className="text-[12px] text-muted-foreground underline underline-offset-4">Política de privacidade</Link>
       </div>
     </SectionShell>
   );
