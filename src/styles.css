@@ -1,5 +1,9 @@
 @import "tailwindcss" source(none);
-@source "../src";
+@source "./components/manifesto";
+@source "./components/ui/button.tsx";
+@source "./routes";
+@source "./content";
+@source "./lib";
 
 /* Fontes: apenas subset latin, apenas os pesos realmente usados. */
 @font-face { font-family:"Archivo"; font-style:normal; font-weight:400; font-display:swap; src:url("@fontsource/archivo/files/archivo-latin-400-normal.woff2") format("woff2"); }
