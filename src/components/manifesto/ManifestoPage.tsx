@@ -32,7 +32,7 @@ void _exaustivo;
 
 export function ManifestoPage({ content }: { content: ManifestoContent }) {
   return (
-    <main className="relative">
+    <main className="relative overflow-x-clip">
       <Topbar />
       <Hero {...content.hero} />
 
