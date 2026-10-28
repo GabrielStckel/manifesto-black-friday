@@ -27,48 +27,48 @@ async function visit(country, { ok = true, refuse = false, gpc = false, path = "
   return { window, scripts, listeners, context, script };
 }
 
-test("uses the requested pixel and queues only one PageView per page load", async () => {
+const queueOf = (result) => result.window.fbq.queue.map((args) => Array.from(args));
+const ACTIVE = [["init", "489930819102829", {}, { agent: "lovable" }], ["track", "PageView"]];
+
+test("BR: queues exactly init and PageView, SDK injected immediately and once", async () => {
   expect(META_PIXEL_ID).toBe("489930819102829");
   const result = await visit("BR");
   runInNewContext(result.script, result.context);
-  expect(result.window.fbq.queue.map((args) => Array.from(args))).toEqual([
-    ["init", "489930819102829", {}, { agent: "lovable" }], ["track", "PageView"],
-  ]);
-});
-
-test("loads async SDK only after load and never twice", async () => {
-  const result = await visit("BR");
-  expect(result.scripts).toHaveLength(0);
-  result.listeners.load(); result.listeners.load();
+  expect(queueOf(result)).toEqual(ACTIVE);
   expect(result.scripts).toHaveLength(1);
   expect(result.scripts[0].async).toBe(true);
   expect(result.scripts[0].src).toBe("https://connect.facebook.net/en_US/fbevents.js");
 });
 
-for (const country of "AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO GB CH XX T1 undefined".split(" ")) {
-  test(`blocks country ${country} without sending or loading`, async () => {
+for (const country of "AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO GB CH".split(" ")) {
+  test(`blocked country ${country} revokes consent`, async () => {
     const result = await visit(country);
-    expect(result.window.fbq).toBeUndefined();
-    expect(result.scripts).toHaveLength(0);
+    await new Promise((resolve) => setImmediate(resolve));
+    expect(queueOf(result).at(-1)).toEqual(["consent", "revoke"]);
   });
 }
-test("failed location lookup stays blocked", async () => {
-  expect((await visit("BR", { ok: false })).window.fbq).toBeUndefined();
-});
+for (const [label, country, opts] of [["failed lookup", "BR", { ok: false }], ["XX", "XX"], ["T1", "T1"], ["no country", undefined]]) {
+  test(`${label} keeps pixel active`, async () => {
+    const result = await visit(country, opts);
+    await new Promise((resolve) => setImmediate(resolve));
+    expect(queueOf(result)).toEqual(ACTIVE);
+  });
+}
 test("honors saved advertising refusal", async () => {
-  expect((await visit("BR", { refuse: true })).window.fbq).toBeUndefined();
+  const r = await visit("BR", { refuse: true });
+  expect(r.window.fbq).toBeUndefined(); expect(r.scripts).toHaveLength(0);
 });
 test("honors Global Privacy Control", async () => {
-  expect((await visit("BR", { gpc: true })).window.fbq).toBeUndefined();
+  const r = await visit("BR", { gpc: true });
+  expect(r.window.fbq).toBeUndefined(); expect(r.scripts).toHaveLength(0);
 });
 test("does not report privacy policy visits", async () => {
-  expect((await visit("BR", { path: "/privacidade" })).window.fbq).toBeUndefined();
+  const r = await visit("BR", { path: "/privacidade" });
+  expect(r.window.fbq).toBeUndefined(); expect(r.scripts).toHaveLength(0);
 });
-test("withdrawal revokes tracking immediately and prevents deferred SDK", async () => {
+test("later refusal revokes tracking", async () => {
   const result = await visit("BR");
   result.context.localStorage.getItem = () => "true";
   result.listeners["manifesto-advertising-change"]();
-  result.listeners.load();
-  expect(Array.from(result.window.fbq.queue.at(-1))).toEqual(["consent", "revoke"]);
-  expect(result.scripts).toHaveLength(0);
+  expect(queueOf(result).at(-1)).toEqual(["consent", "revoke"]);
 });
