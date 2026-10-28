@@ -55,7 +55,7 @@ export const Route = createFileRoute("/")({
             { rel: "preconnect", href: "https://cdn.converteai.net" },
             { rel: "preload", as: "script", href: VTURB_SCRIPT },
             { rel: "preload", as: "script", href: VTURB_LIB },
-            { rel: "preload", as: "fetch", href: VTURB_HLS, crossOrigin: "anonymous" },
+            { rel: "preload", as: "fetch", href: VTURB_HLS, crossOrigin: "anonymous" as const },
             { rel: "dns-prefetch", href: "https://cdn.converteai.net" },
             { rel: "dns-prefetch", href: "https://scripts.converteai.net" },
             { rel: "dns-prefetch", href: "https://images.converteai.net" },

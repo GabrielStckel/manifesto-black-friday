@@ -17,12 +17,6 @@ export type CtaBar = {
 export type Hero = {
   badge: string;
   h1: string;
-  headlinePlayer: string;
-  /** Trecho da headline exibido em destaque (latão). */
-  headlineDestaque: string;
-  subtitulo: string;
-  /** Trechos do subtítulo exibidos em latão claro (preços). */
-  subtituloDestaques: string[];
   cta: string;
   microtexto: string;
 };
@@ -186,8 +180,6 @@ export type PlanoOferta = {
   linha: string;
   itens: string[];
   cta: string;
-  /** Texto pequeno sob o botão. */
-  nota: string;
 };
 
 export type SectionOferta = {
@@ -200,13 +192,11 @@ export type SectionOferta = {
     anual: PlanoOferta;
     mensal: PlanoOferta;
   };
-  textoPosCards: string;
   garantia: {
     selo: string;
     titulo: string;
     texto: string;
   };
-  passosCompra: { rotulo: string; itens: string[] };
 };
 
 export type SectionDoisCaminhos = {

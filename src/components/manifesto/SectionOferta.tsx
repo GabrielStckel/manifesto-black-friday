@@ -86,9 +86,6 @@ function CardPlano({
         className="plan-cta mt-7 w-full"
       >{plano.cta}</ManifestoCta>
 
-      <p className="texto texto-centro mt-4 text-[11.5px] leading-relaxed text-muted-foreground md:text-[12px]">
-        {plano.nota}
-      </p>
     </div>
   );
 }
@@ -99,9 +96,7 @@ export function SectionOferta({
   porQueAgora,
   inclui,
   planos,
-  textoPosCards,
   garantia,
-  passosCompra,
 }: SectionOfertaType) {
   return (
     <SectionShell fundo={fundo} id="planos" className="bg-oferta scroll-mt-14 py-14 md:py-28">
@@ -203,12 +198,6 @@ export function SectionOferta({
           </div>
         </Reveal>
 
-        <Reveal delay={200}>
-          <p className="texto texto-centro mx-auto mt-8 max-w-2xl text-[12.5px] leading-relaxed text-muted-foreground md:text-[13.5px]">
-            {textoPosCards}
-          </p>
-        </Reveal>
-
         {/* Garantia — logo abaixo dos planos */}
         <Reveal delay={220}>
           <div className="guarantee mx-auto mt-10 flex max-w-3xl flex-col items-center gap-5 rounded-lg border border-brass/20 bg-[rgba(212,173,90,0.10)] p-6 text-center sm:flex-row sm:text-left md:p-7">
@@ -235,26 +224,6 @@ export function SectionOferta({
           </Reveal>
         ) : null}
 
-        {/* Como funciona a compra */}
-        <Reveal delay={260}>
-          <div className="mx-auto mt-12 max-w-4xl md:mt-14">
-            <p className="text-center text-[11.5px] font-semibold uppercase tracking-[0.22em] text-brass-glow md:text-[12px]">
-              {passosCompra.rotulo}
-            </p>
-            <ol className="mt-6 grid gap-px overflow-hidden rounded-lg border border-border-dark/[0.14] bg-surface-light/10 max-[460px]:grid-cols-1 min-[461px]:grid-cols-2 lg:grid-cols-4">
-              {passosCompra.itens.map((passo, i) => (
-                <li key={passo} className="flex gap-3 bg-section-dark-bg p-5 text-left">
-                  <span className="purchase-number">
-                    {i + 1}
-                  </span>
-                  <p className="texto min-w-0 flex-1 text-[13px] leading-relaxed text-section-dark-fg/95 md:text-[13.5px]">
-                    {passo}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </Reveal>
       </div>
     </SectionShell>
   );

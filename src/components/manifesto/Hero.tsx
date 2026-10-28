@@ -5,63 +5,9 @@ import { VturbPlayer } from "./VturbPlayer";
 import { TEM_VSL, VSL_REVELAR } from "../../lib/config";
 import type { Hero as HeroType } from "../../content/manifesto.types";
 
-// Destaca um trecho da headline em latão.
-function HeadlinePlayer({ texto, destaque }: { texto: string; destaque: string }) {
-  const idx = texto.indexOf(destaque);
-  if (idx === -1) return <>{texto}</>;
-  return (
-    <>
-      {texto.slice(0, idx)}
-      <strong className="font-semibold text-brass-glow">{destaque}</strong>
-      {texto.slice(idx + destaque.length)}
-    </>
-  );
-}
-
-// Destaca os preços do subtítulo em latão claro.
-function Subtitulo({ texto, destaques }: { texto: string; destaques: string[] }) {
-  const partes: { trecho: string; destaque: boolean }[] = [];
-  let restante = texto;
-  while (restante.length > 0) {
-    let menorIdx = -1;
-    let destaqueAchado = "";
-    for (const d of destaques) {
-      const i = restante.indexOf(d);
-      if (i !== -1 && (menorIdx === -1 || i < menorIdx)) {
-        menorIdx = i;
-        destaqueAchado = d;
-      }
-    }
-    if (menorIdx === -1) {
-      partes.push({ trecho: restante, destaque: false });
-      break;
-    }
-    if (menorIdx > 0) partes.push({ trecho: restante.slice(0, menorIdx), destaque: false });
-    partes.push({ trecho: destaqueAchado, destaque: true });
-    restante = restante.slice(menorIdx + destaqueAchado.length);
-  }
-  return (
-    <>
-      {partes.map((p, i) =>
-        p.destaque ? (
-          <strong key={i} className="font-semibold text-brass-glow">
-            {p.trecho}
-          </strong>
-        ) : (
-          <span key={i}>{p.trecho}</span>
-        ),
-      )}
-    </>
-  );
-}
-
 export function Hero({
   badge,
   h1,
-  headlinePlayer,
-  headlineDestaque,
-  subtitulo,
-  subtituloDestaques,
   cta,
   microtexto,
 }: HeroType) {
@@ -152,23 +98,10 @@ export function Hero({
         </h1>
 
         {TEM_VSL ? (
-          <>
-            <p className="texto texto-centro mt-7 max-w-[46ch] text-[15px] font-semibold leading-[1.55] text-section-dark-fg/90 md:mt-8 md:text-[17px]">
-              <HeadlinePlayer texto={headlinePlayer} destaque={headlineDestaque} />
-            </p>
-
-            <div className="mt-6 flex w-full justify-center md:mt-8">
-              <VturbPlayer />
-            </div>
-          </>
+          <div className="mt-7 flex w-full justify-center md:mt-9">
+            <VturbPlayer />
+          </div>
         ) : null}
-
-        <p
-          className="texto texto-centro mt-8 max-w-[44ch] text-[15.5px] leading-[1.65] text-section-dark-fg/90 md:mt-10 md:max-w-[58ch] md:text-[18px] md:leading-[1.65]"
-          style={{ textShadow: "var(--text-shadow-soft)" }}
-        >
-          <Subtitulo texto={subtitulo} destaques={subtituloDestaques} />
-        </p>
 
         {TEM_VSL ? (
           <div className={`${VSL_REVELAR} w-full`}>
