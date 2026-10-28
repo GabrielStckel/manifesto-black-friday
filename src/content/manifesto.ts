@@ -18,10 +18,6 @@ export const manifesto: ManifestoContent = {
   hero: {
     badge: "BLACK FRIDAY · MANIFESTO SISTÊMICO",
     h1: "Você já entendeu o seu padrão. Por que ele continua voltando?",
-    headlinePlayer: "Assista antes de decidir: o Jonas Peres explica por que entender não basta para sair do lugar. Na parte final do vídeo, ele apresenta o Manifesto, que é pago, e a condição de Black Friday.",
-    headlineDestaque: "o Jonas Peres explica por que entender não basta para sair do lugar.",
-    subtitulo: "Pela primeira vez, você entra no Manifesto Sistêmico por assinatura: 12x de R$ 79 no plano anual, ou R$ 97 por mês no mensal, que você cancela quando quiser.",
-    subtituloDestaques: ["12x de R$ 79", "R$ 97 por mês"],
     cta: "Ver os planos da Black Friday",
     microtexto: "Acesso no Hotmart Club logo após a confirmação do pagamento · Garantia de 7 dias",
   },
@@ -204,7 +200,6 @@ export const manifesto: ManifestoContent = {
             "Renova automaticamente a cada 12 meses, com aviso por e-mail antes",
           ],
           cta: "Quero o anual por 12x de R$ 79",
-          nota: "Pagamento anual de R$ 948, em até 12x de R$ 79 sem juros. Cancelar impede a próxima renovação; depois dos 7 dias de garantia, as parcelas do ano contratado continuam.",
         },
         mensal: {
           rotulo: "PLANO MENSAL",
@@ -217,23 +212,12 @@ export const manifesto: ManifestoContent = {
             "Renova automaticamente todo mês",
           ],
           cta: "Começar pelo mensal",
-          nota: "Cobrança de R$ 97 a cada mês. Cancele na sua conta Hotmart quando quiser; o acesso segue até o fim do mês pago.",
         },
       },
-      textoPosCards: "Nos dois planos, a assinatura renova automaticamente no período do plano. Avisamos por e-mail antes da renovação do anual. Você cancela na sua conta Hotmart, e o acesso segue até o fim do período pago.",
       garantia: {
         selo: "7 DIAS",
         titulo: "Garantia de 7 dias",
         texto: "Entre, assista às trilhas e participe da comunidade. Se em até 7 dias da compra você sentir que o Manifesto não é para você, peça o reembolso na sua conta Hotmart: devolvemos 100% da primeira cobrança e encerramos a assinatura.",
-      },
-      passosCompra: {
-        rotulo: "COMO FUNCIONA A COMPRA",
-        itens: [
-          "Escolha o plano anual ou o mensal.",
-          "Pague no checkout seguro da Hotmart, em ambiente criptografado.",
-          "Receba o acesso no e-mail da compra, logo após a confirmação.",
-          "Entre no Hotmart Club e comece pela Trilha 01.",
-        ],
       },
     },
     {
