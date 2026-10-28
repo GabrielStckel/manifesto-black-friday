@@ -160,7 +160,7 @@
     overflow-x: clip;
   }
 
-  body {
+  html {
     background-color: var(--bg-dark);
     font-family: var(--font-body);
     scroll-behavior: smooth;
