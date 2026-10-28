@@ -151,7 +151,16 @@
     border-color: var(--color-border);
   }
 
-  html {
+  /* Corta a rolagem lateral em html e body, porque o mini player do VTurb
+     força overflow: visible !important em todos os ancestrais do player
+     até o main (inclusive). overflow: hidden criaria um container de
+     rolagem e quebraria a faixa sticky do topo. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  body {
     background-color: var(--bg-dark);
     font-family: var(--font-body);
     scroll-behavior: smooth;
