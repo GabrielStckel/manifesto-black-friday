@@ -10,8 +10,8 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import archivo500Url from "@fontsource/archivo/files/archivo-latin-500-normal.woff2?url";
-import inter400Url from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+import archivo400Url from "@fontsource/archivo/files/archivo-latin-400-normal.woff2?url";
+import inter600Url from "@fontsource/inter/files/inter-latin-600-normal.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { META_PIXEL_ID } from "../lib/config";
 import { metaPixelHeadScript } from "../lib/meta-pixel";
@@ -89,16 +89,17 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "preconnect", href: "https://connect.facebook.net" },
       {
         rel: "preload",
-        href: archivo500Url,
+        href: archivo400Url,
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",
       },
       {
         rel: "preload",
-        href: inter400Url,
+        href: inter600Url,
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",
