@@ -36,17 +36,10 @@ export function VturbPlayer() {
     <div className="w-full max-w-[820px] overflow-hidden rounded-lg border border-brass/25 bg-player-placeholder shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)]">
       <div className="relative aspect-video w-full">
         {pronto ? (
-          <>
-            <vturb-smartplayer
-              id={`vid-${VTURB_PLAYER}`}
-              style={{ display: "block", width: "100%", height: "100%" }}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `(function(){var src=${JSON.stringify(VTURB_SCRIPT)};if(document.querySelector('script[src="'+src+'"]'))return;var s=document.createElement("script");s.src=src;s.async=true;document.head.appendChild(s);})();`,
-              }}
-            />
-          </>
+          <vturb-smartplayer
+            id={`vid-${VTURB_PLAYER}`}
+            style={{ display: "block", width: "100%", height: "100%" }}
+          />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
             <span
