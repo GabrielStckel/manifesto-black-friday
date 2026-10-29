@@ -53,6 +53,21 @@ export const manifesto: ManifestoContent = {
       ],
     },
     {
+      kind: "jonas", fundo: "red",
+      eyebrow: "QUEM EXPLICA",
+      nome: "Jonas Peres",
+      textos: [
+        "Educador e criador de conteúdo de autoconhecimento sistêmico. Toda quinta-feira, dá aula ao vivo no canal Autoconhecimento Sistêmico.",
+        "É ele quem explica, no vídeo acima e nas próximas seções, por que o padrão continua voltando. Fala de conceitos profundos de forma didática, com exemplos de relacionamentos, carreira e dinheiro, e conduz as trilhas e as vivências ao vivo do Manifesto.",
+      ],
+      credencial: "",
+      foto: {
+        src: jonas720.url,
+        srcSet: `${jonas480.url} 480w, ${jonas720.url} 720w`,
+        alt: "Jonas Peres falando ao microfone em um evento",
+      },
+    },
+    {
       kind: "mentiras", fundo: "dark",
       eyebrow: "POR QUE ENTENDER NÃO BASTA",
       titulo: "As duas ideias que mantêm muita gente no mesmo lugar",
@@ -138,21 +153,6 @@ export const manifesto: ManifestoContent = {
         { titulo: "Ao longo da primeira semana", texto: "Siga a Trilha 01 no seu ritmo e entre na comunidade de membros." },
         { titulo: "Até o 7º dia", texto: "Decida com a experiência na mão. Se sentir que não é para você, peça o reembolso dentro da garantia: devolvemos 100%." },
       ],
-    },
-    {
-      kind: "jonas", fundo: "dark",
-      eyebrow: "QUEM CONDUZ",
-      nome: "Jonas Peres",
-      textos: [
-        "Educador e criador de conteúdo de autoconhecimento sistêmico. Toda quinta-feira, dá aula ao vivo no canal Autoconhecimento Sistêmico.",
-        "No Manifesto, é ele quem conduz as trilhas e, com a equipe, as vivências ao vivo, explicando conceitos profundos de forma didática, com exemplos de relacionamentos, carreira e dinheiro.",
-      ],
-      credencial: "",
-      foto: {
-        src: jonas720.url,
-        srcSet: `${jonas480.url} 480w, ${jonas720.url} 720w`,
-        alt: "Jonas Peres falando ao microfone em um evento",
-      },
     },
     {
       kind: "depoimentos", fundo: "light",
