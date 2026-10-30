@@ -33,7 +33,14 @@ export function VturbPlayer() {
   }, [pronto]);
 
   return (
-    <div className="w-full max-w-[820px] overflow-hidden rounded-lg border border-brass/25 bg-player-placeholder shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)]">
+    <div
+      className="w-full max-w-[820px] overflow-hidden rounded-lg border border-brass/25 bg-player-placeholder shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)]"
+      style={{
+        isolation: "isolate",
+        transform: "translateZ(0)",
+        WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+      }}
+    >
       <div className="relative aspect-video w-full">
         {pronto ? (
           <vturb-smartplayer
