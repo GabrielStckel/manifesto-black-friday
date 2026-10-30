@@ -94,7 +94,18 @@ export function Hero({
           className="hero-title mt-7 md:mt-9"
           style={{ textShadow: "var(--text-shadow-hero)" }}
         >
-          {h1}
+          {(() => {
+            const indice = h1.indexOf(". ");
+            if (indice === -1) return h1;
+            const primeira = h1.slice(0, indice + 1);
+            const segunda = h1.slice(indice + 2);
+            return (
+              <>
+                <span className="block whitespace-nowrap">{primeira}</span>
+                <span className="block whitespace-nowrap">{segunda}</span>
+              </>
+            );
+          })()}
         </h1>
 
         {TEM_VSL ? (
