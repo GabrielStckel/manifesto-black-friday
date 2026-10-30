@@ -299,7 +299,7 @@ main h2 { font-family: var(--font-display); font-weight:500; font-size:clamp(27p
 main h3, main h4 { font-family:var(--font-display); font-weight:500; letter-spacing:-0.02em; line-height:1.2; }
 main .font-display { font-weight:500; letter-spacing:-0.02em; }
 main .tabular-nums { font-weight:600; letter-spacing:-0.04em; }
-main .hero-title { font-family:var(--font-display); font-weight:400; font-size:clamp(32px,6.4vw,54px); line-height:1.04; letter-spacing:-0.045em; max-width:20ch; }
+main .hero-title { font-family:var(--font-display); font-weight:400; font-size:clamp(22px,6.2vw,54px); line-height:1.04; letter-spacing:-0.045em; }
 main .offer-title { font-size:clamp(34px,8.4vw,53px); line-height:1.04; letter-spacing:-0.035em; }
 main .uppercase { font-size:11.5px; }
 main [data-section-bg="red"] .uppercase { color:var(--gold-light); }
@@ -372,7 +372,7 @@ main .plan-price > p.font-display { font-family:var(--font-display); font-weight
 .guarantee-seal { flex-direction:column; width:86px; height:86px; border-color:color-mix(in srgb,var(--brass-glow) 75%,transparent); box-shadow:0 0 30px -8px color-mix(in srgb,var(--brass-glow) 45%,transparent); }
 main .gold-number { font:600 44px/1 var(--font-display); letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
 @media (max-width:640px) {
- main .hero-title { font-size:30px; line-height:1.06; }
+ main .hero-title { line-height:1.06; }
  .btn { min-height:56px; padding:12px 22px; }
  .btn.plan-cta { font-size:15px; padding:12px 16px; gap:6px; white-space:nowrap; }
  .plan-card { padding-inline:18px; }
