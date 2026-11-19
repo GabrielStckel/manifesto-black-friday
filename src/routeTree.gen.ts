@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlackRouteImport } from './routes/black'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as ApiPublicTrackCheckoutClickRouteImport } from './routes/api/public/track-checkout-click'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlackRoute = BlackRouteImport.update({
+  id: '/black',
+  path: '/black',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacidadeRoute = PrivacidadeRouteImport.update({
@@ -32,30 +38,40 @@ const ApiPublicTrackCheckoutClickRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/black': typeof BlackRoute
   '/privacidade': typeof PrivacidadeRoute
   '/api/public/track-checkout-click': typeof ApiPublicTrackCheckoutClickRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/black': typeof BlackRoute
   '/privacidade': typeof PrivacidadeRoute
   '/api/public/track-checkout-click': typeof ApiPublicTrackCheckoutClickRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/black': typeof BlackRoute
   '/privacidade': typeof PrivacidadeRoute
   '/api/public/track-checkout-click': typeof ApiPublicTrackCheckoutClickRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacidade' | '/api/public/track-checkout-click'
+  fullPaths:
+    '/' | '/black' | '/privacidade' | '/api/public/track-checkout-click'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacidade' | '/api/public/track-checkout-click'
-  id: '__root__' | '/' | '/privacidade' | '/api/public/track-checkout-click'
+  to: '/' | '/black' | '/privacidade' | '/api/public/track-checkout-click'
+  id:
+    | '__root__'
+    | '/'
+    | '/black'
+    | '/privacidade'
+    | '/api/public/track-checkout-click'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlackRoute: typeof BlackRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
   ApiPublicTrackCheckoutClickRoute: typeof ApiPublicTrackCheckoutClickRoute
 }
@@ -67,6 +83,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/black': {
+      id: '/black'
+      path: '/black'
+      fullPath: '/black'
+      preLoaderRoute: typeof BlackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacidade': {
@@ -88,6 +111,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlackRoute: BlackRoute,
   PrivacidadeRoute: PrivacidadeRoute,
   ApiPublicTrackCheckoutClickRoute: ApiPublicTrackCheckoutClickRoute,
 }

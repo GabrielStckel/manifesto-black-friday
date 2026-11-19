@@ -1,0 +1,1623 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Black Friday do Manifesto Sistêmico: 12x de R$ 79 ou R$ 97/mês</title>
+<meta name="description" content="Black Friday do Manifesto Sistêmico: pela primeira vez por assinatura, 12x de R$ 79 no anual ou R$ 97 por mês, com garantia de 7 dias.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Black Friday do Manifesto Sistêmico: 12x de R$ 79 ou R$ 97/mês">
+<meta property="og:description" content="Black Friday do Manifesto Sistêmico: pela primeira vez por assinatura, 12x de R$ 79 no anual ou R$ 97 por mês, com garantia de 7 dias.">
+<meta property="og:image" content="https://manifestosistemico.com.br/og-black-friday.jpg">
+<meta name="theme-color" content="#170d0c">
+<link rel="canonical" href="https://manifestosistemico.com.br/black">
+<meta property="og:url" content="https://manifestosistemico.com.br/black">
+<link rel="icon" href="/black-assets/emblema.png">
+
+<!-- Player da VSL (VTurb): pré-carregamento recomendado pelo próprio VTurb -->
+<link rel="preload" href="https://scripts.converteai.net/ac22f9bb-c7ee-4060-9a6e-7ec3b5fa2ff8/players/6ae11ab246271b50ab04eb96/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/ac22f9bb-c7ee-4060-9a6e-7ec3b5fa2ff8/6ae11a7214709eb481e0277e/main.m3u8" as="fetch" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!--
+  CONFIGURAÇÃO DA PÁGINA (JSON).
+  Tudo o que muda entre testes fica aqui: checkout, prazo, VSL, rastreio,
+  dados dos gráficos e depoimentos. Não é preciso mexer no resto do arquivo.
+-->
+<script type="application/json" id="config-bf">
+{
+  "checkout": {
+    "base": "https://pay.hotmart.com/A107112795R",
+    "checkoutMode": "10",
+    "planos": {
+      "anual":  { "off": "bfcr3ntt", "valor": 948, "nome": "Manifesto Sistêmico - Plano Anual" },
+      "mensal": { "off": "5int9ubm", "valor": 97,  "nome": "Manifesto Sistêmico - Plano Mensal" }
+    }
+  },
+  "prazo": {
+    "mostrar": true,
+    "fim": "2026-11-30T23:59:00-03:00",
+    "texto": "30/11 às 23h59",
+    "regra": "A condição de Black Friday, entrada por assinatura a partir de 12x de R$ 79, termina em 30/11 às 23h59."
+  },
+  "vsl": {
+    "conta": "ac22f9bb-c7ee-4060-9a6e-7ec3b5fa2ff8",
+    "player": "6ae11ab246271b50ab04eb96",
+    "revelarSeFalhar": true
+  },
+  "rastreio": {
+    "pixel": "489930819102829",
+    "gtm": "GTM-NKZC78Q3",
+    "hostsSemRastreio": ["localhost", "127.0.0.1", "0.0.0.0", ""],
+    "dominiosSemRastreio": [".lovable.app", ".lovableproject.com"]
+  },
+  "graficos": {
+    "compromisso": [
+      { "id": "antes",  "rotulo": "Até hoje · pagamento único por 1 ano", "valor": 997, "valorTexto": "R$ 997", "nota": "1 ano de acesso" },
+      { "id": "mensal", "rotulo": "Black Friday · plano mensal", "valor": 97, "valorTexto": "R$ 97", "nota": "sem permanência mínima" },
+      { "id": "anual",  "rotulo": "Black Friday · plano anual", "valor": 948, "valorTexto": "R$ 948", "nota": "em 12x de R$ 79" }
+    ],
+    "acumulado": { "mensal": 97, "anual": 79, "meses": 12 }
+  },
+  "depoimentos": []
+}
+</script>
+
+<style>
+/* ==========================================================================
+   Identidade do Manifesto (mesmos tokens da página atual)
+   ========================================================================== */
+:root{
+  --bg:#1f1210; --bg-black:#170d0c; --surface:#33201d; --line:rgba(255,255,255,.14);
+  --cream:#F6F3EC; --muted:#c9bcb0; --ink:#14120E;
+  --parchment:#F1EBE1; --on-parchment:#14120E;
+  --brass:#D4AD5A; --brass-glow:#F7C948; --brass-ink:#765914; --gold-light:#F6E3AD; --gold-cta:#FFE3A3;
+  --gold-stub-a:#FBD86A; --gold-stub-b:#E0B43C; --gold-edge:#AD8F4B;
+  --red:#DA3A32; --red-accent:#EF4B42; --red-deep:#8e2623; --red-ink:#7e2020; --red-light:#FF7A70;
+  --green:linear-gradient(180deg,#23A65C 0%,#1A8C4B 55%,#12713B 100%);
+  --btn-shadow:inset 0 0 0 1px rgba(255,255,255,.16),inset 0 1px 0 rgba(255,255,255,.28),0 14px 44px -12px rgba(31,157,85,.7);
+  --btn-shadow-h:inset 0 0 0 1px rgba(255,255,255,.2),inset 0 1px 0 rgba(255,255,255,.3),0 18px 56px -10px rgba(31,157,85,.85);
+  --gold-price:linear-gradient(180deg,#fff 22%,var(--gold-light) 68%,var(--brass));
+  --fd:"Archivo",ui-sans-serif,system-ui,sans-serif;
+  --fb:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{background:var(--bg);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--cream);font:400 16px/1.6 var(--fb);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul{padding:0;list-style:none}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+strong{font-weight:600}
+:focus-visible{outline:2px solid var(--red-accent);outline-offset:3px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+h2{font:500 clamp(27px,6.8vw,42px)/1.08 var(--fd);letter-spacing:-.028em;text-wrap:balance}
+h3{font:500 19px/1.25 var(--fd);letter-spacing:-.02em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 11.5px/1.3 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--brass-glow)}
+.eyebrow::before{content:"";width:6px;height:6px;flex:none;transform:rotate(45deg);background:currentColor;opacity:.85}
+.texto{text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word;text-wrap:pretty}
+.lead{font-size:17px;line-height:1.65;color:var(--muted)}
+.wrap{width:100%;max-width:1120px;margin-inline:auto;padding-inline:20px}
+.wrap-sm{max-width:820px}
+.centro{text-align:center}
+.mt-s{margin-top:14px}.mt-m{margin-top:24px}.mt-l{margin-top:40px}.mt-xl{margin-top:56px}
+
+/* Seções: escuro, vinho e pergaminho, como na página atual */
+.sec{position:relative;padding:76px 0;isolation:isolate}
+.sec[data-bg="dark"]{background:radial-gradient(90% 55% at 50% 0%,rgba(212,173,90,.09),transparent 62%),radial-gradient(90% 55% at 50% 100%,rgba(142,38,35,.22),transparent 70%),var(--bg)}
+.sec[data-bg="red"]{background:radial-gradient(90% 55% at 50% 0%,rgba(255,196,150,.16),transparent 62%),linear-gradient(175deg,#9a2b27 0%,#8e2623 45%,#6e1b1b 100%);color:#fff}
+.sec[data-bg="light"]{background:var(--parchment);color:var(--on-parchment)}
+.sec[data-bg="light"]::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(circle at 50% 50%,rgba(90,68,25,.22) .5px,transparent .6px);background-size:3px 3px;opacity:.5}
+.sec[data-bg="light"] .eyebrow{color:var(--brass-ink)}
+.sec[data-bg="red"] .eyebrow{color:var(--gold-light)}
+.sec[data-bg="light"] .lead{color:#4a4038}
+@media (min-width:900px){.sec{padding:112px 0}}
+
+/* Marca-texto dourado que se pinta ao entrar na tela */
+.mk mark{color:inherit;background-color:transparent;padding:0 .1em;border-radius:.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone;background-image:linear-gradient(100deg,transparent,rgba(255,242,205,.32) 50%,transparent),linear-gradient(100deg,rgba(247,201,72,.4),rgba(212,173,90,.26));background-repeat:no-repeat;background-size:40% 100%,0% 100%;background-position:-60% 0,0 0;transition:background-size 1.1s var(--ease) .35s}
+.sec[data-bg="light"] .mk mark{background-image:linear-gradient(100deg,transparent,rgba(255,250,232,.55) 50%,transparent),linear-gradient(100deg,rgba(240,196,80,.5),rgba(212,173,90,.3))}
+.mk.is-in mark{background-size:40% 100%,100% 100%;animation:mk-brilho 5.5s ease-in-out 1.6s infinite}
+@keyframes mk-brilho{0%{background-position:-60% 0,0 0}55%,100%{background-position:160% 0,0 0}}
+
+/* Entrada suave dos blocos */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.is-in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
+
+/* Botão verde com brilho (o mesmo da página atual) */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:12px 28px;border:0;border-radius:999px;background:var(--green);color:#fff;font:600 16px/1.25 var(--fb);letter-spacing:-.005em;text-decoration:none;text-shadow:0 1px 1px rgba(3,40,18,.4);box-shadow:var(--btn-shadow);transition:transform .4s var(--ease),box-shadow .4s,filter .3s;cursor:pointer;text-align:center}
+.btn::before{content:"";position:absolute;top:0;bottom:0;left:0;width:400%;z-index:-1;pointer-events:none;background:linear-gradient(110deg,transparent 0%,transparent 19%,rgba(220,255,232,.34) 25%,transparent 31%,transparent 69%,rgba(220,255,232,.34) 75%,transparent 81%,transparent 100%);animation:brilho 7s linear infinite}
+@keyframes brilho{to{transform:translateX(-50%)}}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:var(--btn-shadow-h)}
+.btn:active{transform:scale(.98)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-bloco{width:100%;max-width:440px}
+.micro{margin-top:12px;font-size:12.5px;line-height:1.45;color:var(--muted)}
+.sec[data-bg="light"] .micro{color:#5b5048}
+.sec[data-bg="red"] .micro{color:rgba(255,255,255,.78)}
+
+/* Ícones do sprite */
+.ic{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* ==========================================================================
+   Faixa do topo
+   ========================================================================== */
+.faixa{position:sticky;top:0;z-index:40;height:40px;overflow:hidden;background:var(--bg-black)}
+.faixa::after{content:"";position:absolute;bottom:0;inset-inline:0;height:2px;background:linear-gradient(90deg,var(--gold-edge),var(--brass-glow) 50%,var(--gold-edge))}
+.faixa-trilho{display:flex;width:max-content;height:38px}
+.faixa-copia{display:flex;align-items:center;gap:18px;padding-right:18px;flex:none;animation:fita 42s linear infinite}
+.faixa:hover .faixa-copia{animation-play-state:paused}
+.faixa-copia p{white-space:nowrap;font:600 11.5px/1.2 var(--fb);letter-spacing:.08em;text-transform:uppercase;color:var(--cream)}
+.faixa-copia strong{color:var(--brass-glow);font-weight:600}
+.losango{width:6px;height:6px;flex:none;transform:rotate(45deg);background:var(--brass)}
+@keyframes fita{to{transform:translateX(-100%)}}
+.so-prazo{display:none}
+body.tem-prazo .so-prazo{display:revert}
+body.tem-prazo .faixa-copia .so-prazo{display:contents}
+body.encerrada .so-ativa{display:none!important}
+.so-encerrada{display:none}
+body.encerrada .so-encerrada{display:revert}
+body.encerrada .faixa-copia.so-encerrada{display:flex}
+
+/* ==========================================================================
+   1ª dobra
+   ========================================================================== */
+.hero{position:relative;overflow:hidden;padding:44px 0 56px;background:linear-gradient(172deg,#2a100e 0%,#4a1713 58%,#5e1d17 100%);text-align:center}
+.hero-luz{position:absolute;inset:0;pointer-events:none}
+.hero-luz.l1{background:radial-gradient(150% 55% at 50% 42%,var(--red-accent) 0%,transparent 68%),radial-gradient(110% 38% at 50% 34%,var(--red-deep) 0%,transparent 72%);opacity:.5}
+.hero-luz.l2{background:radial-gradient(160% 45% at 50% 0%,var(--brass) 0%,transparent 72%);opacity:.18}
+.hero-luz.l3{background:radial-gradient(140% 95% at 50% 42%,transparent 62%,rgba(0,0,0,.34) 100%)}
+@media (min-width:641px){
+  .hero-luz.l1{background:radial-gradient(70% 52% at 50% 42%,var(--red-accent) 0%,transparent 68%),radial-gradient(46% 34% at 50% 34%,var(--red-deep) 0%,transparent 72%)}
+  .hero-luz.l2{background:radial-gradient(80% 45% at 50% 0%,var(--brass) 0%,transparent 72%);opacity:.2}
+}
+#constelacao{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative}
+.selo-bf{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:999px;border:1px solid rgba(212,173,90,.28);background:rgba(255,255,255,.04);font:600 11px/1.5 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--brass-glow);white-space:nowrap}
+.selo-bf i{width:6px;height:6px;background:var(--brass);transform:rotate(45deg)}
+.hero h1{margin-top:22px;font:400 clamp(23px,6.3vw,56px)/1.05 var(--fd);letter-spacing:-.045em;text-shadow:0 12px 40px rgba(0,0,0,.45)}
+.hero h1 span{display:block}
+@media (min-width:380px){.hero h1 span{white-space:nowrap}}
+.player{position:relative;margin:26px auto 0;width:100%;max-width:840px;border-radius:12px;overflow:hidden;border:1px solid rgba(212,173,90,.28);background:radial-gradient(80% 90% at 50% 40%,#4a1c18 0%,#1a0e0d 75%);box-shadow:0 30px 90px -30px rgba(0,0,0,.9),0 0 0 6px rgba(212,173,90,.05);isolation:isolate;transform:translateZ(0)}
+.player-16x9{position:relative;aspect-ratio:16/9;width:100%}
+.player vturb-smartplayer{position:absolute;inset:0;display:block;width:100%;height:100%}
+.player-espera{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--muted);font:600 11.5px/1.3 var(--fb);letter-spacing:.16em;text-transform:uppercase}
+.player-espera span{display:flex;width:66px;height:66px;align-items:center;justify-content:center;border-radius:50%;background:var(--green);box-shadow:0 0 44px rgba(239,75,66,.45),inset 0 1px 0 rgba(255,255,255,.28)}
+.player-espera svg{width:26px;height:26px;margin-left:4px;fill:#fff}
+.confianca{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 20px;margin:18px auto 0;max-width:640px;font-size:12.5px;line-height:1.45;color:var(--muted)}
+.confianca li{display:block;text-align:center}
+.confianca .ic{display:inline-block;width:15px;height:15px;margin-right:6px;vertical-align:-3px;color:var(--brass)}
+.vsl-revelar{display:none}
+.hero-cta{margin-top:26px}
+.hero-cta .preco-linha{margin-top:12px;font-size:13px;color:var(--muted)}
+.hero-cta .preco-linha b{color:var(--gold-cta);font-weight:600}
+@media (min-width:900px){.hero{padding:60px 0 80px}.hero h1{margin-top:30px}.player{margin-top:34px}}
+
+/* ==========================================================================
+   Contador (só com prazo real configurado)
+   ========================================================================== */
+.contador{display:inline-flex;align-items:stretch;gap:6px}
+.contador .cel{min-width:58px;padding:9px 6px 7px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));box-shadow:inset 0 0 0 1px rgba(247,201,72,.28);text-align:center}
+.contador .num{display:block;font:600 26px/1 var(--fd);letter-spacing:-.04em;font-variant-numeric:tabular-nums;background:var(--gold-price);-webkit-background-clip:text;background-clip:text;color:transparent}
+.contador .lbl{display:block;margin-top:5px;font:600 9.5px/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.contador .sep{align-self:center;color:var(--brass);font:600 20px/1 var(--fd);opacity:.6}
+.contador-titulo{font:600 10.5px/1.3 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:var(--brass-glow);margin-bottom:10px}
+@media (min-width:641px){.contador-titulo{font-size:11px;letter-spacing:.18em}}
+@media (min-width:641px){.contador .cel{min-width:72px}.contador .num{font-size:32px}}
+
+/* ==========================================================================
+   Resumo (para quem já conhece o Jonas)
+   ========================================================================== */
+.resumo{background:linear-gradient(180deg,#24120f 0%,var(--bg) 100%)}
+.resumo-grid{display:grid;gap:28px;margin-top:30px}
+.resumo-itens{display:grid;gap:12px}
+.resumo-item{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:18px;border-radius:14px;background:rgba(255,255,255,.045);box-shadow:inset 0 0 0 1px var(--line)}
+.resumo-item .ico{display:flex;width:44px;height:44px;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(circle at 50% 30%,#3A2620,#160C0A 70%);box-shadow:inset 0 0 0 1.5px rgba(247,201,72,.55);color:var(--brass-glow)}
+.resumo-item .rot{font:600 11px/1.3 var(--fb);letter-spacing:.16em;color:var(--brass-glow)}
+.resumo-item p.texto{margin-top:6px;font-size:15px;line-height:1.6;color:var(--cream)}
+.resumo-item strong{color:var(--brass-glow)}
+.painel{position:relative;padding:24px 20px;border-radius:18px;background:linear-gradient(180deg,rgba(247,201,72,.09),rgba(255,255,255,.02) 55%);box-shadow:inset 0 0 0 1px rgba(247,201,72,.3),0 30px 80px -40px rgba(0,0,0,.9)}
+.painel h3{font-size:18px}
+.painel .sub{margin-top:4px;font-size:13px;color:var(--muted)}
+.barras{display:grid;gap:18px;margin-top:22px}
+.barra-topo{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px;color:var(--muted)}
+.barra-topo b{font:600 17px/1 var(--fd);letter-spacing:-.03em;color:var(--cream);font-variant-numeric:tabular-nums;white-space:nowrap}
+.barra-trilho{position:relative;height:14px;margin-top:8px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+.barra-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:inherit;transition:width 1.4s var(--ease)}
+.barras.is-in .barra-fill{width:var(--w)}
+.barra[data-id="antes"] .barra-fill{background:linear-gradient(90deg,rgba(255,255,255,.18),rgba(255,255,255,.28))}
+.barra[data-id="mensal"] .barra-fill{background:linear-gradient(90deg,#1A8C4B,#23A65C)}
+.barra[data-id="anual"] .barra-fill{background:linear-gradient(90deg,var(--brass),var(--brass-glow))}
+.barra-nota{margin-top:6px;font-size:12px;color:var(--muted)}
+.barra[data-id="mensal"] .barra-topo b{color:#7ee0a5}
+.barra[data-id="anual"] .barra-topo b{color:var(--brass-glow)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;font:600 10.5px/1.2 var(--fb);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.chip-verde{background:rgba(35,166,92,.16);color:#7ee0a5;box-shadow:inset 0 0 0 1px rgba(35,166,92,.4)}
+.chip-ouro{background:rgba(247,201,72,.14);color:var(--brass-glow);box-shadow:inset 0 0 0 1px rgba(247,201,72,.4)}
+.painel-rodape{margin-top:22px;padding-top:18px;border-top:1px dashed rgba(247,201,72,.3);text-align:center}
+.resumo-acao{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:34px;text-align:center}
+.resumo-acao .micro{max-width:40ch}
+@media (min-width:900px){
+  .resumo-grid{grid-template-columns:1.05fr .95fr;gap:36px;align-items:start}
+  .resumo-acao{flex-direction:row;justify-content:flex-start;text-align:left;gap:22px}
+  .resumo-acao .micro{margin:0}
+}
+
+/* ==========================================================================
+   O padrão (pergaminho)
+   ========================================================================== */
+.padrao-grid{display:grid;gap:34px}
+.padrao-grid .texto{font-size:16.5px;line-height:1.7;color:#2b241e}
+.padrao-grid .texto+.texto{margin-top:16px}
+.link-video{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font:600 14px/1.3 var(--fb);color:var(--red-ink);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.cenas-cab{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;font:600 11px/1.3 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--brass-ink)}
+.cenas{display:grid;gap:10px}
+.cena{display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:start;width:100%;padding:16px 16px 16px 14px;border:0;border-radius:14px;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.04),inset 0 0 0 1px rgba(0,0,0,.08);text-align:left;cursor:pointer;transition:box-shadow .3s,transform .3s var(--ease),background .3s}
+.cena:hover{transform:translateY(-1px);box-shadow:0 10px 30px -18px rgba(60,30,10,.4),inset 0 0 0 1px rgba(118,89,20,.35)}
+.cena p{font-size:15.5px;line-height:1.55;color:#2b241e}
+.cena .marca{display:flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(118,89,20,.45);color:transparent;transition:background .3s,color .3s,box-shadow .3s}
+.cena .marca .ic{width:14px;height:14px;stroke-width:2.4}
+.cena[aria-pressed="true"]{background:#FFF9EA;box-shadow:inset 0 0 0 1.5px rgba(118,89,20,.6),0 14px 34px -22px rgba(118,89,20,.6)}
+.cena[aria-pressed="true"] .marca{background:var(--brass-ink);color:#fff;box-shadow:none}
+.cenas-res{display:flex;align-items:center;gap:14px;margin-top:14px;padding:14px 16px;border-radius:14px;background:var(--bg);color:var(--cream);opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s var(--ease);pointer-events:none}
+.cenas-res.on{opacity:1;transform:none;pointer-events:auto}
+.anel-prog{flex:none;width:46px;height:46px}
+.anel-prog circle{fill:none;stroke-width:4}
+.anel-prog .fundo{stroke:rgba(255,255,255,.12)}
+.anel-prog .frente{stroke:var(--brass-glow);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .6s var(--ease)}
+.cenas-res p{font-size:14.5px;line-height:1.45}
+.cenas-res a{color:var(--brass-glow);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (min-width:900px){.padrao-grid{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
+
+/* ==========================================================================
+   Jonas (vinho)
+   ========================================================================== */
+.jonas-grid{display:grid;gap:30px;align-items:center}
+.jonas-foto{position:relative;max-width:380px;margin-inline:auto;border-radius:18px;overflow:hidden;border:1px solid rgba(247,201,72,.45);box-shadow:0 30px 80px -30px rgba(0,0,0,.9)}
+.jonas-foto img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.jonas-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(31,18,16,.55),transparent 42%)}
+.ao-vivo-tag{position:absolute;left:14px;bottom:14px;z-index:1;display:inline-flex;align-items:center;gap:4px;padding:5px 12px 5px 2px;border-radius:999px;background:rgba(23,13,12,.82);backdrop-filter:blur(6px);font:600 11px/1.2 var(--fb);letter-spacing:.06em;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.lottie-vivo{width:30px;height:30px;flex:none}
+.jonas-grid h2{margin-top:12px}
+.jonas-grid .texto{margin-top:16px;font-size:16px;line-height:1.7;color:rgba(255,255,255,.92)}
+@media (min-width:900px){.jonas-grid{grid-template-columns:.85fr 1.15fr;gap:64px}.jonas-foto{max-width:none}}
+
+/* ==========================================================================
+   As duas ideias (escuro)
+   ========================================================================== */
+.ideias{display:grid;gap:16px;margin-top:36px}
+.ideia{position:relative;padding:24px 22px;border-radius:18px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.ideia .rot{font:600 11px/1.3 var(--fb);letter-spacing:.16em;color:var(--muted)}
+.mito{position:relative;display:inline-block;margin-top:10px;font:500 clamp(24px,5.6vw,32px)/1.15 var(--fd);letter-spacing:-.03em;color:var(--cream)}
+.mito::after{content:"";position:absolute;left:-2%;top:54%;height:3px;width:0;border-radius:3px;background:var(--red-accent);box-shadow:0 0 14px rgba(239,75,66,.7);transition:width .9s var(--ease) .5s}
+.ideia.is-in .mito::after{width:104%}
+.ideia.is-in .mito{color:rgba(246,243,236,.55);transition:color .6s 1s}
+.verdade{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.verdade .rot{color:var(--brass-glow)}
+.verdade .texto{margin-top:8px;font-size:15.5px;line-height:1.65;color:var(--cream)}
+.ciclo{position:relative;width:min(100%,380px);aspect-ratio:1;margin:46px auto 0}
+.ciclo .lottie{position:absolute;inset:0}
+.ciclo-rot{position:absolute;transform:translate(-50%,-50%);padding:6px 11px;border-radius:999px;background:var(--bg);box-shadow:inset 0 0 0 1px rgba(212,173,90,.35);font:600 11.5px/1.2 var(--fb);letter-spacing:.04em;white-space:nowrap;color:var(--cream)}
+.ciclo-rot.r-top{left:79%;top:9%}
+.ciclo-rot.r-dir{left:79%;top:91%}
+.ciclo-rot.r-base{left:21%;top:91%}
+.ciclo-rot.r-esq{left:21%;top:9%;color:#fff;background:var(--red-deep);box-shadow:inset 0 0 0 1px rgba(255,122,112,.6)}
+.ciclo-centro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
+.ciclo-centro small{font:600 10.5px/1.2 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.ciclo-centro b{margin-top:6px;font:500 22px/1.1 var(--fd);letter-spacing:-.03em;color:var(--cream)}
+.palavras{font:500 clamp(22px,5.4vw,34px)/1.2 var(--fd);letter-spacing:-.03em;text-align:center;text-wrap:balance}
+.palavras .w{color:rgba(246,243,236,.22);transition:color .35s}
+.palavras .w.on{color:var(--cream)}
+.sec[data-bg="red"] .palavras .w{color:rgba(255,255,255,.28)}
+.sec[data-bg="red"] .palavras .w.on{color:#fff}
+.sec[data-bg="light"] .palavras .w{color:rgba(20,18,14,.18)}
+.sec[data-bg="light"] .palavras .w.on{color:var(--ink)}
+@media (min-width:900px){.ideias{grid-template-columns:1fr 1fr;gap:20px}.ideia{padding:30px 28px}}
+
+/* ==========================================================================
+   Setênios (vinho)
+   ========================================================================== */
+.linha-tempo{position:relative;margin-top:44px;padding:0 4px}
+.lt-trilho{position:relative;height:10px;border-radius:999px;background:rgba(255,255,255,.12)}
+.lt-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--gold-light),var(--brass-glow));box-shadow:0 0 22px rgba(247,201,72,.55);transition:width 2.2s var(--ease)}
+.linha-tempo.is-in .lt-fill{width:78%}
+.lt-adulto{position:absolute;left:78%;right:0;top:50%;border-top:2px dashed rgba(255,255,255,.35)}
+.lt-marca{position:absolute;top:-7px;width:2px;height:24px;background:rgba(255,255,255,.55);transform:translateX(-1px)}
+.lt-num{position:absolute;top:24px;transform:translateX(-50%);font:600 12px/1 var(--fd);color:#fff;white-space:nowrap}
+.lt-fases{display:grid;grid-template-columns:repeat(3,1fr);width:78%;margin-top:44px}
+.lt-fase{padding:0 4px;text-align:center;font:600 9.5px/1.35 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light)}
+.lt-hoje{position:absolute;right:0;top:-34px;font:600 10.5px/1.2 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.elos{margin-top:40px}
+.elos-rot{font:600 11px/1.3 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.elo{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.elo:first-of-type{margin-top:12px;border-top:1px solid rgba(255,255,255,.16)}
+.elo .n{display:flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.18);box-shadow:inset 0 0 0 1.5px rgba(246,227,173,.55);font:600 15px/1 var(--fd);color:var(--gold-light)}
+.elo h3{font-size:18px;color:#fff}
+.elo .texto{margin-top:6px;font-size:15px;line-height:1.65;color:rgba(255,255,255,.88)}
+.caixa-vinho{margin-top:30px;padding:24px 22px;border-radius:16px;background:rgba(0,0,0,.2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.caixa-vinho h3{display:flex;align-items:center;gap:10px;color:#fff}
+.caixa-vinho h3 .ic{color:var(--gold-light)}
+.caixa-vinho .texto{margin-top:10px;font-size:15px;line-height:1.7;color:rgba(255,255,255,.88)}
+@media (min-width:900px){
+  .elo{grid-template-columns:40px 300px 1fr;align-items:start}
+  .elo .texto{margin-top:0}
+  .lt-fase{font-size:11px}
+}
+
+/* ==========================================================================
+   A virada: cartesiano × sistêmico (pergaminho)
+   ========================================================================== */
+.virada{display:grid;gap:18px;margin-top:40px}
+.card-antigo{padding:26px 22px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),0 20px 50px -34px rgba(60,30,10,.45)}
+.card-novo{padding:26px 22px;border-radius:18px;background:var(--bg);color:var(--cream);box-shadow:0 30px 70px -36px rgba(30,10,5,.8)}
+.card-antigo .rot{font:600 11px/1.3 var(--fb);letter-spacing:.16em;color:#7a6e64}
+.card-novo .rot{font:600 11px/1.3 var(--fb);letter-spacing:.16em;color:var(--brass-glow)}
+.card-antigo h3{margin-top:10px;font-size:21px;color:var(--ink)}
+.card-antigo .texto{margin-top:10px;font-size:15px;line-height:1.65;color:#3d342c}
+.gavetas{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.gaveta{position:relative;padding:16px 12px 14px;border-radius:8px;background:#F4F0E9;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1),inset 0 -3px 0 rgba(0,0,0,.05);text-align:center;font:600 12px/1.2 var(--fb);letter-spacing:.06em;color:#6b6058}
+.gaveta::after{content:"";display:block;width:26px;height:4px;margin:10px auto 0;border-radius:4px;background:rgba(0,0,0,.18)}
+.gavetas-leg{margin-top:12px;font-size:12px;color:#7a6e64;text-align:center}
+.rede{position:relative;width:min(100%,360px);aspect-ratio:1;margin:12px auto 0}
+.rede .lottie{position:absolute;inset:0}
+.rede-rot{position:absolute;transform:translate(-50%,-50%);font:600 11px/1.2 var(--fb);letter-spacing:.04em;color:var(--cream);white-space:nowrap;pointer-events:none}
+.rede-rot.voce{color:#fff;font-size:12px}
+.sistemico-itens{display:grid;gap:18px;margin-top:20px}
+.sistemico-itens li{display:grid;grid-template-columns:22px 1fr;gap:12px}
+.sistemico-itens .ic{margin-top:2px;color:var(--brass-glow)}
+.sistemico-itens b{display:block;font:500 17px/1.3 var(--fd);letter-spacing:-.015em;color:#fff}
+.sistemico-itens .texto{margin-top:4px;font-size:14.5px;line-height:1.6;color:var(--muted)}
+@media (min-width:900px){.virada{grid-template-columns:.9fr 1.1fr;gap:22px;align-items:stretch}.card-antigo,.card-novo{padding:32px 30px}}
+
+/* ==========================================================================
+   Três pilares (vinho)
+   ========================================================================== */
+.pilares{position:relative;display:grid;gap:14px;margin-top:40px}
+.pilar{position:relative;padding:24px 22px;border-radius:18px;background:rgba(0,0,0,.18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);text-align:left}
+.pilar .ico-g{display:flex;width:58px;height:58px;align-items:center;justify-content:center;border-radius:16px;background:radial-gradient(circle at 50% 30%,rgba(246,227,173,.2),rgba(0,0,0,.15) 70%);box-shadow:inset 0 0 0 1.5px rgba(246,227,173,.5);color:var(--gold-light)}
+.pilar .ico-g .ic{width:28px;height:28px;stroke-width:1.5}
+.pilar .num{position:absolute;top:22px;right:22px;font:600 12px/1 var(--fd);letter-spacing:.1em;color:rgba(255,255,255,.4)}
+.pilar h3{margin-top:16px;font-size:22px;color:#fff}
+.pilar .texto{margin-top:8px;font-size:15px;line-height:1.65;color:rgba(255,255,255,.88)}
+.convergir{position:relative;display:flex;flex-direction:column;align-items:center;margin-top:8px}
+.convergir svg.linhas{width:min(100%,780px);height:70px}
+.convergir svg.linhas path{fill:none;stroke:rgba(246,227,173,.55);stroke-width:1.5;stroke-dasharray:4 6}
+.emblema-m{display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;border-radius:999px;background:rgba(0,0,0,.25);box-shadow:inset 0 0 0 1px rgba(246,227,173,.45),0 0 50px -10px rgba(247,201,72,.45)}
+.emblema-m img{width:40px;height:40px;border-radius:50%}
+.emblema-m span{font:500 17px/1 var(--fd);letter-spacing:-.01em;color:#fff}
+.pilares-fecho{margin-top:40px}
+@media (min-width:900px){.pilares{grid-template-columns:repeat(3,1fr);gap:18px}.pilar{padding:28px 26px}}
+@media (max-width:899px){.convergir svg.linhas{display:none}.convergir{margin-top:22px}}
+
+/* ==========================================================================
+   O Manifesto por dentro (escuro)
+   ========================================================================== */
+.bloco-pilar{margin-top:48px}
+.bloco-cab{display:flex;align-items:center;gap:14px}
+.bloco-cab .ico-g{display:flex;width:46px;height:46px;flex:none;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(circle at 50% 30%,#3A2620,#160C0A 70%);box-shadow:inset 0 0 0 1.5px rgba(247,201,72,.6),0 0 22px -6px rgba(247,201,72,.5);color:var(--brass-glow)}
+.bloco-cab h3{font-size:22px}
+.bloco-cab small{display:block;margin-top:3px;font:600 10.5px/1.2 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:var(--brass-glow)}
+.capas{display:grid;grid-auto-flow:column;grid-auto-columns:76%;gap:14px;margin:20px -20px 0;padding:6px 20px 14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;scrollbar-width:none}
+.capas::-webkit-scrollbar{display:none}
+.capa{scroll-snap-align:start}
+.capa-arte{position:relative;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:linear-gradient(165deg,#3a1512 0%,#24100e 55%,#170d0c 100%);box-shadow:inset 0 0 0 1px rgba(247,201,72,.22),0 24px 50px -30px rgba(0,0,0,.95);transition:transform .5s var(--ease),box-shadow .5s}
+.capa:hover .capa-arte{transform:translateY(-4px);box-shadow:inset 0 0 0 1px rgba(247,201,72,.55),0 30px 60px -30px rgba(0,0,0,.95)}
+.capa-arte svg{position:absolute;inset:0;width:100%;height:100%}
+.capa-arte .estrelas circle{fill:var(--brass-glow)}
+.capa-arte .estrelas line{stroke:rgba(212,173,90,.22);stroke-width:.6}
+.capa-arte .emb{fill:none;stroke:var(--brass);stroke-width:1.4}
+.capa-arte .emb-luz{fill:var(--brass-glow)}
+.capa-info{position:absolute;inset:auto 0 0 0;padding:16px;background:linear-gradient(to top,rgba(23,13,12,.95) 30%,transparent)}
+.capa-info small{font:600 10.5px/1.2 var(--fb);letter-spacing:.18em;color:var(--brass-glow)}
+.capa-info h4{margin-top:6px;font:500 18px/1.2 var(--fd);letter-spacing:-.02em;color:#fff}
+.capa-num{position:absolute;top:10px;right:14px;font:600 64px/1 var(--fd);letter-spacing:-.06em;color:rgba(247,201,72,.12)}
+.capa .texto{margin-top:12px;font-size:14px;line-height:1.55;color:var(--muted);text-align:left}
+.capas-dica{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+@media (min-width:900px){.capas{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto;margin:20px 0 0;padding:6px 0 0;overflow:visible}.capas-dica{display:none}}
+
+.ano{margin-top:20px;padding:20px 18px;border-radius:16px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line)}
+.ano-escala{display:flex;justify-content:space-between;padding-left:var(--rot-w);font:600 10px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ano{--rot-w:0px}
+.ano-linha{display:grid;gap:8px;margin-top:16px}
+.ano-linha .rot{font-size:13px;color:var(--cream)}
+.ano-linha .rot small{color:var(--muted)}
+.ano-trilho{position:relative;height:22px;border-radius:999px;background:rgba(255,255,255,.05)}
+.ano-cheio{position:absolute;inset:4px auto 4px 4px;width:0;border-radius:999px;background:linear-gradient(90deg,rgba(212,173,90,.55),rgba(247,201,72,.85));transition:width 1.6s var(--ease)}
+.ano.is-in .ano-cheio{width:calc(100% - 8px)}
+.ano-cheio.c2{background:linear-gradient(90deg,rgba(212,173,90,.35),rgba(212,173,90,.6))}
+.ano-pontos{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr)}
+.ano-pontos span{position:relative;display:flex;align-items:center;justify-content:flex-end;padding-right:8%}
+.ano-pontos i{display:block;width:14px;height:14px;border-radius:50%;background:var(--red-accent);box-shadow:0 0 0 3px rgba(239,75,66,.2),0 0 16px rgba(239,75,66,.6);transform:scale(0);transition:transform .5s var(--ease)}
+.ano.is-in .ano-pontos i{transform:scale(1)}
+.ano-pontos span:nth-child(2) i{transition-delay:.15s}.ano-pontos span:nth-child(3) i{transition-delay:.3s}.ano-pontos span:nth-child(4) i{transition-delay:.45s}.ano-pontos span:nth-child(5) i{transition-delay:.6s}.ano-pontos span:nth-child(6) i{transition-delay:.75s}
+.ano-pontos span:first-child i{animation:pulso 2.2s ease-out 1.6s infinite}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(239,75,66,.55),0 0 16px rgba(239,75,66,.6)}100%{box-shadow:0 0 0 12px rgba(239,75,66,0),0 0 16px rgba(239,75,66,.6)}}
+.lista-check{display:grid;gap:12px;margin-top:18px}
+.lista-check li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:15px;line-height:1.6;color:var(--cream)}
+.lista-check .ic{margin-top:3px;color:var(--brass-glow)}
+@media (min-width:700px){.ano{--rot-w:180px;padding:24px}.ano-linha{grid-template-columns:var(--rot-w) 1fr;align-items:center;gap:0}}
+
+.comunidade{display:grid;gap:18px;align-items:center;margin-top:20px;padding:22px 20px;border-radius:16px;background:linear-gradient(120deg,rgba(247,201,72,.08),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(247,201,72,.3)}
+.comunidade p{font-size:16px;line-height:1.6}
+.roda-membros{width:140px;height:110px;margin-inline:auto}
+.roda-membros circle.m{fill:#3A2620;stroke:var(--brass);stroke-width:1.5}
+.roda-membros circle.v{fill:var(--red-accent);stroke:var(--brass-glow);stroke-width:1.5}
+.roda-membros line{stroke:rgba(212,173,90,.45);stroke-width:1}
+@media (min-width:700px){.comunidade{grid-template-columns:150px 1fr;padding:24px 28px}}
+
+.numeros{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:56px;border-radius:18px;overflow:hidden;background:rgba(247,201,72,.25);box-shadow:0 30px 80px -40px rgba(0,0,0,.9)}
+.numero{padding:22px 14px;background:var(--bg);text-align:center}
+.numero b{display:block;font:600 46px/1 var(--fd);letter-spacing:-.05em;font-variant-numeric:tabular-nums;background:var(--gold-price);-webkit-background-clip:text;background-clip:text;color:transparent}
+.numero span{display:block;margin-top:8px;font-size:12.5px;line-height:1.35;color:var(--muted)}
+@media (min-width:800px){.numeros{grid-template-columns:repeat(4,1fr)}.numero{padding:30px 18px}.numero b{font-size:56px}}
+
+/* ==========================================================================
+   7 dias (pergaminho)
+   ========================================================================== */
+.trilha7{position:relative;margin-top:44px}
+.t7-barra{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.t7-barra span{height:8px;border-radius:999px;background:rgba(118,89,20,.15);overflow:hidden;position:relative}
+.t7-barra span::after{content:"";position:absolute;inset:0;width:0;background:linear-gradient(90deg,var(--brass-ink),#b08a2e);transition:width .35s linear}
+.trilha7.is-in .t7-barra span::after{width:100%}
+.t7-barra span:nth-child(2)::after{transition-delay:.3s}.t7-barra span:nth-child(3)::after{transition-delay:.6s}.t7-barra span:nth-child(4)::after{transition-delay:.9s}.t7-barra span:nth-child(5)::after{transition-delay:1.2s}.t7-barra span:nth-child(6)::after{transition-delay:1.5s}.t7-barra span:nth-child(7)::after{transition-delay:1.8s}
+.t7-dias{display:grid;grid-template-columns:repeat(7,1fr);margin-top:8px;font:600 10px/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:#7a6e64;text-align:center}
+.passos{display:grid;gap:14px;margin-top:26px}
+.passo{position:relative;padding:22px 20px;border-radius:16px;background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),0 20px 50px -36px rgba(60,30,10,.5)}
+.passo .quando{display:inline-flex;align-items:center;gap:8px;font:600 11px/1.2 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--brass-ink)}
+.passo .med{display:flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:var(--bg);color:var(--brass-glow);font:600 13px/1 var(--fd)}
+.passo h3{margin-top:12px;font-size:19px;color:var(--ink)}
+.passo .texto{margin-top:8px;font-size:15px;line-height:1.65;color:#3d342c}
+.passo.final{background:var(--bg);color:var(--cream)}
+.passo.final h3{color:#fff}.passo.final .texto{color:var(--muted)}.passo.final .quando{color:var(--brass-glow)}
+.passo.final .med{background:var(--brass-glow);color:var(--ink)}
+@media (min-width:900px){.passos{grid-template-columns:repeat(3,1fr);gap:18px}}
+
+/* ==========================================================================
+   Depoimentos (só aparecem com itens reais no JSON)
+   ========================================================================== */
+.depo-grid{display:grid;gap:14px;margin-top:30px}
+.depo{padding:22px;border-radius:16px;background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.depo blockquote{margin:0;font-size:15.5px;line-height:1.65;color:#2b241e}
+.depo figcaption{margin-top:14px;font:600 13px/1.3 var(--fb);color:var(--ink)}
+.depo figcaption small{display:block;margin-top:2px;font-weight:400;color:#7a6e64}
+@media (min-width:900px){.depo-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ==========================================================================
+   Para quem é (escuro)
+   ========================================================================== */
+.paraquem{background:radial-gradient(80% 50% at 0% 0%,rgba(212,173,90,.1),transparent 60%),radial-gradient(80% 50% at 100% 100%,rgba(142,38,35,.2),transparent 65%),#2a1714}
+.pq-grid{display:grid;gap:16px;margin-top:34px}
+.pq{padding:26px 22px;border-radius:18px}
+.pq-sim{background:rgba(247,201,72,.08);box-shadow:inset 0 0 0 1px rgba(247,201,72,.45)}
+.pq-nao{background:rgba(255,255,255,.035);box-shadow:inset 0 0 0 1px var(--line)}
+.pq h3{display:flex;align-items:center;gap:10px;font-size:19px}
+.pq-sim h3 .bola{background:var(--brass-glow);color:var(--ink)}
+.pq-nao h3 .bola{background:rgba(255,255,255,.12);color:var(--cream)}
+.bola{display:flex;width:28px;height:28px;flex:none;align-items:center;justify-content:center;border-radius:50%}
+.bola .ic{width:15px;height:15px;stroke-width:2.4}
+.pq ul{display:grid;gap:14px;margin-top:18px}
+.pq li{display:grid;grid-template-columns:20px 1fr;gap:12px;font-size:15px;line-height:1.6}
+.pq-sim li .ic{color:var(--brass-glow);margin-top:3px;width:18px;height:18px}
+.pq-nao li .ic{color:var(--muted);margin-top:3px;width:18px;height:18px}
+.pq-nao li{color:var(--muted)}
+@media (min-width:900px){.pq-grid{grid-template-columns:1.1fr .9fr;gap:20px}.pq{padding:32px 30px}}
+
+/* ==========================================================================
+   Oferta
+   ========================================================================== */
+.oferta{background:linear-gradient(180deg,#1d1110 0%,var(--bg) 40%,#241211 100%)}
+.oferta h2{font-size:clamp(34px,8.4vw,53px);line-height:1.04;letter-spacing:-.035em}
+.oferta-topo{text-align:center}
+.oferta-contador{margin-top:26px;text-align:center}
+.porque{display:grid;gap:14px;margin:34px auto 0;max-width:820px;padding:22px 20px;border-radius:16px;background:rgba(255,255,255,.045);box-shadow:inset 0 0 0 1px var(--line)}
+.porque .rot{font:600 11px/1.3 var(--fb);letter-spacing:.16em;color:var(--brass-glow)}
+.porque .texto{font-size:15.5px;line-height:1.7;color:var(--cream)}
+.porque strong{color:var(--brass-glow)}
+.riscado{position:relative;color:var(--muted)!important;white-space:nowrap}
+.riscado::after{content:"";position:absolute;left:-3%;right:-3%;top:52%;height:2px;background:var(--red-accent);transform:rotate(-6deg)}
+.antes-depois{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.ad-antes,.ad-depois{text-align:center}
+.ad-antes small,.ad-depois small{display:block;font:600 10px/1.2 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.ad-antes b{display:block;margin-top:6px;font:500 24px/1 var(--fd);color:var(--muted)}
+.ad-depois b{display:block;margin-top:6px;font:600 24px/1 var(--fd);color:var(--brass-glow)}
+.ad-seta{color:var(--brass);width:26px;height:26px}
+@media (max-width:640px){.antes-depois{flex-direction:column;gap:6px}.ad-seta{transform:rotate(90deg)}}
+.inclui{display:grid;gap:10px;margin:22px auto 0;max-width:1000px}
+.inclui li.inclui-rot{display:block;padding:0;background:none;box-shadow:none;text-align:center;font:600 11px/1.3 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.inclui li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.035);box-shadow:inset 0 0 0 1px var(--line)}
+.inclui .ico-g{display:flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:50%;background:rgba(247,201,72,.1);color:var(--brass-glow)}
+.inclui b{display:block;font:600 11px/1.3 var(--fb);letter-spacing:.14em;color:var(--brass-glow)}
+.inclui span{display:block;margin-top:4px;font-size:14.5px;line-height:1.5;color:var(--cream)}
+@media (min-width:900px){.inclui{grid-template-columns:repeat(3,1fr)}.inclui-rot{grid-column:1/-1}}
+
+.planos{display:grid;gap:30px;margin:46px auto 0;max-width:940px}
+.plano{position:relative;display:flex;flex-direction:column;padding:30px 20px 24px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.05);text-align:center}
+.plano-anual{border-color:rgba(247,201,72,.7);background:linear-gradient(to bottom,rgba(247,201,72,.16),rgba(42,26,22,.96) 45%);box-shadow:0 30px 80px -40px rgba(239,75,66,.6),inset 0 1px 0 rgba(247,201,72,.3)}
+.stub{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;border-radius:4px;background:linear-gradient(160deg,var(--gold-stub-a) 0%,var(--brass-glow) 45%,var(--gold-stub-b) 100%);color:var(--ink);font:600 11px/1.3 var(--fb);letter-spacing:.12em;padding:6px 13px;box-shadow:0 8px 22px -10px rgba(247,201,72,.8)}
+.plano-rot{font:600 12px/1.3 var(--fb);letter-spacing:.18em;color:var(--brass-glow)}
+.plano-mensal .plano-rot{color:var(--muted)}
+.preco{display:flex;align-items:flex-end;justify-content:center;gap:8px;margin-top:16px;font-family:var(--fd);font-variant-numeric:tabular-nums}
+.preco .pre{padding-bottom:12px;font:500 16px/1 var(--fb);color:var(--muted)}
+.preco .moeda{padding-bottom:10px;font:600 24px/1 var(--fd);letter-spacing:-.03em}
+.preco .valor{font:600 clamp(58px,15vw,76px)/.9 var(--fd);letter-spacing:-.05em}
+.preco .pos{padding-bottom:12px;font:500 15px/1 var(--fb);color:var(--muted)}
+.plano-anual .preco .moeda,.plano-anual .preco .valor{background:var(--gold-price);-webkit-background-clip:text;background-clip:text;color:transparent}
+.plano-linha{margin-top:12px;font-size:13.5px;line-height:1.45;color:var(--muted)}
+.plano .chip{margin:14px auto 0}
+.divisor{position:relative;height:0;margin:22px 0;border-top:1px solid var(--line)}
+.plano-anual .divisor{border-top:1.5px dashed rgba(247,201,72,.4)}
+.plano-anual .divisor::before,.plano-anual .divisor::after{content:"";position:absolute;width:22px;height:22px;top:-11px;border-radius:50%;background:var(--bg);border:1px solid rgba(247,201,72,.7)}
+.plano-anual .divisor::before{left:-32px;clip-path:inset(0 0 0 50%)}
+.plano-anual .divisor::after{right:-32px;clip-path:inset(0 50% 0 0)}
+.plano ul{display:grid;gap:12px;text-align:left;flex:1}
+.plano li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:14.5px;line-height:1.5}
+.plano li .ic{width:18px;height:18px;margin-top:2px;color:var(--brass-glow)}
+.plano-mensal li .ic{color:var(--muted)}
+.plano .btn{margin-top:24px;width:100%}
+.plano-mensal .btn{background:linear-gradient(180deg,#17803F 0%,#116634 55%,#0B5129 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),inset 0 1px 0 rgba(255,255,255,.2),0 12px 36px -14px rgba(17,102,52,.7)}
+.plano .gar{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:12.5px;color:var(--muted)}
+.plano .gar .ic{width:15px;height:15px;color:var(--brass)}
+@media (min-width:760px){.planos{grid-template-columns:1.06fr .94fr;gap:22px;align-items:stretch}.plano{padding:36px 30px 28px}.plano-anual .divisor::before{left:-42px}.plano-anual .divisor::after{right:-42px}}
+@media (max-width:380px){.plano .btn{font-size:14.5px;padding-inline:14px}}
+
+.grafico{margin:40px auto 0;max-width:940px;padding:22px 18px 18px;border-radius:18px;background:rgba(255,255,255,.035);box-shadow:inset 0 0 0 1px var(--line)}
+.grafico-cab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px}
+.grafico-cab h3{font-size:19px}
+.legenda{display:flex;gap:14px;font-size:12.5px;color:var(--muted)}
+.legenda span{display:inline-flex;align-items:center;gap:6px}
+.legenda i{width:16px;height:3px;border-radius:3px}
+.grafico-area{position:relative;margin-top:16px;touch-action:pan-y}
+.grafico-area svg{width:100%;height:auto;overflow:visible}
+.g-grade line{stroke:rgba(255,255,255,.08)}
+.g-grade text,.g-x text{fill:var(--muted);font:500 11px var(--fb)}
+.g-mensal{fill:none;stroke:#3DBE74;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.g-anual{fill:none;stroke:var(--brass-glow);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.g-area{fill:url(#g-grad)}
+.g-traco{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.8s var(--ease)}
+.grafico.is-in .g-traco{stroke-dashoffset:0}
+.g-area{opacity:0;transition:opacity 1s 1.2s}
+.grafico.is-in .g-area{opacity:1}
+.g-guia{stroke:rgba(255,255,255,.35);stroke-dasharray:3 4}
+.g-ponto{stroke:var(--bg);stroke-width:3}
+.g-rot-fim{font:600 13px var(--fd);letter-spacing:-.02em}
+.g-dica{position:absolute;top:0;min-width:150px;padding:10px 12px;border-radius:10px;background:rgba(23,13,12,.95);box-shadow:inset 0 0 0 1px rgba(247,201,72,.4),0 14px 30px -10px rgba(0,0,0,.8);font-size:12.5px;line-height:1.5;pointer-events:none;white-space:nowrap}
+.g-dica b{display:block;font:600 11px/1.3 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--brass-glow)}
+.g-dica .lm{color:#7ee0a5}.g-dica .la{color:var(--brass-glow)}
+.g-dica .df{margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--cream)}
+.grafico .texto{margin-top:14px;font-size:14px;line-height:1.6;color:var(--muted)}
+
+.garantia{display:grid;gap:20px;align-items:center;margin:40px auto 0;max-width:940px;padding:24px 22px;border-radius:18px;background:rgba(247,201,72,.07);box-shadow:inset 0 0 0 1px rgba(247,201,72,.4)}
+.selo-g{position:relative;width:150px;height:150px;margin-inline:auto}
+.selo-g .lottie{position:absolute;inset:0}
+.selo-g .txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.selo-g .txt b{font:600 40px/1 var(--fd);letter-spacing:-.05em;background:var(--gold-price);-webkit-background-clip:text;background-clip:text;color:transparent}
+.selo-g .txt small{margin-top:3px;font:600 10.5px/1 var(--fb);letter-spacing:.2em;color:var(--brass-glow)}
+.garantia h3{font-size:22px}
+.garantia .texto{margin-top:8px;font-size:15px;line-height:1.7;color:var(--cream)}
+.seguro{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:26px;font-size:12.5px;color:var(--muted)}
+.seguro span{display:inline-flex;align-items:center;gap:7px}
+.seguro .ic{width:16px;height:16px;color:var(--brass)}
+@media (min-width:760px){.garantia{grid-template-columns:170px 1fr;padding:28px 32px}.grafico{padding:28px 28px 22px}}
+
+/* ==========================================================================
+   Dois caminhos (vinho)
+   ========================================================================== */
+.caminhos{display:grid;gap:14px;margin:36px auto 0;max-width:880px}
+.caminho{position:relative;padding:24px 22px;border-radius:18px;background:rgba(0,0,0,.2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.caminho h3{display:flex;align-items:center;gap:12px;font-size:20px;color:rgba(255,255,255,.75)}
+.caminho .texto{margin-top:10px;font-size:15px;line-height:1.65;color:rgba(255,255,255,.7)}
+.caminho.destaque{background:linear-gradient(180deg,rgba(247,201,72,.18),rgba(0,0,0,.25));box-shadow:inset 0 0 0 1.5px rgba(246,227,173,.75),0 30px 70px -36px rgba(0,0,0,.8)}
+.caminho.destaque h3{color:#fff}
+.caminho.destaque .texto{color:rgba(255,255,255,.92)}
+.caminho .bola{background:rgba(255,255,255,.12)}
+.caminho.destaque .bola{background:var(--gold-light);color:var(--ink)}
+.caminhos-acao{margin-top:34px;text-align:center}
+@media (min-width:760px){.caminhos{grid-template-columns:1fr 1fr;gap:18px}}
+
+/* ==========================================================================
+   FAQ (pergaminho)
+   ========================================================================== */
+.faq{margin:36px auto 0;max-width:820px;border-top:1px solid rgba(0,0,0,.12)}
+.faq details{border-bottom:1px solid rgba(0,0,0,.12)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 2px;cursor:pointer;list-style:none;font:500 17px/1.35 var(--fd);letter-spacing:-.015em;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .mais{position:relative;width:28px;height:28px;flex:none;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(118,89,20,.45);transition:transform .35s var(--ease),background .3s}
+.faq summary .mais::before,.faq summary .mais::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.8px;background:var(--brass-ink);transform:translate(-50%,-50%)}
+.faq summary .mais::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] summary .mais{transform:rotate(45deg);background:rgba(118,89,20,.1)}
+.faq .resp{overflow:hidden}
+.faq .resp p{padding:0 2px 22px;font-size:15.5px;line-height:1.7;color:#3d342c}
+.faq-acao{margin-top:40px;text-align:center}
+
+/* ==========================================================================
+   Rodapé e botão fixo
+   ========================================================================== */
+.rodape{padding:46px 0 120px;background:var(--bg-black);text-align:center;color:var(--muted);font-size:12.5px;line-height:1.6}
+.rodape .marca{display:inline-flex;align-items:center;gap:10px;font:500 16px/1 var(--fd);color:var(--cream)}
+.rodape .marca img{width:34px;height:34px;border-radius:50%}
+.rodape p{margin-top:12px}
+.rodape a{color:var(--muted)}
+.fixo{position:fixed;inset-inline:0;bottom:0;z-index:30;display:flex;justify-content:center;padding:0 14px calc(12px + env(safe-area-inset-bottom));pointer-events:none;opacity:0;transform:translateY(16px);transition:opacity .45s,transform .45s}
+.fixo.on{opacity:1;transform:none}
+.fixo .btn{width:min(100%,440px);min-height:54px;padding:6px 18px;font-size:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 12px 32px -10px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.14),0 10px 40px -14px rgba(31,157,85,.75);pointer-events:none;flex-direction:column;gap:2px;line-height:1.2}
+.fixo.on .btn{pointer-events:auto}
+.fixo .btn strong{color:var(--gold-cta)}
+.fixo .btn small{font:500 11px/1.2 var(--fb);letter-spacing:.02em;opacity:.9}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Ícones -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.6c0 4.5-3.1 8.2-7.5 9.4-4.4-1.2-7.5-4.9-7.5-9.4V6z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6"/></symbol>
+  <symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V8a3.8 3.8 0 017.6 0v2.5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10.2 8.6l5 3.4-5 3.4z"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h13M13 6.5l5.5 5.5-5.5 5.5"/></symbol>
+  <symbol id="i-cima" viewBox="0 0 24 24"><path d="M12 19V6M6.5 11.5L12 6l5.5 5.5"/></symbol>
+  <symbol id="i-camadas" viewBox="0 0 24 24"><path d="M12 3.5l8.5 4.5-8.5 4.5L3.5 8z"/><path d="M3.5 12l8.5 4.5 8.5-4.5"/><path d="M3.5 16l8.5 4.5 8.5-4.5"/></symbol>
+  <symbol id="i-ciclo" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 01-13.2 4.9"/><path d="M4.5 12a7.5 7.5 0 0113.2-4.9"/><path d="M17.7 3.6v3.5h-3.5"/><path d="M6.3 20.4v-3.5h3.5"/></symbol>
+  <symbol id="i-pessoas" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3"/><circle cx="5.5" cy="10" r="2.3"/><circle cx="18.5" cy="10" r="2.3"/><path d="M7 19.5c.6-3 2.6-4.8 5-4.8s4.4 1.8 5 4.8"/><path d="M2.5 18c.3-2 1.5-3.2 3-3.4M21.5 18c-.3-2-1.5-3.2-3-3.4"/></symbol>
+  <symbol id="i-streaming" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8 20h8M12 16.5V20"/><path d="M10.5 8.3l3.8 2.2-3.8 2.2z"/></symbol>
+  <symbol id="i-novo" viewBox="0 0 24 24"><path d="M12 3l2.2 5.3 5.8.5-4.4 3.8 1.3 5.6L12 15.3 7.1 18.2l1.3-5.6L4 8.8l5.8-.5z"/></symbol>
+  <symbol id="i-moeda" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M14.8 9.3c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.1 0 2.8 5.8 1.6 5.8 4.4 0 1.2-1.3 2.1-3 2.1-1.3 0-2.5-.6-3-1.7M12 6v1.7M12 16.3V18"/></symbol>
+  <symbol id="i-elo" viewBox="0 0 24 24"><circle cx="7" cy="12" r="3"/><circle cx="17" cy="6.5" r="2.5"/><circle cx="17" cy="17.5" r="2.5"/><path d="M9.7 10.6l4.9-2.8M9.7 13.4l4.9 2.8"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+</svg>
+
+<main>
+  <!-- Faixa do topo -->
+  <div class="faixa" role="region" aria-label="Condição de Black Friday">
+    <div class="faixa-trilho">
+      <div class="faixa-copia so-ativa">
+        <p><strong>Black Friday</strong> do Manifesto Sistêmico</p><span class="losango"></span>
+        <p>Pela primeira vez <strong>por assinatura</strong></p><span class="losango"></span>
+        <p><strong>12x de R$ 79</strong> no anual</p><span class="losango"></span>
+        <p><strong>R$ 97 por mês</strong> no mensal</p><span class="losango"></span>
+        <p>Garantia de <strong>7 dias</strong></p><span class="losango"></span>
+        <span class="so-prazo"><p><strong>até <span data-prazo-texto>30/11 às 23h59</span></strong></p><span class="losango"></span></span>
+      </div>
+      <div class="faixa-copia so-ativa" aria-hidden="true">
+        <p><strong>Black Friday</strong> do Manifesto Sistêmico</p><span class="losango"></span>
+        <p>Pela primeira vez <strong>por assinatura</strong></p><span class="losango"></span>
+        <p><strong>12x de R$ 79</strong> no anual</p><span class="losango"></span>
+        <p><strong>R$ 97 por mês</strong> no mensal</p><span class="losango"></span>
+        <p>Garantia de <strong>7 dias</strong></p><span class="losango"></span>
+        <span class="so-prazo"><p><strong>até <span data-prazo-texto>30/11 às 23h59</span></strong></p><span class="losango"></span></span>
+      </div>
+      <div class="faixa-copia so-encerrada"><p>A condição de <strong>Black Friday</strong> terminou</p><span class="losango"></span><p>A condição de <strong>Black Friday</strong> terminou</p><span class="losango"></span><p>A condição de <strong>Black Friday</strong> terminou</p><span class="losango"></span></div>
+    </div>
+  </div>
+
+  <!-- 1ª dobra: headline + VSL -->
+  <section class="hero" id="topo">
+    <canvas id="constelacao" aria-hidden="true"></canvas>
+    <div class="hero-luz l1" aria-hidden="true"></div>
+    <div class="hero-luz l2" aria-hidden="true"></div>
+    <div class="hero-luz l3" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="selo-bf"><i aria-hidden="true"></i>Black Friday · Manifesto Sistêmico</p>
+      <h1><span>Você já entendeu o seu padrão.</span> <span>Por que ele continua voltando?</span></h1>
+
+      <div class="player" id="vsl">
+        <div class="player-16x9">
+          <div class="player-espera" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M7 4.5l13 7.5-13 7.5z"/></svg></span>Carregando o vídeo do Jonas</div>
+          <vturb-smartplayer id="vid-6ae11ab246271b50ab04eb96"></vturb-smartplayer>
+        </div>
+      </div>
+
+      <ul class="confianca">
+        <li><svg class="ic"><use href="#i-escudo"/></svg>Garantia de 7 dias</li>
+        <li><svg class="ic"><use href="#i-play"/></svg>Acesso no Hotmart Club logo após a confirmação do pagamento</li>
+      </ul>
+
+      <!-- Revelado pelo VTurb no pitch do vídeo (11:28), como na página atual -->
+      <div class="vsl-revelar">
+        <div class="hero-cta">
+          <a class="btn btn-bloco cta" href="#planos">Ver os planos da Black Friday <svg class="ic"><use href="#i-seta"/></svg></a>
+          <p class="preco-linha"><b>12x de R$ 79</b> no anual ou <b>R$ 97 por mês</b> · Garantia de 7 dias</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resumo para quem já conhece o Jonas -->
+  <section class="sec resumo" data-bg="dark" id="resumo">
+    <div class="wrap">
+      <p class="eyebrow rv">Para quem já conhece o Jonas</p>
+      <h2 class="mt-s rv">A Black Friday do Manifesto, em resumo</h2>
+      <div class="resumo-grid">
+        <div class="resumo-itens">
+          <div class="resumo-item rv">
+            <span class="ico"><svg class="ic"><use href="#i-streaming"/></svg></span>
+            <div><p class="rot">O QUE É</p><p class="texto">Um streaming de autoconhecimento sistêmico no Hotmart Club: <strong>4 trilhas</strong> em ordem, com exercícios, <strong>vivências ao vivo a cada dois meses</strong> com o Jonas e a equipe, e uma <strong>comunidade de membros</strong>.</p></div>
+          </div>
+          <div class="resumo-item rv rv-d1">
+            <span class="ico"><svg class="ic"><use href="#i-novo"/></svg></span>
+            <div><p class="rot">O QUE MUDA AGORA</p><p class="texto">Até hoje, a entrada era um pagamento único de R$ 997, por 1 ano de acesso. Nesta Black Friday, <strong>pela primeira vez, dá para entrar por assinatura</strong> e começar com menos.</p></div>
+          </div>
+          <div class="resumo-item rv rv-d2">
+            <span class="ico"><svg class="ic"><use href="#i-moeda"/></svg></span>
+            <div><p class="rot">QUANTO CUSTA</p><p class="texto"><strong>12x de R$ 79</strong> no anual (R$ 948 por ano) ou <strong>R$ 97 por mês</strong>. Garantia de 7 dias nos dois planos.</p></div>
+          </div>
+        </div>
+
+        <!-- Gráfico 1: compromisso para entrar (dados no JSON) -->
+        <div class="painel rv rv-d1">
+          <h3>Quanto você assume para entrar</h3>
+          <p class="sub">O valor mínimo com que você se compromete ao começar</p>
+          <div class="barras" id="graf-compromisso"></div>
+          <div class="painel-rodape so-prazo so-ativa">
+            <p class="contador-titulo">A condição de Black Friday termina em</p>
+            <div class="contador" data-contador role="timer"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resumo-acao rv">
+        <a class="btn cta" href="#planos">Escolher meu plano <svg class="ic"><use href="#i-seta"/></svg></a>
+        <p class="micro">Prefere entender antes? O argumento completo está logo abaixo, e no vídeo acima.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- O padrão -->
+  <section class="sec" data-bg="light" id="padrao">
+    <div class="wrap">
+      <div class="padrao-grid">
+        <div>
+          <p class="eyebrow rv">O padrão</p>
+          <h2 class="mt-s rv">Talvez você reconheça alguma destas cenas</h2>
+          <div class="mt-m">
+            <p class="texto rv">Muita gente chega aqui depois de anos tentando entender. Leu os livros, assistiu às aulas, fez cursos. Sabe de onde vem. E, mesmo sabendo, continua no mesmo lugar.</p>
+            <p class="texto rv mk"><mark><strong>Não é falta de força de vontade. Nem de informação.</strong></mark> Existe uma razão para o padrão voltar, e ela não está no que você sabe: está no que continua operando por baixo.</p>
+          </div>
+          <a class="link-video rv" href="#topo">O Jonas explica no vídeo <svg class="ic" style="width:15px;height:15px"><use href="#i-cima"/></svg></a>
+        </div>
+        <div class="rv rv-d1">
+          <div class="cenas-cab"><span>Toque nas que você reconhece</span><span data-cenas-conta>0 de 4</span></div>
+          <div class="cenas" data-cenas>
+            <button class="cena" type="button" aria-pressed="false"><span class="marca"><svg class="ic"><use href="#i-check"/></svg></span><p>Você jurou que nunca falaria com os seus filhos daquele jeito. Um dia, ouviu a própria voz repetindo o mesmo tom.</p></button>
+            <button class="cena" type="button" aria-pressed="false"><span class="marca"><svg class="ic"><use href="#i-check"/></svg></span><p>A briga muda de pessoa, de casa, de década. O roteiro é o mesmo.</p></button>
+            <button class="cena" type="button" aria-pressed="false"><span class="marca"><svg class="ic"><use href="#i-check"/></svg></span><p>O dinheiro entra e, de algum jeito, escorre, justo quando as coisas começam a melhorar.</p></button>
+            <button class="cena" type="button" aria-pressed="false"><span class="marca"><svg class="ic"><use href="#i-check"/></svg></span><p>A decisão que você sabe que precisa tomar está adiada há anos. E não é por falta de clareza.</p></button>
+          </div>
+          <div class="cenas-res" data-cenas-res aria-live="polite">
+            <svg class="anel-prog" viewBox="0 0 46 46" aria-hidden="true"><circle class="fundo" cx="23" cy="23" r="19"/><circle class="frente" cx="23" cy="23" r="19" stroke-dasharray="119.4" stroke-dashoffset="119.4"/></svg>
+            <p><span data-cenas-frase></span> Existe uma razão para isso voltar. <a href="#topo">O Jonas explica no vídeo.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quem explica -->
+  <section class="sec" data-bg="red" id="jonas">
+    <div class="wrap">
+      <div class="jonas-grid">
+        <div class="jonas-foto rv">
+          <img src="/__l5e/assets-v1/f9a623d0-7c7f-45df-83fc-5ae3e9c6e838/jonas-peres-720.webp" width="720" height="900" loading="lazy" decoding="async" alt="Jonas Peres falando ao microfone em um evento">
+          <span class="ao-vivo-tag"><span class="lottie-vivo" data-lottie="ao-vivo" data-loop="1" aria-hidden="true"></span>Ao vivo toda quinta-feira</span>
+        </div>
+        <div>
+          <p class="eyebrow rv">Quem explica</p>
+          <h2 class="rv">Jonas Peres</h2>
+          <p class="texto rv">Educador e criador de conteúdo de autoconhecimento sistêmico. Toda quinta-feira, dá aula ao vivo no canal Autoconhecimento Sistêmico.</p>
+          <p class="texto rv">É ele quem explica, no vídeo acima e nas próximas seções, por que o padrão continua voltando. Fala de conceitos profundos de forma didática, com exemplos de relacionamentos, carreira e dinheiro, e conduz as trilhas e as vivências ao vivo do Manifesto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que entender não basta -->
+  <section class="sec" data-bg="dark" id="ideias">
+    <div class="wrap">
+      <div class="centro">
+        <p class="eyebrow rv">Por que entender não basta</p>
+        <h2 class="mt-s rv">As duas ideias que mantêm muita gente no mesmo lugar</h2>
+      </div>
+      <div class="ideias">
+        <article class="ideia rv">
+          <p class="rot">A PRIMEIRA IDEIA</p>
+          <p class="mito">O tempo resolve.</p>
+          <div class="verdade">
+            <p class="rot">NA VISÃO SISTÊMICA</p>
+            <p class="texto">O tempo, sozinho, não muda um padrão. Quando uma dor ou um conflito é deixado de lado, é como se o inconsciente guardasse essa informação e continuasse operando em silêncio, acionando evitação e autossabotagem ao menor sinal de risco.</p>
+          </div>
+        </article>
+        <article class="ideia rv rv-d1">
+          <p class="rot">A SEGUNDA IDEIA</p>
+          <p class="mito">Basta entender e ressignificar.</p>
+          <div class="verdade">
+            <p class="rot">NA VISÃO SISTÊMICA</p>
+            <p class="texto">Entender com a cabeça ajuda, mas não basta. Uma “bela história” sobre o que doeu muda a narrativa, não necessariamente o padrão. A virada vem de integrar o acontecimento, pacificar a relação com o seu sistema e perceber a função que aquele episódio teve na sua vida.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Animação JSON: o ciclo do padrão -->
+      <div class="ciclo rv" aria-hidden="true">
+        <div class="lottie" data-lottie="ciclo-padrao" data-loop="1"></div>
+        <span class="ciclo-rot r-top">Entender</span>
+        <span class="ciclo-rot r-dir">Ressignificar</span>
+        <span class="ciclo-rot r-base">Esperar o tempo</span>
+        <span class="ciclo-rot r-esq">O padrão volta</span>
+        <div class="ciclo-centro"><small>e tudo volta ao</small><b>mesmo lugar</b></div>
+      </div>
+      <p class="palavras mt-l" data-palavras>Por isso entender acontece num dia, e o padrão volta no dia seguinte.</p>
+    </div>
+  </section>
+
+  <!-- De onde vem o padrão -->
+  <section class="sec" data-bg="red" id="setenios">
+    <div class="wrap wrap-sm">
+      <div class="centro">
+        <p class="eyebrow rv">De onde vem o padrão</p>
+        <h2 class="mt-s rv">O seu “sistema operacional” foi escrito antes dos 21 anos</h2>
+        <p class="texto mt-m rv" style="text-align-last:center;color:rgba(255,255,255,.9)">Na leitura sistêmica que o Jonas ensina, o seu funcionamento atual não começou na vida adulta. Ele foi desenhado nos três primeiros setênios, dos 0 aos 21 anos, quando o mundo emocional governou a construção do seu “eu”.</p>
+      </div>
+
+      <!-- Linha do tempo 0 a 21 -->
+      <div class="linha-tempo rv" aria-label="Linha do tempo: três setênios, dos 0 aos 21 anos, e depois a vida adulta">
+        <span class="lt-hoje">Vida adulta →</span>
+        <div class="lt-trilho"><div class="lt-fill"></div><div class="lt-adulto"></div>
+          <span class="lt-marca" style="left:0"></span><span class="lt-marca" style="left:26%"></span><span class="lt-marca" style="left:52%"></span><span class="lt-marca" style="left:78%"></span>
+          <span class="lt-num" style="left:0;transform:none">0</span><span class="lt-num" style="left:26%">7</span><span class="lt-num" style="left:52%">14</span><span class="lt-num" style="left:78%">21 anos</span>
+        </div>
+        <div class="lt-fases"><span class="lt-fase">1º setênio · 0 a 7</span><span class="lt-fase">2º setênio · 7 a 14</span><span class="lt-fase">3º setênio · 14 a 21</span></div>
+      </div>
+
+      <div class="elos">
+        <p class="elos-rot rv">O que esse período costuma deixar</p>
+        <div class="elo rv"><span class="n">1</span><h3>De 0 a 7 anos: o registro sem filtros</h3><p class="texto">Você era puro sentimento, sem senso crítico. Se faltou segurança e acolhimento, confiar na vida pode ter ficado mais difícil.</p></div>
+        <div class="elo rv"><span class="n">2</span><h3>A busca sem fim por segurança</h3><p class="texto">A criança que amadurece rápido demais para se proteger muitas vezes vira o adulto que busca segurança psicológica e financeira o tempo todo.</p></div>
+        <div class="elo rv"><span class="n">3</span><h3>O medo de sofrer e o medo de mudar</h3><p class="texto">Para não sofrer, o “querer” fica limitado ao que é conhecido. O sofrimento conhecido parece mais seguro que o risco do novo, e a decisão sai do medo, não do que faz sentido.</p></div>
+      </div>
+
+      <div class="caixa-vinho rv">
+        <h3><svg class="ic"><use href="#i-pessoas"/></svg>E uma camada a mais: o pertencimento</h3>
+        <p class="texto">No esforço inconsciente de pertencer à família e ao meio em que vivemos, tendemos a repetir os comportamentos que nos prendem, para não nos sentirmos excluídos. Romper com o antigo gera medo de solidão. Por isso, quando você tenta sair do padrão sozinho, alguma coisa puxa de volta.</p>
+      </div>
+      <p class="palavras mt-l" data-palavras>É esse programa que volta, mesmo depois de você entender tudo.</p>
+    </div>
+  </section>
+
+  <!-- A virada -->
+  <section class="sec" data-bg="light" id="virada">
+    <div class="wrap">
+      <div class="centro">
+        <p class="eyebrow rv">A virada</p>
+        <h2 class="mt-s rv">Você não sai de um padrão com a mesma lógica que o criou</h2>
+      </div>
+      <div class="virada">
+        <div class="card-antigo rv">
+          <p class="rot">O OLHAR QUE NOS MOLDOU</p>
+          <h3>Paradigma cartesiano</h3>
+          <p class="texto">Causa e efeito isolados, a ilusão de controlar o futuro, a vida em gavetas. Tentar controlar pessoas, dinheiro e destino por essa lógica gera exaustão e a sensação de estar sempre lutando contra a vida.</p>
+          <div class="gavetas" aria-hidden="true">
+            <span class="gaveta">DINHEIRO</span><span class="gaveta">TRABALHO</span><span class="gaveta">RELAÇÕES</span><span class="gaveta">FAMÍLIA</span>
+          </div>
+          <p class="gavetas-leg">A vida em gavetas: cada área tratada como se fosse separada.</p>
+        </div>
+        <div class="card-novo rv rv-d1">
+          <p class="rot">O OLHAR SISTÊMICO</p>
+          <!-- Animação JSON: a rede do sistema -->
+          <div class="rede" aria-hidden="true">
+            <div class="lottie" data-lottie="rede-sistemica" data-intro="75"></div>
+            <span class="rede-rot" style="left:29.5%;top:20%">Pai</span>
+            <span class="rede-rot" style="left:70.5%;top:20%">Mãe</span>
+            <span class="rede-rot voce" style="left:50%;top:61.5%">Você</span>
+            <span class="rede-rot" style="left:18.5%;top:83%">Dinheiro</span>
+            <span class="rede-rot" style="left:50%;top:96%">Trabalho</span>
+            <span class="rede-rot" style="left:81.5%;top:83%">Relações</span>
+          </div>
+          <ul class="sistemico-itens">
+            <li><svg class="ic"><use href="#i-elo"/></svg><div><b>Nada está isolado.</b><p class="texto">As travas no dinheiro, no trabalho e nas relações fazem parte de um mesmo sistema de informações herdadas e de dinâmicas familiares.</p></div></li>
+            <li><svg class="ic"><use href="#i-ciclo"/></svg><div><b>A vida não se controla, se navega.</b><p class="texto">Sair do controle obsessivo para a presença e a maturidade emocional.</p></div></li>
+            <li><svg class="ic"><use href="#i-play"/></svg><div><b>O modo como você percebe molda o que você vive.</b><p class="texto">Inspirada nas perguntas que a física moderna abriu sobre o papel do observador, a visão sistêmica propõe que a sua percepção molda o que você enxerga, escolhe e repete.</p></div></li>
+            <li><svg class="ic"><use href="#i-pessoas"/></svg><div><b>Pai é o mundo, mãe é a vida.</b><p class="texto">Na visão sistêmica, olhar de outro jeito para a relação com seus pais, e reconhecer a força que veio deles, é parte de aprender a confiar e a tomar a própria vida.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O que de fato muda um padrão -->
+  <section class="sec" data-bg="red" id="pilares">
+    <div class="wrap">
+      <div class="centro">
+        <p class="eyebrow rv">O que de fato muda um padrão</p>
+        <h2 class="mt-s rv">Quem sai do lugar costuma ter três coisas que o “entender” sozinho não dá</h2>
+      </div>
+      <div class="pilares">
+        <article class="pilar rv"><span class="num">01</span><span class="ico-g"><svg class="ic"><use href="#i-camadas"/></svg></span><h3>Profundidade</h3><p class="texto">O padrão foi escrito na origem. Por isso é preciso olhar para ela no seu sistema, não só para o que aparece na superfície.</p></article>
+        <article class="pilar rv rv-d1"><span class="num">02</span><span class="ico-g"><svg class="ic"><use href="#i-ciclo"/></svg></span><h3>Constância</h3><p class="texto">O padrão volta. Por isso é preciso voltar a ele muitas vezes, ao longo de meses. Uma aula, um livro ou um fim de semana abrem a porta; não seguram a mudança.</p></article>
+        <article class="pilar rv rv-d2"><span class="num">03</span><span class="ico-g"><svg class="ic"><use href="#i-pessoas"/></svg></span><h3>Companhia</h3><p class="texto">Sozinho, o pertencimento puxa de volta. Com outras pessoas no mesmo caminho, ele passa a puxar para a frente.</p></article>
+      </div>
+      <div class="convergir rv" aria-hidden="true">
+        <svg class="linhas" viewBox="0 0 780 70" preserveAspectRatio="none"><path d="M130 0 C130 40 390 30 390 70"/><path d="M390 0 L390 70"/><path d="M650 0 C650 40 390 30 390 70"/></svg>
+        <div class="emblema-m"><img src="/black-assets/emblema.png" alt="" width="40" height="40"><span>Manifesto Sistêmico</span></div>
+      </div>
+      <p class="palavras pilares-fecho" data-palavras>Foi para reunir os três num lugar só que nasceu o Manifesto Sistêmico.</p>
+    </div>
+  </section>
+
+  <!-- O Manifesto por dentro -->
+  <section class="sec" data-bg="dark" id="por-dentro">
+    <div class="wrap">
+      <div class="centro">
+        <p class="eyebrow rv">O Manifesto por dentro</p>
+        <h2 class="mt-s rv">Um streaming de autoconhecimento sistêmico, organizado em trilhas</h2>
+        <p class="lead mt-m rv" style="max-width:62ch;margin-inline:auto">Tudo fica no Hotmart Club, no celular ou no computador. Cada parte do Manifesto cuida de um dos três pilares.</p>
+      </div>
+
+      <!-- Profundidade: as 4 trilhas como capas de streaming -->
+      <div class="bloco-pilar">
+        <div class="bloco-cab rv"><span class="ico-g"><svg class="ic"><use href="#i-camadas"/></svg></span><div><h3>Profundidade</h3><small>As quatro trilhas</small></div></div>
+        <div class="capas" data-capas>
+          <article class="capa rv">
+            <div class="capa-arte" data-semente="11">
+              <svg viewBox="0 0 300 400" aria-hidden="true"><g class="estrelas"></g><g transform="translate(150 150)"><rect class="emb" x="-62" y="-62" width="124" height="124" transform="rotate(45)"/><rect class="emb" x="-42" y="-42" width="84" height="84" transform="rotate(45)" opacity=".7"/><rect class="emb" x="-22" y="-22" width="44" height="44" transform="rotate(45)" opacity=".5"/><circle class="emb-luz" r="4"/></g></svg>
+              <span class="capa-num">01</span>
+              <div class="capa-info"><small>TRILHA 01</small><h4>A arquitetura da consciência sistêmica</h4></div>
+            </div>
+            <p class="texto">O começo do movimento: entender como funciona o sistema de que você faz parte.</p>
+          </article>
+          <article class="capa rv rv-d1">
+            <div class="capa-arte" data-semente="23">
+              <svg viewBox="0 0 300 400" aria-hidden="true"><g class="estrelas"></g><g transform="translate(150 150)"><circle class="emb" cx="0" cy="-26" r="44"/><circle class="emb" cx="-26" cy="18" r="44" opacity=".75"/><circle class="emb" cx="26" cy="18" r="44" opacity=".75"/><circle class="emb-luz" r="4" cy="3"/></g></svg>
+              <span class="capa-num">02</span>
+              <div class="capa-info"><small>TRILHA 02</small><h4>As três motivações humanas</h4></div>
+            </div>
+            <p class="texto">As motivações gravadas dos 0 aos 21 anos, o medo de sofrer e o medo de mudar, e a relação com a sua origem.</p>
+          </article>
+          <article class="capa rv rv-d2">
+            <div class="capa-arte" data-semente="37">
+              <svg viewBox="0 0 300 400" aria-hidden="true"><g class="estrelas"></g><g transform="translate(150 150)"><ellipse class="emb" rx="82" ry="30" transform="rotate(-24)"/><ellipse class="emb" rx="82" ry="30" transform="rotate(36)" opacity=".7"/><circle class="emb" r="18"/><circle class="emb-luz" r="5"/></g></svg>
+              <span class="capa-num">03</span>
+              <div class="capa-info"><small>TRILHA 03</small><h4>O despertar do paradigma</h4></div>
+            </div>
+            <p class="texto">As implicações filosóficas da física moderna e o que elas sugerem sobre o papel da sua consciência no dia a dia.</p>
+          </article>
+          <article class="capa rv rv-d3">
+            <div class="capa-arte" data-semente="53">
+              <svg viewBox="0 0 300 400" aria-hidden="true"><g class="estrelas"></g><g transform="translate(150 150)"><line class="emb" x1="-80" y1="40" x2="80" y2="40" opacity=".5"/><circle class="emb" cx="-60" cy="40" r="5"/><circle class="emb" cx="-30" cy="40" r="5"/><circle class="emb" cx="30" cy="40" r="5"/><circle class="emb" cx="60" cy="40" r="5"/><line class="emb" x1="0" y1="40" x2="0" y2="-34"/><circle class="emb" cx="0" cy="-48" r="14"/><circle class="emb-luz" cx="0" cy="-48" r="5"/></g></svg>
+              <span class="capa-num">04</span>
+              <div class="capa-info"><small>TRILHA 04</small><h4>A individuação</h4></div>
+            </div>
+            <p class="texto">Sair da postura de “pequeno”, parar de terceirizar responsabilidades e tomar a própria vida.</p>
+          </article>
+        </div>
+        <p class="capas-dica"><svg class="ic" style="width:15px;height:15px"><use href="#i-seta"/></svg>Arraste para ver as quatro trilhas</p>
+      </div>
+
+      <!-- Constância: o ano de membro -->
+      <div class="bloco-pilar">
+        <div class="bloco-cab rv"><span class="ico-g"><svg class="ic"><use href="#i-ciclo"/></svg></span><div><h3>Constância</h3><small>Enquanto você é membro</small></div></div>
+        <div class="ano rv" aria-label="Ao longo de um ano de membro: trilhas no seu ritmo, seis vivências ao vivo e a comunidade">
+          <div class="ano-escala"><span>Início</span><span>6 meses</span><span>12 meses</span></div>
+          <div class="ano-linha"><p class="rot">Trilhas e exercícios <small>· no seu ritmo</small></p><div class="ano-trilho"><span class="ano-cheio"></span></div></div>
+          <div class="ano-linha"><p class="rot">Vivências ao vivo <small>· 6 por ano</small></p><div class="ano-trilho"><div class="ano-pontos"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div></div></div>
+          <div class="ano-linha"><p class="rot">Comunidade <small>· o ano todo</small></p><div class="ano-trilho"><span class="ano-cheio c2"></span></div></div>
+        </div>
+        <ul class="lista-check">
+          <li class="rv"><svg class="ic"><use href="#i-check"/></svg><span>Vivência ao vivo de aprofundamento a cada dois meses (seis por ano), com o Jonas e a equipe. A gravação fica disponível depois na área de membros.</span></li>
+          <li class="rv"><svg class="ic"><use href="#i-check"/></svg><span>Materiais de apoio e exercícios práticos para o dia a dia.</span></li>
+        </ul>
+      </div>
+
+      <!-- Companhia -->
+      <div class="bloco-pilar">
+        <div class="bloco-cab rv"><span class="ico-g"><svg class="ic"><use href="#i-pessoas"/></svg></span><div><h3>Companhia</h3><small>A comunidade</small></div></div>
+        <div class="comunidade rv">
+          <svg class="roda-membros" viewBox="0 0 140 110" aria-hidden="true">
+            <line x1="70" y1="55" x2="22" y2="28"/><line x1="70" y1="55" x2="118" y2="28"/><line x1="70" y1="55" x2="30" y2="90"/><line x1="70" y1="55" x2="110" y2="90"/><line x1="70" y1="55" x2="70" y2="10"/><line x1="22" y1="28" x2="70" y2="10"/><line x1="118" y1="28" x2="70" y2="10"/><line x1="30" y1="90" x2="110" y2="90"/>
+            <circle class="m" cx="22" cy="28" r="8"/><circle class="m" cx="118" cy="28" r="8"/><circle class="m" cx="30" cy="90" r="8"/><circle class="m" cx="110" cy="90" r="8"/><circle class="m" cx="70" cy="10" r="7"/><circle class="v" cx="70" cy="55" r="11"/>
+          </svg>
+          <p>Comunidade de membros que fazem o mesmo caminho, para você não atravessar isso sozinho.</p>
+        </div>
+      </div>
+
+      <!-- Números do que está incluído -->
+      <div class="numeros rv" aria-label="O que está incluído">
+        <div class="numero"><b data-conta="4">4</b><span>trilhas em ordem, com exercícios</span></div>
+        <div class="numero"><b data-conta="6">6</b><span>vivências ao vivo por ano</span></div>
+        <div class="numero"><b data-conta="1">1</b><span>comunidade de membros</span></div>
+        <div class="numero"><b data-conta="7">7</b><span>dias de garantia</span></div>
+      </div>
+      <div class="centro mt-l rv">
+        <a class="btn btn-bloco cta" href="#planos">Quero entrar no Manifesto <svg class="ic"><use href="#i-seta"/></svg></a>
+        <p class="micro">12x de R$ 79 no anual ou R$ 97 por mês · Garantia de 7 dias</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depois que você assina -->
+  <section class="sec" data-bg="light" id="sete-dias">
+    <div class="wrap">
+      <div class="centro">
+        <p class="eyebrow rv">Depois que você assina</p>
+        <h2 class="mt-s rv">Em 7 dias, você sabe se o Manifesto é para você</h2>
+      </div>
+      <div class="trilha7 rv" aria-hidden="true">
+        <div class="t7-barra"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="t7-dias"><span>Dia 1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>Dia 7</span></div>
+      </div>
+      <div class="passos">
+        <article class="passo rv"><p class="quando"><span class="med">1</span>Dia 1</p><h3>No dia em que assinar</h3><p class="texto">O acesso chega no e-mail da compra. Comece pela Trilha 01: assista à primeira aula e faça o primeiro exercício.</p></article>
+        <article class="passo rv rv-d1"><p class="quando"><span class="med">2</span>Dias 2 a 6</p><h3>Ao longo da primeira semana</h3><p class="texto">Siga a Trilha 01 no seu ritmo e entre na comunidade de membros.</p></article>
+        <article class="passo final rv rv-d2"><p class="quando"><span class="med"><svg class="ic" style="width:16px;height:16px"><use href="#i-escudo"/></svg></span>Dia 7</p><h3>Até o 7º dia</h3><p class="texto">Decida com a experiência na mão. Se sentir que não é para você, peça o reembolso dentro da garantia: devolvemos 100%.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos: a seção só aparece quando houver itens reais e autorizados no JSON -->
+  <section class="sec" data-bg="light" id="depoimentos" hidden>
+    <div class="wrap">
+      <div class="centro">
+        <p class="eyebrow">O que dizem os membros</p>
+        <h2 class="mt-s">O que dizem os membros</h2>
+      </div>
+      <div class="depo-grid" data-depoimentos></div>
+      <p class="micro centro mt-m">Experiência individual; os resultados variam.</p>
+    </div>
+  </section>
+
+  <!-- Para quem é -->
+  <section class="sec paraquem" data-bg="dark" id="para-quem">
+    <div class="wrap">
+      <div class="centro">
+        <p class="eyebrow rv">Antes de escolher o plano</p>
+        <h2 class="mt-s rv">Para quem é, e para quem não é</h2>
+      </div>
+      <div class="pq-grid">
+        <div class="pq pq-sim rv">
+          <h3><span class="bola"><svg class="ic"><use href="#i-check"/></svg></span>É para você se</h3>
+          <ul>
+            <li><svg class="ic"><use href="#i-check"/></svg><span>Percebe que repete escolhas que já decidiu não repetir.</span></li>
+            <li><svg class="ic"><use href="#i-check"/></svg><span>Já leu, estudou ou fez terapia e quer olhar o padrão por outro ângulo.</span></li>
+            <li><svg class="ic"><use href="#i-check"/></svg><span>Quer estudar no seu ritmo, com encontros ao vivo periódicos e outras pessoas no mesmo caminho.</span></li>
+          </ul>
+        </div>
+        <div class="pq pq-nao rv rv-d1">
+          <h3><span class="bola"><svg class="ic"><use href="#i-x"/></svg></span>Não é para você se</h3>
+          <ul>
+            <li><svg class="ic"><use href="#i-x"/></svg><span>Procura uma solução rápida ou uma mudança com prazo marcado.</span></li>
+            <li><svg class="ic"><use href="#i-x"/></svg><span>Busca atendimento psicológico ou tratamento. O Manifesto é conteúdo educativo e não substitui acompanhamento profissional.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Oferta -->
+  <section class="sec oferta" data-bg="dark" id="planos">
+    <div class="wrap">
+      <div class="oferta-topo">
+        <p class="eyebrow rv">Black Friday<span class="so-prazo so-ativa">· até <span data-prazo-texto>30/11 às 23h59</span></span></p>
+        <h2 class="mt-s rv">Escolha como entrar no Manifesto</h2>
+      </div>
+
+      <div class="oferta-contador so-prazo so-ativa rv">
+        <p class="contador-titulo">A condição de Black Friday termina em</p>
+        <div class="contador" data-contador role="timer"></div>
+      </div>
+      <p class="centro mt-m so-encerrada" style="color:var(--muted)">A condição de Black Friday terminou.</p>
+
+      <div class="porque rv">
+        <p class="rot">POR QUE AGORA</p>
+        <div class="antes-depois" aria-hidden="true">
+          <div class="ad-antes"><small>Até hoje</small><b class="riscado">R$ 997</b></div>
+          <svg class="ic ad-seta"><use href="#i-seta"/></svg>
+          <div class="ad-depois"><small>Black Friday</small><b>R$ 97/mês ou 12x R$ 79</b></div>
+        </div>
+        <p class="texto">Até hoje, a entrada no Manifesto era um pagamento único de <strong class="riscado">R$ 997</strong>, por 1 ano de acesso. Nesta Black Friday, pela primeira vez, dá para entrar por assinatura e começar com menos: <strong>R$ 97 por mês</strong>, ou <strong>12x de R$ 79</strong> no anual. Você decide com a experiência na mão.</p>
+      </div>
+
+      <ul class="inclui">
+        <li class="inclui-rot">Nos dois planos, todo o Manifesto</li>
+        <li class="rv"><span class="ico-g"><svg class="ic"><use href="#i-camadas"/></svg></span><div><b>PROFUNDIDADE</b><span>As 4 trilhas completas no Hotmart Club, com exercícios práticos.</span></div></li>
+        <li class="rv rv-d1"><span class="ico-g"><svg class="ic"><use href="#i-ciclo"/></svg></span><div><b>CONSTÂNCIA</b><span>Seis vivências ao vivo por ano com o Jonas e a equipe, com gravação depois, e materiais de apoio para o dia a dia.</span></div></li>
+        <li class="rv rv-d2"><span class="ico-g"><svg class="ic"><use href="#i-pessoas"/></svg></span><div><b>COMPANHIA</b><span>A comunidade de membros que fazem o mesmo caminho.</span></div></li>
+      </ul>
+
+      <div class="planos">
+        <article class="plano plano-anual rv">
+          <span class="stub">MAIS EM CONTA QUE O MENSAL</span>
+          <p class="plano-rot">PLANO ANUAL</p>
+          <div class="preco"><span class="pre">12x de</span><span class="moeda">R$</span><span class="valor">79</span></div>
+          <p class="plano-linha">R$ 948 por ano, sem juros · cerca de R$ 2,60 por dia</p>
+          <span class="chip chip-ouro">R$ 216 a menos que 12 meses do mensal</span>
+          <div class="divisor"></div>
+          <ul>
+            <li><svg class="ic"><use href="#i-check"/></svg><span>R$ 216 a menos que 12 meses do mensal (R$ 1.164)</span></li>
+            <li><svg class="ic"><use href="#i-check"/></svg><span>Todo o Manifesto: trilhas, vivências ao vivo e comunidade</span></li>
+            <li><svg class="ic"><use href="#i-check"/></svg><span>Renova automaticamente a cada 12 meses, com aviso por e-mail antes</span></li>
+          </ul>
+          <a class="btn cta" data-plano="anual" href="https://pay.hotmart.com/A107112795R?off=bfcr3ntt&amp;checkoutMode=10">Quero o anual por 12x de R$ 79</a>
+          <p class="gar"><svg class="ic"><use href="#i-escudo"/></svg>Garantia de 7 dias</p>
+        </article>
+        <article class="plano plano-mensal rv rv-d1">
+          <p class="plano-rot">PLANO MENSAL</p>
+          <div class="preco"><span class="moeda">R$</span><span class="valor">97</span><span class="pos">por mês</span></div>
+          <p class="plano-linha">Sem permanência mínima</p>
+          <span class="chip chip-verde">Cancele quando quiser</span>
+          <div class="divisor"></div>
+          <ul>
+            <li><svg class="ic"><use href="#i-check"/></svg><span>Cancele quando quiser, em poucos cliques</span></li>
+            <li><svg class="ic"><use href="#i-check"/></svg><span>Todo o Manifesto: trilhas, vivências ao vivo e comunidade</span></li>
+            <li><svg class="ic"><use href="#i-check"/></svg><span>Renova automaticamente todo mês</span></li>
+          </ul>
+          <a class="btn cta" data-plano="mensal" href="https://pay.hotmart.com/A107112795R?off=5int9ubm&amp;checkoutMode=10">Começar pelo mensal</a>
+          <p class="gar"><svg class="ic"><use href="#i-escudo"/></svg>Garantia de 7 dias</p>
+        </article>
+      </div>
+
+      <!-- Gráfico 2: anual × mensal mês a mês (dados no JSON) -->
+      <div class="grafico rv" id="graf-acumulado">
+        <div class="grafico-cab">
+          <h3>Anual × mensal, mês a mês</h3>
+          <div class="legenda"><span><i style="background:#3DBE74"></i>Mensal</span><span><i style="background:var(--brass-glow)"></i>Anual</span></div>
+        </div>
+        <div class="grafico-area"></div>
+        <p class="texto">O conteúdo é o mesmo. O anual sai por 12x de R$ 79 (R$ 948 no ano), R$ 216 a menos que 12 meses do mensal. O mensal custa R$ 97 e não tem permanência mínima.</p>
+      </div>
+
+      <div class="garantia rv">
+        <div class="selo-g" aria-hidden="true">
+          <div class="lottie" data-lottie="selo-garantia" data-intro="40"></div>
+          <div class="txt"><b>7</b><small>DIAS</small></div>
+        </div>
+        <div>
+          <h3>Garantia de 7 dias</h3>
+          <p class="texto">Entre, assista às trilhas e participe da comunidade. Se em até 7 dias da compra você sentir que o Manifesto não é para você, peça o reembolso na sua conta Hotmart: devolvemos 100% da primeira cobrança e encerramos a assinatura.</p>
+        </div>
+      </div>
+      <div class="seguro">
+        <span><svg class="ic"><use href="#i-cadeado"/></svg>Pagamento processado pela Hotmart</span>
+        <span><svg class="ic"><use href="#i-play"/></svg>Acesso no e-mail da compra</span>
+        <span><svg class="ic"><use href="#i-relogio"/></svg>Cancele na sua conta Hotmart</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dois caminhos -->
+  <section class="sec" data-bg="red" id="caminhos">
+    <div class="wrap">
+      <div class="centro">
+        <p class="eyebrow rv">Em resumo</p>
+        <h2 class="mt-s rv" style="max-width:24ch;margin-inline:auto">As 4 trilhas para ir fundo, encontros ao vivo para manter a constância e uma comunidade para não fazer isso sozinho</h2>
+      </div>
+      <div class="caminhos">
+        <article class="caminho rv"><h3><span class="bola"><svg class="ic"><use href="#i-x"/></svg></span>Fechar esta página</h3><p class="texto">E seguir tentando sair do lugar como antes, com mais uma informação.</p></article>
+        <article class="caminho destaque rv rv-d1"><h3><span class="bola"><svg class="ic"><use href="#i-check"/></svg></span>Entrar no Manifesto agora</h3><p class="texto">Por 12x de R$ 79 no anual ou R$ 97 por mês, e decidir com a experiência na mão. Se não fizer sentido em 7 dias, você pede o reembolso.</p></article>
+      </div>
+      <div class="caminhos-acao rv">
+        <a class="btn btn-bloco cta" href="#planos">Quero entrar no Manifesto <svg class="ic"><use href="#i-seta"/></svg></a>
+        <p class="micro">Garantia de 7 dias nos dois planos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perguntas frequentes -->
+  <section class="sec" data-bg="light" id="faq">
+    <div class="wrap">
+      <div class="centro">
+        <p class="eyebrow rv">Perguntas frequentes</p>
+        <h2 class="mt-s rv">O que as pessoas perguntam antes de entrar</h2>
+      </div>
+      <div class="faq rv">
+        <details><summary>Eu já assisto às aulas de quinta do Jonas. O que muda no Manifesto?<span class="mais"></span></summary><div class="resp"><p>As aulas de quinta são abertas e cada uma trata de um tema. No Manifesto, o conteúdo segue uma ordem, em trilhas com exercícios, e você tem as vivências ao vivo de aprofundamento e a comunidade de membros.</p></div></details>
+        <details><summary>O que é a visão sistêmica?<span class="mais"></span></summary><div class="resp"><p>Um modo de olhar a pessoa não isolada, mas dentro das relações e da família de onde veio, observando padrões que se repetem entre gerações e nas escolhas do dia a dia.</p></div></details>
+        <details><summary>Eu já faço terapia. O Manifesto substitui?<span class="mais"></span></summary><div class="resp"><p>Não. O Manifesto é conteúdo educativo de autoconhecimento e não substitui acompanhamento psicológico ou médico. Dá para estudar em paralelo, como outro ângulo para observar os seus padrões.</p></div></details>
+        <details><summary>Não tenho tempo. Consigo acompanhar?<span class="mais"></span></summary><div class="resp"><p>Sim. As trilhas ficam no Hotmart Club e você assiste quando puder, no celular ou no computador. As vivências ao vivo ficam gravadas.</p></div></details>
+        <details><summary>Preciso saber física ou filosofia?<span class="mais"></span></summary><div class="resp"><p>Não. O Jonas explica conceitos profundos de forma didática, com exemplos de relacionamentos, carreira e dinheiro.</p></div></details>
+        <details><summary>Qual a diferença entre o mensal e o anual?<span class="mais"></span></summary><div class="resp"><p>O conteúdo é o mesmo. O anual sai por 12x de R$ 79 (R$ 948 no ano), R$ 216 a menos que 12 meses do mensal. O mensal custa R$ 97 e não tem permanência mínima.</p></div></details>
+        <details><summary>A assinatura renova sozinha?<span class="mais"></span></summary><div class="resp"><p>Sim, no período do plano: a cada 12 meses no anual e todo mês no mensal. Avisamos por e-mail antes da renovação do anual, e você pode cancelar na sua conta Hotmart. O acesso segue até o fim do período já pago.</p></div></details>
+        <details><summary>E se eu cancelar o anual depois da garantia?<span class="mais"></span></summary><div class="resp"><p>O cancelamento impede a próxima renovação, e o seu acesso segue até o fim dos 12 meses. As parcelas do ano já contratado continuam, porque o anual é um pagamento de R$ 948 dividido em 12x. Se você quer poder parar a qualquer mês, o mensal é o plano certo.</p></div></details>
+        <details><summary>Como funciona a garantia?<span class="mais"></span></summary><div class="resp"><p>Você tem 7 dias, contados da compra, para experimentar. Se sentir que não é para você, peça o reembolso na sua conta Hotmart: devolvemos 100% da primeira cobrança e encerramos a assinatura. Vale para os dois planos.</p></div></details>
+        <details><summary>Quando vou ter acesso?<span class="mais"></span></summary><div class="resp"><p>Logo após a confirmação do pagamento, no e-mail usado na compra.</p></div></details>
+        <details><summary>Já comprei o Manifesto por R$ 997. O que muda para mim?<span class="mais"></span></summary><div class="resp"><p>Nada. O seu acesso segue até a data contratada, nas condições em que você comprou. Se o seu acesso já venceu, você pode voltar por um dos planos da Black Friday.</p></div></details>
+      </div>
+      <div class="faq-acao rv">
+        <a class="btn btn-bloco cta" href="#planos">Ver os planos da Black Friday <svg class="ic"><use href="#i-seta"/></svg></a>
+        <p class="micro">12x de R$ 79 no anual ou R$ 97 por mês · Garantia de 7 dias</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="wrap">
+      <span class="marca"><img src="/black-assets/emblema.png" alt="" width="34" height="34">Manifesto Sistêmico</span>
+      <p>Conteúdo educativo de autoconhecimento, que não substitui acompanhamento psicológico ou médico.</p>
+      <p>© Manifesto Sistêmico. Todos os direitos reservados. · <a href="/privacidade">Política de privacidade</a></p>
+    </div>
+  </footer>
+
+  <!-- Botão fixo -->
+  <div class="fixo" data-fixo>
+    <a class="btn" href="#planos"><span>Ver planos · <strong>12x R$ 79</strong> ou <strong>R$ 97/mês</strong></span><small class="so-prazo so-ativa" data-fixo-prazo>Black Friday · garantia de 7 dias</small><small class="so-sem-prazo">Black Friday do Manifesto · garantia de 7 dias</small></a>
+  </div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var CFG = JSON.parse(document.getElementById("config-bf").textContent);
+  var body = document.body;
+  var reduzir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function (s, el) { return (el || document).querySelector(s); };
+  var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
+  var brl = function (v) { return "R$ " + v.toLocaleString("pt-BR"); };
+
+  /* ---------- Prazo e contador (só com data real no JSON) ---------- */
+  var fim = CFG.prazo && CFG.prazo.mostrar && CFG.prazo.fim ? new Date(CFG.prazo.fim).getTime() : 0;
+  var temPrazo = fim > 0 && !isNaN(fim);
+  if (temPrazo) {
+    body.classList.add("tem-prazo");
+    $$("[data-prazo-texto]").forEach(function (el) { el.textContent = CFG.prazo.texto; });
+    $$(".so-sem-prazo").forEach(function (el) { el.remove(); });
+  } else {
+    $$(".so-prazo").forEach(function (el) { el.remove(); });
+  }
+  var contadores = $$("[data-contador]");
+  contadores.forEach(function (el) {
+    el.innerHTML = ["dias", "horas", "min", "seg"].map(function (l, i) {
+      return (i ? '<span class="sep" aria-hidden="true">:</span>' : "") + '<span class="cel"><span class="num">00</span><span class="lbl">' + l + "</span></span>";
+    }).join("");
+  });
+  var dd = function (n) { return n < 10 ? "0" + n : String(n); };
+  function tic() {
+    if (!temPrazo) return;
+    var resta = fim - Date.now();
+    if (resta <= 0) { body.classList.add("encerrada"); return; }
+    var d = Math.floor(resta / 864e5), h = Math.floor(resta / 36e5) % 24, m = Math.floor(resta / 6e4) % 60, s = Math.floor(resta / 1e3) % 60;
+    var v = [dd(d), dd(h), dd(m), dd(s)];
+    contadores.forEach(function (el) {
+      $$(".num", el).forEach(function (n, i) { if (n.textContent !== v[i]) n.textContent = v[i]; });
+      el.setAttribute("aria-label", "Termina em " + d + " dias, " + h + " horas e " + m + " minutos");
+    });
+    var fx = $("[data-fixo-prazo]");
+    if (fx) fx.textContent = "Black Friday termina em " + (d > 0 ? d + "d " : "") + dd(h) + ":" + dd(m) + ":" + dd(s);
+  }
+  tic(); if (temPrazo) setInterval(tic, 1000);
+
+  /* ---------- Checkout: repassa utm_*, src, sck e o que vier na URL ---------- */
+  function urlCheckout(plano) {
+    var c = CFG.checkout, p = new URLSearchParams();
+    new URLSearchParams(location.search).forEach(function (v, k) { if (k !== "off" && k !== "checkoutMode" && k !== "semvideo") p.append(k, v); });
+    p.set("off", c.planos[plano].off); p.set("checkoutMode", c.checkoutMode);
+    return c.base + "?" + p.toString();
+  }
+  $$("a[data-plano]").forEach(function (a) {
+    var plano = a.getAttribute("data-plano");
+    a.href = urlCheckout(plano);
+    a.addEventListener("click", function () {
+      a.href = urlCheckout(plano);
+      var pl = CFG.checkout.planos[plano];
+      if (window.fbq) window.fbq("track", "InitiateCheckout", { content_name: pl.nome, value: pl.valor, currency: "BRL" });
+    });
+  });
+
+  /* ---------- Rastreio (não roda em teste local) ---------- */
+  var r = CFG.rastreio || {};
+  var hostTeste = (r.hostsSemRastreio || []).indexOf(location.hostname) !== -1 || location.protocol === "file:" ||
+    (r.dominiosSemRastreio || []).some(function (d) { return location.hostname.slice(-d.length) === d; });
+  var recusou = navigator.globalPrivacyControl || navigator.doNotTrack === "1";
+  if (!hostTeste && !recusou) {
+    if (r.pixel) {
+      !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      window.fbq("init", r.pixel); window.fbq("track", "PageView");
+    }
+    if (r.gtm) {
+      (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s); j.async = true; j.src = "https://www.googletagmanager.com/gtm.js?id=" + i; f.parentNode.insertBefore(j, f); })(window, document, "script", "dataLayer", r.gtm);
+    }
+  }
+
+  /* ---------- VSL (VTurb) ---------- */
+  var vsl = CFG.vsl || {};
+  function revelarCta() { $$(".vsl-revelar").forEach(function (el) { el.style.display = "block"; }); }
+  // ?semvideo=1 só para testes internos: não carrega o player (sem som durante a revisão).
+  if (new URLSearchParams(location.search).get("semvideo") === "1") vsl = {};
+  if (vsl.conta && vsl.player) {
+    var sp = document.createElement("script");
+    sp.src = "https://scripts.converteai.net/" + vsl.conta + "/players/" + vsl.player + "/v4/player.js";
+    sp.async = true;
+    if (vsl.revelarSeFalhar) sp.onerror = revelarCta;
+    document.head.appendChild(sp);
+  } else { revelarCta(); }
+
+  /* ---------- Gráfico 1: compromisso para entrar ---------- */
+  (function () {
+    var el = $("#graf-compromisso"); if (!el) return;
+    var dados = CFG.graficos.compromisso, max = Math.max.apply(null, dados.map(function (d) { return d.valor; }));
+    el.innerHTML = dados.map(function (d) {
+      var chip = d.id === "mensal" ? ' <span class="chip chip-verde">90% menos para começar</span>' : (d.id === "anual" ? ' <span class="chip chip-ouro">12x sem juros</span>' : "");
+      return '<div class="barra" data-id="' + d.id + '"><div class="barra-topo"><span>' + d.rotulo + '</span><b>' + d.valorTexto + '</b></div>' +
+        '<div class="barra-trilho"><span class="barra-fill" style="--w:' + Math.max(3, d.valor / max * 100).toFixed(1) + '%"></span></div>' +
+        '<p class="barra-nota">' + d.nota + chip + "</p></div>";
+    }).join("");
+    el.classList.add("rv-barras");
+  })();
+
+  /* ---------- Gráfico 2: anual × mensal acumulado (desenhado na largura real) ---------- */
+  (function () {
+    var box = $("#graf-acumulado .grafico-area"); if (!box) return;
+    var a = CFG.graficos.acumulado, n = a.meses, larguraAtual = 0, mesAtual = n;
+    var mostrar = function () {};
+    function desenhar() {
+      var W = Math.round(Math.min(680, Math.max(290, box.clientWidth || 600)));
+      if (Math.abs(W - larguraAtual) < 8) return;
+      larguraAtual = W;
+      var estreito = W < 520;
+      var H = estreito ? 240 : 300, pl = estreito ? 40 : 60, pr = estreito ? 64 : 74, pt = 14, pb = 30;
+      var teto = Math.ceil(a.mensal * n / 300) * 300;
+      var x = function (m) { return pl + (m - 1) / (n - 1) * (W - pl - pr); };
+      var y = function (v) { return H - pb - v / teto * (H - pt - pb); };
+      var meses = []; for (var i = 1; i <= n; i++) meses.push(i);
+      var pts = function (v) { return meses.map(function (m) { return x(m).toFixed(1) + "," + y(v * m).toFixed(1); }); };
+      var pm = pts(a.mensal), pa = pts(a.anual);
+      var grade = "";
+      for (var g = 0; g <= teto; g += teto / 4) {
+        var rot = g ? (estreito ? g.toLocaleString("pt-BR") : brl(g)) : "0";
+        grade += '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + y(g) + '" y2="' + y(g) + '"/><text x="' + (pl - 8) + '" y="' + (y(g) + 4) + '" text-anchor="end">' + rot + "</text>";
+      }
+      var marcados = estreito ? [1, 3, 6, 9, 12] : meses;
+      var xs = marcados.map(function (m) { return '<text x="' + x(m) + '" y="' + (H - 9) + '" text-anchor="middle">' + m + "</text>"; }).join("");
+      var lenM = 0, lenA = 0;
+      for (var k = 1; k < n; k++) {
+        lenM += Math.hypot(x(k + 1) - x(k), y(a.mensal * (k + 1)) - y(a.mensal * k));
+        lenA += Math.hypot(x(k + 1) - x(k), y(a.anual * (k + 1)) - y(a.anual * k));
+      }
+      box.innerHTML =
+        '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="Valor pago, mês a mês: no mês 12, o mensal soma ' + brl(a.mensal * n) + " e o anual soma " + brl(a.anual * n) + '">' +
+        '<defs><linearGradient id="g-grad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F7C948" stop-opacity=".22"/><stop offset="1" stop-color="#F7C948" stop-opacity=".02"/></linearGradient></defs>' +
+        '<g class="g-grade">' + grade + '</g><g class="g-x">' + xs + '<text x="' + (W - pr + 12) + '" y="' + (H - 9) + '">mês</text></g>' +
+        '<polygon class="g-area" points="' + pm.join(" ") + " " + pa.slice().reverse().join(" ") + '"/>' +
+        '<polyline class="g-mensal g-traco" style="--len:' + lenM.toFixed(0) + '" points="' + pm.join(" ") + '"/>' +
+        '<polyline class="g-anual g-traco" style="--len:' + lenA.toFixed(0) + '" points="' + pa.join(" ") + '"/>' +
+        '<text class="g-rot-fim" x="' + (x(n) + 9) + '" y="' + (y(a.mensal * n) + 5) + '" fill="#7ee0a5">' + brl(a.mensal * n) + "</text>" +
+        '<text class="g-rot-fim" x="' + (x(n) + 9) + '" y="' + (y(a.anual * n) + 13) + '" fill="#F7C948">' + brl(a.anual * n) + "</text>" +
+        '<g class="g-hover" style="display:none"><line class="g-guia" y1="' + pt + '" y2="' + (H - pb) + '"/><circle class="g-ponto pm" r="6" fill="#3DBE74"/><circle class="g-ponto pa" r="6" fill="#F7C948"/></g>' +
+        '<rect class="g-captura" x="' + (pl - 10) + '" y="0" width="' + (W - pl - pr + 20) + '" height="' + (H - pb) + '" fill="transparent"/>' +
+        "</svg>" +
+        '<div class="g-dica" style="display:none"></div>';
+      var svg = $("svg", box), hov = $(".g-hover", box), dica = $(".g-dica", box), guia = $(".g-guia", hov);
+      mostrar = function (m) {
+        mesAtual = m;
+        var vm = a.mensal * m, va = a.anual * m;
+        hov.style.display = "";
+        guia.setAttribute("x1", x(m)); guia.setAttribute("x2", x(m));
+        $(".pm", hov).setAttribute("cx", x(m)); $(".pm", hov).setAttribute("cy", y(vm));
+        $(".pa", hov).setAttribute("cx", x(m)); $(".pa", hov).setAttribute("cy", y(va));
+        var px = x(m) / W * svg.getBoundingClientRect().width;
+        dica.style.display = "block";
+        dica.style.left = px + "px";
+        dica.style.transform = m > n / 2 ? "translateX(calc(-100% - 12px))" : "translateX(12px)";
+        dica.innerHTML = "<b>Mês " + m + '</b><span class="lm">Mensal: ' + brl(vm) + '</span><br><span class="la">Anual: ' + brl(va) + '</span><div class="df">Diferença: ' + brl(vm - va) + "</div>";
+      };
+      var mover = function (ev) {
+        var rc = svg.getBoundingClientRect();
+        var px = (ev.clientX - rc.left) / rc.width * W;
+        var m = Math.round((px - pl) / (W - pl - pr) * (n - 1)) + 1;
+        mostrar(Math.min(n, Math.max(1, m)));
+      };
+      var cap = $(".g-captura", box);
+      cap.addEventListener("pointermove", mover);
+      cap.addEventListener("pointerdown", mover);
+      cap.addEventListener("pointerleave", function () { mostrar(n); });
+      if ($("#graf-acumulado").classList.contains("is-in")) mostrar(mesAtual);
+    }
+    desenhar();
+    var espera;
+    window.addEventListener("resize", function () { clearTimeout(espera); espera = setTimeout(desenhar, 150); }, { passive: true });
+    $("#graf-acumulado")._aoEntrar = function () { setTimeout(function () { mostrar(n); }, 1700); };
+  })();
+
+  /* ---------- Capas das trilhas: constelações geradas ---------- */
+  $$(".capa-arte[data-semente]").forEach(function (c) {
+    var s = parseInt(c.getAttribute("data-semente"), 10);
+    var rnd = function () { s = (s * 9301 + 49297) % 233280; return s / 233280; };
+    var g = $(".estrelas", c), pts = [], html = "";
+    for (var i = 0; i < 26; i++) pts.push([rnd() * 300, rnd() * 300, rnd() * 1.4 + .4]);
+    for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
+      var dx = pts[a][0] - pts[b][0], dy = pts[a][1] - pts[b][1];
+      if (dx * dx + dy * dy < 3600) html += '<line x1="' + pts[a][0].toFixed(1) + '" y1="' + pts[a][1].toFixed(1) + '" x2="' + pts[b][0].toFixed(1) + '" y2="' + pts[b][1].toFixed(1) + '"/>';
+    }
+    pts.forEach(function (p) { html += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + p[2].toFixed(2) + '" opacity="' + (0.35 + rnd() * 0.5).toFixed(2) + '"/>'; });
+    g.innerHTML = html;
+  });
+
+  /* ---------- "Toque nas que você reconhece" ---------- */
+  (function () {
+    var cenas = $$("[data-cenas] .cena"), res = $("[data-cenas-res]"), conta = $("[data-cenas-conta]"), frase = $("[data-cenas-frase]");
+    var anel = $(".anel-prog .frente"), circ = 119.4;
+    cenas.forEach(function (b) {
+      b.addEventListener("click", function () {
+        b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+        var n = cenas.filter(function (c) { return c.getAttribute("aria-pressed") === "true"; }).length;
+        conta.textContent = n + " de " + cenas.length;
+        anel.setAttribute("stroke-dashoffset", (circ * (1 - n / cenas.length)).toFixed(1));
+        frase.textContent = n === 1 ? "Você reconheceu 1 de 4 cenas." : "Você reconheceu " + n + " de 4 cenas.";
+        res.classList.toggle("on", n > 0);
+      });
+    });
+  })();
+
+  /* ---------- Palavras que acendem com a rolagem ---------- */
+  var blocosPalavras = $$("[data-palavras]").map(function (el) {
+    var palavras = el.textContent.trim().split(/\s+/);
+    el.textContent = "";
+    var spans = palavras.map(function (p, i) {
+      var s = document.createElement("span"); s.className = "w"; s.textContent = p;
+      el.appendChild(s); if (i < palavras.length - 1) el.appendChild(document.createTextNode(" "));
+      return s;
+    });
+    return { el: el, spans: spans };
+  });
+  function atualizarPalavras() {
+    var vh = window.innerHeight;
+    blocosPalavras.forEach(function (b) {
+      var rc = b.el.getBoundingClientRect();
+      if (rc.bottom < -50 || rc.top > vh + 50) return;
+      var ini = vh * 0.9, fimP = vh * 0.45;
+      var p = reduzir ? 1 : Math.min(1, Math.max(0, (ini - rc.top) / (ini - fimP)));
+      var acesas = Math.round(p * b.spans.length);
+      b.spans.forEach(function (s, i) { s.classList.toggle("on", i < acesas); });
+    });
+  }
+  var agendado = false;
+  window.addEventListener("scroll", function () { if (!agendado) { agendado = true; requestAnimationFrame(function () { agendado = false; atualizarPalavras(); }); } }, { passive: true });
+  atualizarPalavras();
+
+  /* ---------- Contagem dos números ---------- */
+  function contar(el) {
+    var alvo = parseInt(el.getAttribute("data-conta"), 10), t0 = null, dur = 1100;
+    if (reduzir) { el.textContent = alvo; return; }
+    el.textContent = "0";
+    requestAnimationFrame(function passo(t) {
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(alvo * e);
+      if (p < 1) requestAnimationFrame(passo);
+    });
+  }
+
+  /* ---------- Entrada na tela ---------- */
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      el.classList.add("is-in");
+      if (el.classList.contains("numeros")) $$("[data-conta]", el).forEach(contar);
+      if (el._aoEntrar) el._aoEntrar();
+      $$(".barras", el).forEach(function (b) { b.classList.add("is-in"); });
+      io.unobserve(el);
+    });
+  }, { threshold: 0.18, rootMargin: "0px 0px -6% 0px" });
+  $$(".rv, .mk, .ideia, .linha-tempo, .ano, .trilha7, .numeros, .grafico, .painel").forEach(function (el) { io.observe(el); });
+
+  /* ---------- Animações em JSON (Lottie) sob demanda ---------- */
+  var lottieCarregando = null;
+  function carregarLottie() {
+    if (window.lottie) return Promise.resolve(window.lottie);
+    if (lottieCarregando) return lottieCarregando;
+    lottieCarregando = new Promise(function (ok, erro) {
+      var s = document.createElement("script");
+      s.src = "https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js";
+      s.async = true; s.onload = function () { ok(window.lottie); }; s.onerror = erro;
+      document.head.appendChild(s);
+    });
+    return lottieCarregando;
+  }
+  var ioL = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      var el = e.target;
+      if (e.isIntersecting && !el._anim && !el._carregando) {
+        el._carregando = true;
+        Promise.all([carregarLottie(), fetch("/black-assets/lottie/" + el.getAttribute("data-lottie") + ".json").then(function (r) { return r.json(); })])
+          .then(function (res) {
+            var lot = res[0], dados = res[1];
+            var intro = parseInt(el.getAttribute("data-intro") || "0", 10);
+            var anim = lot.loadAnimation({ container: el, renderer: "svg", loop: false, autoplay: false, animationData: dados, rendererSettings: { preserveAspectRatio: "xMidYMid meet" } });
+            el._anim = anim;
+            if (reduzir) { anim.goToAndStop(intro || dados.op - 1, true); return; }
+            if (intro) {
+              anim.addEventListener("complete", function () { anim.loop = true; anim.playSegments([intro, dados.op], true); });
+              anim.playSegments([0, intro], true);
+            } else { anim.loop = true; anim.play(); }
+          }).catch(function () { el._carregando = false; });
+      } else if (el._anim && !reduzir) {
+        if (e.isIntersecting) el._anim.play(); else el._anim.pause();
+      }
+    });
+  }, { rootMargin: "120px 0px" });
+  $$("[data-lottie]").forEach(function (el) { ioL.observe(el); });
+
+  /* ---------- Depoimentos (só itens reais e autorizados) ---------- */
+  (function () {
+    var lista = CFG.depoimentos || [], sec = $("#depoimentos");
+    if (!lista.length || !sec) return;
+    var grid = $("[data-depoimentos]", sec);
+    lista.forEach(function (d) {
+      var f = document.createElement("figure"); f.className = "depo";
+      var q = document.createElement("blockquote"); q.textContent = d.texto;
+      var c = document.createElement("figcaption"); c.textContent = d.nome;
+      if (d.contexto) { var sm = document.createElement("small"); sm.textContent = d.contexto; c.appendChild(sm); }
+      f.appendChild(q); f.appendChild(c); grid.appendChild(f);
+    });
+    sec.hidden = false;
+  })();
+
+  /* ---------- Botão fixo: some na 1ª dobra, nos planos e quando outro botão está na tela ---------- */
+  (function () {
+    var fixo = $("[data-fixo]"); if (!fixo) return;
+    var visiveis = new Set();
+    var alvos = [$("#topo"), $("#planos")].concat($$(".cta").filter(function (c) { return !fixo.contains(c); }));
+    var ioF = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) visiveis.add(e.target); else visiveis.delete(e.target); });
+      fixo.classList.toggle("on", visiveis.size === 0);
+    }, { threshold: 0 });
+    alvos.forEach(function (a) { if (a) ioF.observe(a); });
+  })();
+
+  /* ---------- Constelação da 1ª dobra (mesma da página atual, mais leve) ---------- */
+  (function () {
+    var cv = $("#constelacao"); if (!cv) return;
+    var ctx = cv.getContext("2d"); if (!ctx) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), toque = window.matchMedia("(max-width: 640px)").matches;
+    var w = 0, h = 0, pts = [], raf = 0, rodando = true, ultimo = 0, DIST = 108, D2 = DIST * DIST, mouse = { x: -9999, y: -9999 };
+    function medir() {
+      w = cv.clientWidth; h = cv.clientHeight; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.min(toque ? 46 : 92, Math.floor(w * h / (toque ? 12000 : 16000)));
+      pts = []; for (var i = 0; i < n; i++) pts.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - .5) * .14, vy: (Math.random() - .5) * .14, r: Math.random() * 1.2 + .4, f: Math.random() * 6.28 });
+    }
+    function desenhar(t) {
+      if (!rodando || document.hidden) return;
+      if (!reduzir) raf = requestAnimationFrame(desenhar);
+      if (t - ultimo < 33) return; ultimo = t;
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < pts.length; i++) {
+        var p = pts[i]; p.x += p.vx; p.y += p.vy; p.f += .012;
+        var mx = p.x - mouse.x, my = p.y - mouse.y, md = mx * mx + my * my;
+        if (md < 12000 && md > 1) { var fz = (1 - md / 12000) * .5, d = Math.sqrt(md); p.x += mx / d * fz; p.y += my / d * fz; }
+        if (p.x < 0) p.x = w; else if (p.x > w) p.x = 0; if (p.y < 0) p.y = h; else if (p.y > h) p.y = 0;
+      }
+      ctx.lineWidth = .5;
+      for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
+        var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y, dd2 = dx * dx + dy * dy;
+        if (dd2 < D2) { ctx.strokeStyle = "rgba(212,173,90," + ((1 - dd2 / D2) * .24) + ")"; ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y); ctx.stroke(); }
+      }
+      for (var j = 0; j < pts.length; j++) { var q = pts[j]; ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.283); ctx.fillStyle = "rgba(247,201,72," + (.48 + Math.sin(q.f) * .24) + ")"; ctx.fill(); }
+    }
+    function iniciar() { medir(); ultimo = 0; desenhar(1000); }
+    if (document.readyState === "complete") setTimeout(iniciar, 50); else window.addEventListener("load", iniciar, { once: true });
+    new IntersectionObserver(function (es) { rodando = es[0].isIntersecting; cancelAnimationFrame(raf); if (rodando && pts.length) { ultimo = 0; raf = requestAnimationFrame(desenhar); } }).observe(cv);
+    window.addEventListener("resize", function () { if (pts.length) medir(); }, { passive: true });
+    if (!toque) {
+      window.addEventListener("mousemove", function (e) { var rc = cv.getBoundingClientRect(); mouse.x = e.clientX - rc.left; mouse.y = e.clientY - rc.top; }, { passive: true });
+    }
+  })();
+})();
+</script>
+</body>
+</html>
