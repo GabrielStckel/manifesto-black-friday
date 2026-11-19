@@ -13,7 +13,8 @@ import appCss from "../styles.css?url";
 import archivo400Url from "@fontsource/archivo/files/archivo-latin-400-normal.woff2?url";
 import inter600Url from "@fontsource/inter/files/inter-latin-600-normal.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { META_PIXEL_ID } from "../lib/config";
+import { META_PIXEL_ID, GTM_ID } from "../lib/config";
+import { gtmHeadScript, gtmNoscriptHtml } from "../lib/gtm";
 import { metaPixelHeadScript } from "../lib/meta-pixel";
 
 function NotFoundComponent() {
@@ -78,7 +79,10 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 
 export const Route = createRootRoute({
   head: () => ({
-    scripts: [{ children: metaPixelHeadScript(META_PIXEL_ID) }],
+    scripts: [
+      { children: metaPixelHeadScript(META_PIXEL_ID) },
+      ...(GTM_ID ? [{ children: gtmHeadScript(GTM_ID) }] : []),
+    ],
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -124,6 +128,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        {GTM_ID ? <noscript dangerouslySetInnerHTML={{ __html: gtmNoscriptHtml(GTM_ID) }} /> : null}
         {children}
         <Scripts />
       </body>

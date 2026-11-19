@@ -3,6 +3,8 @@
 
 export const CHECKOUT_BASE = "https://pay.hotmart.com/A107112795R";
 export const META_PIXEL_ID = "489930819102829";
+// Google Tag Manager (container do Matheus, o mesmo da RUPTURA). Vazio = sem GTM.
+export const GTM_ID = "GTM-NKZC78Q3";
 
 // Códigos de oferta (off) de cada plano no checkout.
 export const PLANOS = {

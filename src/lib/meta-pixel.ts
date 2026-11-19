@@ -11,6 +11,7 @@ declare global {
     fbq?: Pixel;
     _fbq?: Pixel;
     manifestoPixelStarted?: boolean;
+    manifestoPixelPermitido?: () => boolean;
   }
 }
 
@@ -27,6 +28,7 @@ function bootstrapMetaPixel(pixelId: string) {
     catch { return true; }
   };
   const allowed = () => !blockedRegion && !refused();
+  window.manifestoPixelPermitido = allowed;
   const sync = () => {
     if (!allowed()) { window.fbq?.("consent", "revoke"); return; }
     window.fbq?.("consent", "grant");
